@@ -4,7 +4,7 @@ Extensión documental de [LSE6.com](https://lse6.com/) preparada para GitHub y C
 
 ## Estado de esta entrega
 
-- 🔥 Release: `LSE6_ORG_TEMPORAL_YOUTUBE_20260805_110919`
+- 🔥 Release: `LSE6_ORG_TEMPORAL_YOUTUBE_20260805_125937`
 - 👁 Página estática visible incluso sin JavaScript.
 - 🧬 63 ranuras planeadas, 57 imágenes instaladas y 6 ranuras futuras.
 - ⚡ Sitemap principal + sitemap de imágenes.
