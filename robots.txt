@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lse6.org/sitemap.xml
+Sitemap: https://lse6.org/image-sitemap.xml

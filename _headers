@@ -1,0 +1,53 @@
+# 🛡️ Capa técnica de entrega · Cloudflare Pages
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  X-Frame-Options: SAMEORIGIN
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-site
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self' data:; img-src 'self' data: blob:; manifest-src 'self'; media-src 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/css/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/assets/js/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/assets/images/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/assets/source-library/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+
+/evidence/*.pdf
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+  X-Robots-Tag: index, follow
+
+/evidence/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/data/*
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+
+/*.json
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+
+/*.xml
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+
+/INTEGRITY.sha256
+  Cache-Control: no-cache
+
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow

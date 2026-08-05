@@ -1,0 +1,45 @@
+# LSE6.ORG
+
+LSE6.ORG es el archivo vivo, visible e indexable de LSE6.com.
+
+Centro canónico: https://lse6.com/
+Archivo: https://lse6.org/
+Identidad artística: LSE6 - AlekSix LM
+Obra y consulta: LEY DEL SEXTO
+Handle: @leydelsexto
+Build: LSE6_ORG_TEMPORAL_YOUTUBE_20260805_110919
+
+## Contenido instalado
+
+- Expediente final integrado: 551 páginas.
+- Evidencia visible: 6 imágenes.
+- Error 31/12/69: 7 imágenes.
+- 666 Moderno Remake: 9 imágenes.
+- Rutas SIXTEM: 6 imágenes.
+- LSEØ SIXTEM: 7 imágenes.
+- Logos del héroe: 2 imágenes.
+- Bloque Extra: 20 imágenes instaladas.
+- Canal oficial: 7 miniaturas sincronizadas con YouTube.
+- LSE6_SALTOS_TEMPORALES.csv: 256,666 registros en 6 partes CSV, con hashes y reconstrucción verificable.
+- Expediente original en alta resolución: 8 volúmenes.
+- Fuentes editables: Markdown y DOCX.
+- Capa máquina: expediente, cronología, entidad, pulso y manifiesto de imágenes en JSON.
+
+## Rutas de descubrimiento
+
+- https://lse6.org/sitemap.xml
+- https://lse6.org/image-sitemap.xml
+- https://lse6.org/evidence/lse6-expediente-completo.pdf
+- https://lse6.org/evidence/lse6-expediente-completo.txt
+- https://lse6.org/evidence/high-resolution/index.json
+- https://lse6.org/docs/lse6-expediente-integrado.md
+- https://lse6.org/data/expediente.json
+- https://lse6.org/data/timeline.json
+- https://lse6.org/data/temporal-anomalies.json
+- https://lse6.org/data/saltos-temporales/
+- https://lse6.org/data/saltos-temporales/index.json
+- https://lse6.org/data/saltos-temporales/SHA256SUMS.txt
+- https://lse6.org/data/youtube-videos.json
+- https://lse6.org/assets/data/image-manifest.json
+
+El centro siempre es LSE6.com. LSE6.org funciona como archivo, soporte y extensión.

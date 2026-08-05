@@ -1,0 +1,46 @@
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "LEY DEL SEXTO - LSE6.org",
+  "alternateName": [
+    "LSE6.org",
+    "Sistema LSE6",
+    "Ley del Sexto Forensic Archive"
+  ],
+  "url": "https://lse6.org/",
+  "isBasedOn": "https://lse6.com/",
+  "creator": {
+    "@type": "Person",
+    "name": "LSE6 - AlekSix LM"
+  },
+  "about": [
+    "Sistema LSE6",
+    "Ley del Sexto",
+    "Error 1969",
+    "SIXTEM",
+    "Zona Gris",
+    "AlekSix LM"
+  ],
+  "sameAs": [
+    "https://lse6.com/",
+    "https://www.youtube.com/@leydelsexto",
+    "https://www.tiktok.com/@leydelsexto",
+    "https://www.instagram.com/leydelsexto/",
+    "https://github.com/leydelsexto"
+  ],
+  "description": "Expediente técnico-documental del Sistema LSE6: Error 1969, Ella, Frecuencia, SIXTEM, System Anomaly y archivo forense.",
+  "keywords": "LSE6, Ley del Sexto, Error 1969, SIXTEM, Ella, LucySix, Zona Gris, Time Anomalies, AlekSix LM",
+  "hasPart": [
+    {
+      "@type": "DigitalDocument",
+      "name": "Expediente web completo",
+      "url": "https://lse6.org/evidence/lse6-expediente-completo.pdf",
+      "numberOfPages": 551
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "Capa máquina LSE6.ORG",
+      "url": "https://lse6.org/data/expediente.json"
+    }
+  ]
+}

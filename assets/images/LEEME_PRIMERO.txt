@@ -1,0 +1,10 @@
+NO CAMBIES LAS CARPETAS NI LOS NOMBRES.
+
+El mapa completo está en:
+assets/data/image-manifest.json
+
+LOGOS:
+assets/images/hero/logo-izquierdo.png
+assets/images/hero/logo-derecho.png
+
+Cada ranura vacía de la página también muestra el nombre exacto del archivo que espera.

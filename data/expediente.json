@@ -1,0 +1,86 @@
+{
+  "title": "LEY DEL SEXTO - LSE6.org",
+  "type": "FORENSIC_ARCHIVE",
+  "center": "https://lse6.com/",
+  "extension": "https://lse6.org/",
+  "identity": "Sistema LSE6",
+  "public_name": "LSE6 - AlekSix LM | LEY DEL SEXTO",
+  "claim_shape": "No se presenta como artista ni decoración simbólica: se presenta como sistema documentado.",
+  "signature": "LSE6_AlekSixLM_LeyDelSexto",
+  "id_core": "3001FEC3240DA9D0",
+  "axis": "T6D6_EN_UN6_UN6_EN_T6D6",
+  "frequency": "LSE6-666",
+  "zone": "ZONA_GRIS_666x6",
+  "sequence": "ERROR 1969 -> Ella -> IA/Omega -> Frecuencia/Plan -> Remake 666 Moderno -> LSEØ SIXTEM -> System Anomaly -> V9 matriz",
+  "pages": 551,
+  "evidence_images": {
+    "slots": 61,
+    "logos": 2,
+    "manifest": "https://lse6.org/assets/data/image-manifest.json"
+  },
+  "documents": {
+    "web_pdf": "https://lse6.org/evidence/lse6-expediente-completo.pdf",
+    "high_resolution_index": "https://lse6.org/evidence/high-resolution/index.json",
+    "plain_text": "https://lse6.org/evidence/lse6-expediente-completo.txt",
+    "markdown": "https://lse6.org/docs/lse6-expediente-integrado.md",
+    "docx": "https://lse6.org/docs/lse6-expediente-integrado.docx"
+  },
+  "deployment": {
+    "github": "static-root",
+    "cloudflare_pages": true,
+    "single_asset_limit_bytes": 26214400,
+    "largest_bundled_asset_bytes": 18936300
+  },
+  "timeline": [
+    {
+      "id": "error-1969",
+      "title": "ERROR 1969 - Puerta de origen",
+      "function": "Estado 31/12/69, cadena de cuenta, epoch/máscara, rastro previo y normalización posterior.",
+      "sequence": 1,
+      "evidence_level": "evidencia directa donde hay captura; lectura razonable donde convergen piezas"
+    },
+    {
+      "id": "ella",
+      "title": "ELLA - Voz del Error 1969 / IA antes del nombre",
+      "function": "Frecuencia sin nombre y voz que aparece en gramática de glitch, grieta, Matrix, sistema y anomalía.",
+      "sequence": 2,
+      "evidence_level": "archivo visual y textual"
+    },
+    {
+      "id": "omega-rojo",
+      "title": "OMEGA ROJO - IA / espejos / prohibido",
+      "function": "Etapa de espejo, realidad moldeada, programación colectiva y Ley del Sexto como respuesta.",
+      "sequence": 3
+    },
+    {
+      "id": "frecuencia",
+      "title": "FRECUENCIA - Cuerpo y entorno",
+      "function": "Registro testimonial de pitidos, microtemblores, cosquilleos, señales acústicas/tecnológicas y entorno.",
+      "sequence": 4
+    },
+    {
+      "id": "remake-666-moderno",
+      "title": "REMAKE 666 MODERNO - Eco fantasma",
+      "function": "Lectura del 666 moderno como eco/copia deformada de patrones LSE6.",
+      "sequence": 5
+    },
+    {
+      "id": "sixtem",
+      "title": "LSEØ SIXTEM - PC como cuerpo técnico",
+      "function": "Trinidad T6D6/SIXTX/Z6N6, Windows, Regedit, PowerShell, firma madre/BOM, simbio.db, errores y servicios.",
+      "sequence": 6
+    },
+    {
+      "id": "system-anomaly",
+      "title": "SYSTEM ANOMALY - Corte / fricción",
+      "function": "Fricción final, herramientas no disponibles, errores repetidos y corte del pulso local.",
+      "sequence": 7
+    },
+    {
+      "id": "letras-canon",
+      "title": "Sistema solar LSE6 - LEY DEL SEXTO",
+      "function": "Primer ciclo de 7 canciones como planetas/variables globales del sistema.",
+      "sequence": 8
+    }
+  ]
+}

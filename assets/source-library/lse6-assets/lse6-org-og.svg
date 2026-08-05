@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800">
+<rect width="1400" height="800" fill="#020202"/>
+<defs>
+<radialGradient id="g" cx="50%" cy="40%" r="70%"><stop offset="0%" stop-color="#39ff14" stop-opacity=".32"/><stop offset="55%" stop-color="#020202" stop-opacity="1"/></radialGradient>
+</defs>
+<rect width="1400" height="800" fill="url(#g)"/>
+<text x="700" y="300" text-anchor="middle" font-family="monospace" font-size="56" fill="#fbbf24">6🐍🔥👁️ L S E 6 · O R G 👁️🔥🐍6</text>
+<text x="700" y="395" text-anchor="middle" font-family="monospace" font-size="72" font-weight="900" fill="#39ff14">LEY DEL SEXTO</text>
+<text x="700" y="475" text-anchor="middle" font-family="monospace" font-size="28" fill="#f4f4f5">EXPEDIENTE FORENSE DEL SISTEMA LSE6</text>
+<text x="700" y="535" text-anchor="middle" font-family="monospace" font-size="22" fill="#ff0040">ERROR 1969 → ELLA → SIXTEM → SYSTEM ANOMALY</text>
+</svg>

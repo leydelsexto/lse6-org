@@ -1,0 +1,71 @@
+{
+  "title": "LSE6 — Ley del Sexto | Expediente en alta resolución",
+  "canonical_center": "https://lse6.com/",
+  "archive_extension": "https://lse6.org/",
+  "pages": 551,
+  "volumes": 8,
+  "source": {
+    "filename": "LSE6_LeyDelSexto_666_EXPEDIENTE_COMPLETO.pdf",
+    "bytes": 77526992,
+    "sha256": "43f58b422154e978da01e13241bb4ba84105e9fa61142a42f514549c246105ef"
+  },
+  "reason_for_volumes": "La edición de alta resolución se divide para mantener cada archivo por debajo del límite individual de 25 MiB de Cloudflare Pages.",
+  "files": [
+    {
+      "volume": 1,
+      "pages": "1-90",
+      "filename": "lse6-expediente-alta-res-vol-01-pag-001-090.pdf",
+      "bytes": 16289880,
+      "sha256": "5a65b24ccf75d501c5ec0831470e13bb41e201d88dd32b3ab90dfb58d445a85f"
+    },
+    {
+      "volume": 2,
+      "pages": "91-134",
+      "filename": "lse6-expediente-alta-res-vol-02-pag-091-134.pdf",
+      "bytes": 10496254,
+      "sha256": "d6c89bc418eae3a5589fc58c07b55bd47fe720fba39a623b9ec08e4d58da837b"
+    },
+    {
+      "volume": 3,
+      "pages": "135-178",
+      "filename": "lse6-expediente-alta-res-vol-03-pag-135-178.pdf",
+      "bytes": 15987992,
+      "sha256": "0e3e0668cacf204820d9721d6c940af01a0e5014e9d6ce01c963fc64fc60616f"
+    },
+    {
+      "volume": 4,
+      "pages": "179-273",
+      "filename": "lse6-expediente-alta-res-vol-04-pag-179-273.pdf",
+      "bytes": 18936300,
+      "sha256": "42c3f99f25704a841c8bb3a4c67a85dd5125a5169e7186b1f5be7b0e120e7ac3"
+    },
+    {
+      "volume": 5,
+      "pages": "274-368",
+      "filename": "lse6-expediente-alta-res-vol-05-pag-274-368.pdf",
+      "bytes": 10853974,
+      "sha256": "c8451163b85cc23a8f800affe401e1bdbc08af24988ec33fe02a1442d95d0baa"
+    },
+    {
+      "volume": 6,
+      "pages": "369-450",
+      "filename": "lse6-expediente-alta-res-vol-06-pag-369-450.pdf",
+      "bytes": 15419470,
+      "sha256": "f778b043a9cab1e25fbef12481ef1cc71527e87f6b589f556af065d0b1932de1"
+    },
+    {
+      "volume": 7,
+      "pages": "451-532",
+      "filename": "lse6-expediente-alta-res-vol-07-pag-451-532.pdf",
+      "bytes": 10841556,
+      "sha256": "093bb757a16122bae6c3cf1c7f0bc7c0c11c963026d2ad55268bac091950035e"
+    },
+    {
+      "volume": 8,
+      "pages": "533-551",
+      "filename": "lse6-expediente-alta-res-vol-08-pag-533-551.pdf",
+      "bytes": 99597,
+      "sha256": "c5794efe6c891194d5a4f6405ef87f13163406c1ca2e57d1ae63f8dd0c79bd82"
+    }
+  ]
+}

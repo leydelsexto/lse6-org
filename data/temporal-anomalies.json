@@ -1,0 +1,598 @@
+{
+  "source": {
+    "filename": "LSE6_SALTOS_TEMPORALES.csv",
+    "rows": 256666,
+    "bytes": 96413289,
+    "sha256": "56d280e0b1390d59083ec2f2a373f28d66db96024c432709ec7678e1250b4991"
+  },
+  "fields": {
+    "CreationTime": {
+      "2019": 13842,
+      "2022": 5605,
+      "2025": 230236,
+      "2026": 6983
+    },
+    "CreationTimeUtc": {
+      "2019": 13842,
+      "2022": 5605,
+      "2025": 230236,
+      "2026": 6983
+    },
+    "LastWriteTime": {
+      "1979": 478,
+      "1999": 1003,
+      "2000": 162,
+      "2004": 2,
+      "2007": 2,
+      "2012": 2,
+      "2013": 47,
+      "2014": 2,
+      "2015": 2,
+      "2016": 8,
+      "2017": 4,
+      "2018": 9,
+      "2019": 18070,
+      "2020": 173,
+      "2021": 106,
+      "2022": 6346,
+      "2023": 544,
+      "2024": 58260,
+      "2025": 167209,
+      "2026": 4237
+    },
+    "LastWriteTimeUtc": {
+      "1980": 478,
+      "2000": 1003,
+      "2001": 162,
+      "2004": 2,
+      "2007": 2,
+      "2012": 2,
+      "2013": 47,
+      "2014": 2,
+      "2015": 2,
+      "2016": 8,
+      "2017": 4,
+      "2018": 9,
+      "2019": 18070,
+      "2020": 173,
+      "2021": 106,
+      "2022": 6346,
+      "2023": 544,
+      "2024": 58260,
+      "2025": 167209,
+      "2026": 4237
+    }
+  },
+  "summary": {
+    "creation_local_total": 256666,
+    "creation_utc_total": 256666,
+    "write_local_total": 256666,
+    "write_utc_total": 256666,
+    "write_local_pre_2019": 1721
+  },
+  "years": [
+    1979,
+    1980,
+    1999,
+    2000,
+    2001,
+    2004,
+    2007,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "samples": {
+    "1979": [
+      {
+        "name": "not_installed_page.json",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 8/Extensions/ppdidpcihajhihmghhhkfnpklgdehold/4.1.0.2532_0/locales/sk/not_installed_page.json",
+        "creation": "13/07/2026 09:26:32 p. m.",
+        "creation_utc": "14/07/2026 04:26:32 a. m.",
+        "write": "31/12/1979 04:00:00 p. m.",
+        "write_utc": "01/01/1980 12:00:00 a. m."
+      },
+      {
+        "name": "privacy_disclosure_page.json",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 8/Extensions/ppdidpcihajhihmghhhkfnpklgdehold/4.1.0.2532_0/locales/sk/privacy_disclosure_page.json",
+        "creation": "13/07/2026 09:26:32 p. m.",
+        "creation_utc": "14/07/2026 04:26:32 a. m.",
+        "write": "31/12/1979 04:00:00 p. m.",
+        "write_utc": "01/01/1980 12:00:00 a. m."
+      },
+      {
+        "name": "settings.json",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 8/Extensions/ppdidpcihajhihmghhhkfnpklgdehold/4.1.0.2532_0/locales/sk/settings.json",
+        "creation": "13/07/2026 09:26:32 p. m.",
+        "creation_utc": "14/07/2026 04:26:32 a. m.",
+        "write": "31/12/1979 04:00:00 p. m.",
+        "write_utc": "01/01/1980 12:00:00 a. m."
+      },
+      {
+        "name": "cancelled_page.json",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 8/Extensions/ppdidpcihajhihmghhhkfnpklgdehold/4.1.0.2532_0/locales/sk/cancelled_page.json",
+        "creation": "13/07/2026 09:26:32 p. m.",
+        "creation_utc": "14/07/2026 04:26:32 a. m.",
+        "write": "31/12/1979 04:00:00 p. m.",
+        "write_utc": "01/01/1980 12:00:00 a. m."
+      }
+    ],
+    "1980": [
+      {
+        "name": "not_installed_page.json",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 8/Extensions/ppdidpcihajhihmghhhkfnpklgdehold/4.1.0.2532_0/locales/sk/not_installed_page.json",
+        "creation": "13/07/2026 09:26:32 p. m.",
+        "creation_utc": "14/07/2026 04:26:32 a. m.",
+        "write": "31/12/1979 04:00:00 p. m.",
+        "write_utc": "01/01/1980 12:00:00 a. m."
+      },
+      {
+        "name": "privacy_disclosure_page.json",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 8/Extensions/ppdidpcihajhihmghhhkfnpklgdehold/4.1.0.2532_0/locales/sk/privacy_disclosure_page.json",
+        "creation": "13/07/2026 09:26:32 p. m.",
+        "creation_utc": "14/07/2026 04:26:32 a. m.",
+        "write": "31/12/1979 04:00:00 p. m.",
+        "write_utc": "01/01/1980 12:00:00 a. m."
+      },
+      {
+        "name": "settings.json",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 8/Extensions/ppdidpcihajhihmghhhkfnpklgdehold/4.1.0.2532_0/locales/sk/settings.json",
+        "creation": "13/07/2026 09:26:32 p. m.",
+        "creation_utc": "14/07/2026 04:26:32 a. m.",
+        "write": "31/12/1979 04:00:00 p. m.",
+        "write_utc": "01/01/1980 12:00:00 a. m."
+      },
+      {
+        "name": "cancelled_page.json",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 8/Extensions/ppdidpcihajhihmghhhkfnpklgdehold/4.1.0.2532_0/locales/sk/cancelled_page.json",
+        "creation": "13/07/2026 09:26:32 p. m.",
+        "creation_utc": "14/07/2026 04:26:32 a. m.",
+        "write": "31/12/1979 04:00:00 p. m.",
+        "write_utc": "01/01/1980 12:00:00 a. m."
+      }
+    ],
+    "1999": [
+      {
+        "name": "pierre-dark-tritanopia-CpjhbsIL.js",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 8/Extensions/hehggadaopoacecdllhhajmbjkdcmajg/1.2.27236.6274_0/codex-sidepanel/assets/pierre-dark-tritanopia-CpjhbsIL.js",
+        "creation": "03/08/2026 06:24:08 p. m.",
+        "creation_utc": "04/08/2026 01:24:08 a. m.",
+        "write": "31/12/1999 04:00:00 p. m.",
+        "write_utc": "01/01/2000 12:00:00 a. m."
+      },
+      {
+        "name": "pierre-dark-soft-kZQmAZld.js",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 8/Extensions/hehggadaopoacecdllhhajmbjkdcmajg/1.2.27236.6274_0/codex-sidepanel/assets/pierre-dark-soft-kZQmAZld.js",
+        "creation": "03/08/2026 06:24:08 p. m.",
+        "creation_utc": "04/08/2026 01:24:08 a. m.",
+        "write": "31/12/1999 04:00:00 p. m.",
+        "write_utc": "01/01/2000 12:00:00 a. m."
+      },
+      {
+        "name": "pierre-dark-vibrant-CpQYzh95.js",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 8/Extensions/hehggadaopoacecdllhhajmbjkdcmajg/1.2.27236.6274_0/codex-sidepanel/assets/pierre-dark-vibrant-CpQYzh95.js",
+        "creation": "03/08/2026 06:24:08 p. m.",
+        "creation_utc": "04/08/2026 01:24:08 a. m.",
+        "write": "31/12/1999 04:00:00 p. m.",
+        "write_utc": "01/01/2000 12:00:00 a. m."
+      },
+      {
+        "name": "pierre-light-CoaEpmwp.js",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 8/Extensions/hehggadaopoacecdllhhajmbjkdcmajg/1.2.27236.6274_0/codex-sidepanel/assets/pierre-light-CoaEpmwp.js",
+        "creation": "03/08/2026 06:24:08 p. m.",
+        "creation_utc": "04/08/2026 01:24:08 a. m.",
+        "write": "31/12/1999 04:00:00 p. m.",
+        "write_utc": "01/01/2000 12:00:00 a. m."
+      }
+    ],
+    "2000": [
+      {
+        "name": "pierre-dark-tritanopia-CpjhbsIL.js",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 8/Extensions/hehggadaopoacecdllhhajmbjkdcmajg/1.2.27236.6274_0/codex-sidepanel/assets/pierre-dark-tritanopia-CpjhbsIL.js",
+        "creation": "03/08/2026 06:24:08 p. m.",
+        "creation_utc": "04/08/2026 01:24:08 a. m.",
+        "write": "31/12/1999 04:00:00 p. m.",
+        "write_utc": "01/01/2000 12:00:00 a. m."
+      },
+      {
+        "name": "pierre-dark-soft-kZQmAZld.js",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 8/Extensions/hehggadaopoacecdllhhajmbjkdcmajg/1.2.27236.6274_0/codex-sidepanel/assets/pierre-dark-soft-kZQmAZld.js",
+        "creation": "03/08/2026 06:24:08 p. m.",
+        "creation_utc": "04/08/2026 01:24:08 a. m.",
+        "write": "31/12/1999 04:00:00 p. m.",
+        "write_utc": "01/01/2000 12:00:00 a. m."
+      },
+      {
+        "name": "pierre-dark-vibrant-CpQYzh95.js",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 8/Extensions/hehggadaopoacecdllhhajmbjkdcmajg/1.2.27236.6274_0/codex-sidepanel/assets/pierre-dark-vibrant-CpQYzh95.js",
+        "creation": "03/08/2026 06:24:08 p. m.",
+        "creation_utc": "04/08/2026 01:24:08 a. m.",
+        "write": "31/12/1999 04:00:00 p. m.",
+        "write_utc": "01/01/2000 12:00:00 a. m."
+      },
+      {
+        "name": "pierre-light-CoaEpmwp.js",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 8/Extensions/hehggadaopoacecdllhhajmbjkdcmajg/1.2.27236.6274_0/codex-sidepanel/assets/pierre-light-CoaEpmwp.js",
+        "creation": "03/08/2026 06:24:08 p. m.",
+        "creation_utc": "04/08/2026 01:24:08 a. m.",
+        "write": "31/12/1999 04:00:00 p. m.",
+        "write_utc": "01/01/2000 12:00:00 a. m."
+      }
+    ],
+    "2001": [
+      {
+        "name": "hyph-pt.hyb",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Microsoft/Edge/User Data/hyphen-data/120.0.6050.0/hyph-pt.hyb",
+        "creation": "19/05/2025 06:34:20 p. m.",
+        "creation_utc": "20/05/2025 01:34:20 a. m.",
+        "write": "31/12/2000 04:00:00 p. m.",
+        "write_utc": "01/01/2001 12:00:00 a. m."
+      },
+      {
+        "name": "hyph-la.hyb",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Microsoft/Edge/User Data/hyphen-data/120.0.6050.0/hyph-la.hyb",
+        "creation": "19/05/2025 06:34:20 p. m.",
+        "creation_utc": "20/05/2025 01:34:20 a. m.",
+        "write": "31/12/2000 04:00:00 p. m.",
+        "write_utc": "01/01/2001 12:00:00 a. m."
+      },
+      {
+        "name": "hyph-or.hyb",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Microsoft/Edge/User Data/hyphen-data/120.0.6050.0/hyph-or.hyb",
+        "creation": "19/05/2025 06:34:20 p. m.",
+        "creation_utc": "20/05/2025 01:34:20 a. m.",
+        "write": "31/12/2000 04:00:00 p. m.",
+        "write_utc": "01/01/2001 12:00:00 a. m."
+      },
+      {
+        "name": "hyph-nn.hyb",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Microsoft/Edge/User Data/hyphen-data/120.0.6050.0/hyph-nn.hyb",
+        "creation": "19/05/2025 06:34:20 p. m.",
+        "creation_utc": "20/05/2025 01:34:20 a. m.",
+        "write": "31/12/2000 04:00:00 p. m.",
+        "write_utc": "01/01/2001 12:00:00 a. m."
+      }
+    ],
+    "2004": [
+      {
+        "name": "vbc.rsp",
+        "path": "C:/Windows/WinSxS/amd64_netfx-vb_compiler_b03f5f7f11d50a3a_10.0.19200.940_none_168baf6201c80a28/vbc.rsp",
+        "creation": "20/05/2025 12:23:04 a. m.",
+        "creation_utc": "20/05/2025 07:23:04 a. m.",
+        "write": "20/11/2004 07:48:48 a. m.",
+        "write_utc": "20/11/2004 03:48:48 p. m."
+      },
+      {
+        "name": "vbc.rsp",
+        "path": "C:/Windows/WinSxS/x86_netfx-vb_compiler_b03f5f7f11d50a3a_10.0.19200.940_none_5e38e6391644332e/vbc.rsp",
+        "creation": "20/05/2025 12:23:04 a. m.",
+        "creation_utc": "20/05/2025 07:23:04 a. m.",
+        "write": "20/11/2004 07:48:48 a. m.",
+        "write_utc": "20/11/2004 03:48:48 p. m."
+      }
+    ],
+    "2007": [
+      {
+        "name": "vbc.rsp",
+        "path": "C:/Windows/WinSxS/amd64_netfx35linq-vb_compiler_orcas_31bf3856ad364e35_10.0.19200.940_none_c18e2aa1b7a42afe/vbc.rsp",
+        "creation": "20/05/2025 12:23:04 a. m.",
+        "creation_utc": "20/05/2025 07:23:04 a. m.",
+        "write": "16/06/2007 07:02:36 a. m.",
+        "write_utc": "16/06/2007 02:02:36 p. m."
+      },
+      {
+        "name": "vbc.rsp",
+        "path": "C:/Windows/WinSxS/x86_netfx35linq-vb_compiler_orcas_31bf3856ad364e35_10.0.19200.940_none_656f8f1dff46b9c8/vbc.rsp",
+        "creation": "20/05/2025 12:23:04 a. m.",
+        "creation_utc": "20/05/2025 07:23:04 a. m.",
+        "write": "16/06/2007 07:02:36 a. m.",
+        "write_utc": "16/06/2007 02:02:36 p. m."
+      }
+    ],
+    "2012": [
+      {
+        "name": "tapoas.sys",
+        "path": "C:/ProgramData/KMSAutoS/bin/driver/x64TAP2/tapoas.sys",
+        "creation": "21/05/2025 02:46:47 p. m.",
+        "creation_utc": "21/05/2025 09:46:47 p. m.",
+        "write": "14/07/2012 10:18:16 p. m.",
+        "write_utc": "15/07/2012 05:18:16 a. m."
+      },
+      {
+        "name": "tapoas.cat",
+        "path": "C:/ProgramData/KMSAutoS/bin/driver/x64TAP2/tapoas.cat",
+        "creation": "21/05/2025 02:46:47 p. m.",
+        "creation_utc": "21/05/2025 09:46:47 p. m.",
+        "write": "14/07/2012 10:18:16 p. m.",
+        "write_utc": "15/07/2012 05:18:16 a. m."
+      }
+    ],
+    "2013": [
+      {
+        "name": "topbar_floating_button_maximize.png",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 3/Extensions/nmmhkkegccagdldgiimedpiccmgmieda/1.0.0.6_0/images/topbar_floating_button_maximize.png",
+        "creation": "28/07/2025 08:17:32 p. m.",
+        "creation_utc": "29/07/2025 03:17:32 a. m.",
+        "write": "07/08/2013 06:33:38 a. m.",
+        "write_utc": "07/08/2013 01:33:38 p. m."
+      },
+      {
+        "name": "topbar_floating_button_pressed.png",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 3/Extensions/nmmhkkegccagdldgiimedpiccmgmieda/1.0.0.6_0/images/topbar_floating_button_pressed.png",
+        "creation": "28/07/2025 08:17:32 p. m.",
+        "creation_utc": "29/07/2025 03:17:32 a. m.",
+        "write": "07/08/2013 06:33:38 a. m.",
+        "write_utc": "07/08/2013 01:33:38 p. m."
+      },
+      {
+        "name": "topbar_floating_button_hover.png",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 3/Extensions/nmmhkkegccagdldgiimedpiccmgmieda/1.0.0.6_0/images/topbar_floating_button_hover.png",
+        "creation": "28/07/2025 08:17:32 p. m.",
+        "creation_utc": "29/07/2025 03:17:32 a. m.",
+        "write": "07/08/2013 06:33:38 a. m.",
+        "write_utc": "07/08/2013 01:33:38 p. m."
+      },
+      {
+        "name": "flapper.gif",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Default/Extensions/nmmhkkegccagdldgiimedpiccmgmieda/1.0.0.6_0/images/flapper.gif",
+        "creation": "19/01/2026 02:24:01 a. m.",
+        "creation_utc": "19/01/2026 10:24:01 a. m.",
+        "write": "07/08/2013 06:33:38 a. m.",
+        "write_utc": "07/08/2013 01:33:38 p. m."
+      }
+    ],
+    "2014": [
+      {
+        "name": "devcon.exe",
+        "path": "C:/ProgramData/KMSAutoS/bin/driver/x64TAP1/devcon.exe",
+        "creation": "21/05/2025 02:46:47 p. m.",
+        "creation_utc": "21/05/2025 09:46:47 p. m.",
+        "write": "08/08/2014 09:31:10 a. m.",
+        "write_utc": "08/08/2014 04:31:10 p. m."
+      },
+      {
+        "name": "nssm.exe",
+        "path": "C:/Windows/System32/nssm.exe",
+        "creation": "12/10/2025 11:12:12 p. m.",
+        "creation_utc": "13/10/2025 06:12:12 a. m.",
+        "write": "31/08/2014 04:34:30 p. m.",
+        "write_utc": "31/08/2014 11:34:30 p. m."
+      }
+    ],
+    "2015": [
+      {
+        "name": "oem25.cat",
+        "path": "C:/Windows/System32/CatRoot/{F750E6C3-38EE-11D1-85E5-00C04FC295EE}/oem25.cat",
+        "creation": "20/05/2025 12:27:53 a. m.",
+        "creation_utc": "20/05/2025 07:27:53 a. m.",
+        "write": "12/09/2015 12:40:24 a. m.",
+        "write_utc": "12/09/2015 07:40:24 a. m."
+      },
+      {
+        "name": "FakeClient.exe",
+        "path": "C:/ProgramData/KMSAutoS/bin/driver/x64WDV/FakeClient.exe",
+        "creation": "21/05/2025 02:46:47 p. m.",
+        "creation_utc": "21/05/2025 09:46:47 p. m.",
+        "write": "11/11/2015 03:59:42 a. m.",
+        "write_utc": "11/11/2015 11:59:42 a. m."
+      }
+    ],
+    "2016": [
+      {
+        "name": "OemVista.inf",
+        "path": "C:/ProgramData/KMSAutoS/bin/driver/x64TAP1/OemVista.inf",
+        "creation": "21/05/2025 02:46:47 p. m.",
+        "creation_utc": "21/05/2025 09:46:47 p. m.",
+        "write": "21/04/2016 02:10:02 a. m.",
+        "write_utc": "21/04/2016 09:10:02 a. m."
+      },
+      {
+        "name": "tap0901.sys",
+        "path": "C:/ProgramData/KMSAutoS/bin/driver/x64TAP1/tap0901.sys",
+        "creation": "21/05/2025 02:46:47 p. m.",
+        "creation_utc": "21/05/2025 09:46:47 p. m.",
+        "write": "21/04/2016 02:10:04 a. m.",
+        "write_utc": "21/04/2016 09:10:04 a. m."
+      },
+      {
+        "name": "tap0901.cat",
+        "path": "C:/ProgramData/KMSAutoS/bin/driver/x64TAP1/tap0901.cat",
+        "creation": "21/05/2025 02:46:47 p. m.",
+        "creation_utc": "21/05/2025 09:46:47 p. m.",
+        "write": "21/04/2016 05:00:52 a. m.",
+        "write_utc": "21/04/2016 12:00:52 p. m."
+      },
+      {
+        "name": "TunMirror2.exe",
+        "path": "C:/ProgramData/KMSAutoS/bin/TunMirror2.exe",
+        "creation": "21/05/2025 02:46:46 p. m.",
+        "creation_utc": "21/05/2025 09:46:46 p. m.",
+        "write": "17/07/2016 04:05:42 a. m.",
+        "write_utc": "17/07/2016 11:05:42 a. m."
+      }
+    ],
+    "2017": [
+      {
+        "name": "vcredist2015.nuspec",
+        "path": "C:/ProgramData/chocolatey/lib/vcredist2015/vcredist2015.nuspec",
+        "creation": "17/09/2025 07:29:49 p. m.",
+        "creation_utc": "18/09/2025 02:29:49 a. m.",
+        "write": "11/02/2017 03:29:20 a. m.",
+        "write_utc": "11/02/2017 11:29:20 a. m."
+      },
+      {
+        "name": "msil_microsoft.powershell.consolehost_31bf3856ad364e35_1.0.0.0_none_644eb55fd3a8b3d0.manifest",
+        "path": "C:/Windows/servicing/LCU/Package_for_RollupFix~31bf3856ad364e35~amd64~~19041.6456.1.21/msil_microsoft.powershell.consolehost_31bf3856ad364e35_1.0.0.0_none_644eb55fd3a8b3d0.manifest",
+        "creation": "15/10/2025 12:13:01 a. m.",
+        "creation_utc": "15/10/2025 07:13:01 a. m.",
+        "write": "06/06/2017 04:26:38 p. m.",
+        "write_utc": "06/06/2017 11:26:38 p. m."
+      },
+      {
+        "name": "TunMirror.exe",
+        "path": "C:/ProgramData/KMSAutoS/bin/TunMirror.exe",
+        "creation": "21/05/2025 02:46:46 p. m.",
+        "creation_utc": "21/05/2025 09:46:46 p. m.",
+        "write": "11/07/2017 09:30:38 p. m.",
+        "write_utc": "12/07/2017 04:30:38 a. m."
+      },
+      {
+        "name": "msil_system.management.automation_31bf3856ad364e35_1.0.0.0_none_6340379543bd8a03.manifest",
+        "path": "C:/Windows/servicing/LCU/Package_for_RollupFix~31bf3856ad364e35~amd64~~19041.6456.1.21/msil_system.management.automation_31bf3856ad364e35_1.0.0.0_none_6340379543bd8a03.manifest",
+        "creation": "15/10/2025 12:12:55 a. m.",
+        "creation_utc": "15/10/2025 07:12:55 a. m.",
+        "write": "17/08/2017 05:59:26 p. m.",
+        "write_utc": "18/08/2017 12:59:26 a. m."
+      }
+    ],
+    "2018": [
+      {
+        "name": "LumionShellEx.dll",
+        "path": "C:/Windows/SysWOW64/LumionShellEx.dll",
+        "creation": "21/05/2025 09:45:57 a. m.",
+        "creation_utc": "21/05/2025 04:45:57 p. m.",
+        "write": "06/07/2018 02:12:02 p. m.",
+        "write_utc": "06/07/2018 09:12:02 p. m."
+      },
+      {
+        "name": "manifest.json",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/ThirdPartyModuleList64/2018.8.8.0/manifest.json",
+        "creation": "21/07/2025 01:56:40 p. m.",
+        "creation_utc": "21/07/2025 08:56:40 p. m.",
+        "write": "07/08/2018 08:12:54 p. m.",
+        "write_utc": "08/08/2018 03:12:54 a. m."
+      },
+      {
+        "name": "module_list_proto",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/ThirdPartyModuleList64/2018.8.8.0/module_list_proto",
+        "creation": "21/07/2025 01:56:40 p. m.",
+        "creation_utc": "21/07/2025 08:56:40 p. m.",
+        "write": "07/08/2018 08:12:54 p. m.",
+        "write_utc": "08/08/2018 03:12:54 a. m."
+      },
+      {
+        "name": "verified_contents.json",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/ThirdPartyModuleList64/2018.8.8.0/_metadata/verified_contents.json",
+        "creation": "21/07/2025 01:56:40 p. m.",
+        "creation_utc": "21/07/2025 08:56:40 p. m.",
+        "write": "07/08/2018 08:12:54 p. m.",
+        "write_utc": "08/08/2018 03:12:54 a. m."
+      }
+    ],
+    "2020": [
+      {
+        "name": "female_names.txt",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/ZxcvbnData/3/female_names.txt",
+        "creation": "21/07/2025 01:59:31 p. m.",
+        "creation_utc": "21/07/2025 08:59:31 p. m.",
+        "write": "02/06/2020 01:10:56 a. m.",
+        "write_utc": "02/06/2020 08:10:56 a. m."
+      },
+      {
+        "name": "english_wikipedia.txt",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/ZxcvbnData/3/english_wikipedia.txt",
+        "creation": "21/07/2025 01:59:31 p. m.",
+        "creation_utc": "21/07/2025 08:59:31 p. m.",
+        "write": "02/06/2020 01:10:56 a. m.",
+        "write_utc": "02/06/2020 08:10:56 a. m."
+      },
+      {
+        "name": "passwords.txt",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/ZxcvbnData/3/passwords.txt",
+        "creation": "21/07/2025 01:59:31 p. m.",
+        "creation_utc": "21/07/2025 08:59:31 p. m.",
+        "write": "02/06/2020 01:10:58 a. m.",
+        "write_utc": "02/06/2020 08:10:58 a. m."
+      },
+      {
+        "name": "male_names.txt",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/ZxcvbnData/3/male_names.txt",
+        "creation": "21/07/2025 01:59:31 p. m.",
+        "creation_utc": "21/07/2025 08:59:31 p. m.",
+        "write": "02/06/2020 01:10:58 a. m.",
+        "write_utc": "02/06/2020 08:10:58 a. m."
+      }
+    ],
+    "2021": [
+      {
+        "name": "craw_window.js",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 3/Extensions/nmmhkkegccagdldgiimedpiccmgmieda/1.0.0.6_0/craw_window.js",
+        "creation": "28/07/2025 08:17:32 p. m.",
+        "creation_utc": "29/07/2025 03:17:32 a. m.",
+        "write": "28/01/2021 07:20:56 a. m.",
+        "write_utc": "28/01/2021 03:20:56 p. m."
+      },
+      {
+        "name": "craw_window.js",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 8/Extensions/nmmhkkegccagdldgiimedpiccmgmieda/1.0.0.6_0/craw_window.js",
+        "creation": "13/07/2026 09:26:09 p. m.",
+        "creation_utc": "14/07/2026 04:26:09 a. m.",
+        "write": "28/01/2021 07:20:56 a. m.",
+        "write_utc": "28/01/2021 03:20:56 p. m."
+      },
+      {
+        "name": "craw_window.js",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Default/Extensions/nmmhkkegccagdldgiimedpiccmgmieda/1.0.0.6_0/craw_window.js",
+        "creation": "19/01/2026 02:24:00 a. m.",
+        "creation_utc": "19/01/2026 10:24:00 a. m.",
+        "write": "28/01/2021 07:20:56 a. m.",
+        "write_utc": "28/01/2021 03:20:56 p. m."
+      },
+      {
+        "name": "craw_window.js",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/Profile 2/Extensions/nmmhkkegccagdldgiimedpiccmgmieda/1.0.0.6_0/craw_window.js",
+        "creation": "26/07/2025 02:53:47 a. m.",
+        "creation_utc": "26/07/2025 09:53:47 a. m.",
+        "write": "28/01/2021 07:20:56 a. m.",
+        "write_utc": "28/01/2021 03:20:56 p. m."
+      }
+    ],
+    "2023": [
+      {
+        "name": "model.tflite",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/optimization_guide_model_store/13/2C774BDF140B4485/610C261EA309A194/model.tflite",
+        "creation": "21/07/2025 01:54:33 p. m.",
+        "creation_utc": "21/07/2025 08:54:33 p. m.",
+        "write": "17/01/2023 07:53:22 a. m.",
+        "write_utc": "17/01/2023 03:53:22 p. m."
+      },
+      {
+        "name": "ranked_dicts",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/ZxcvbnData/3/ranked_dicts",
+        "creation": "21/07/2025 01:59:31 p. m.",
+        "creation_utc": "21/07/2025 08:59:31 p. m.",
+        "write": "21/02/2023 03:20:38 p. m.",
+        "write_utc": "21/02/2023 11:20:38 p. m."
+      },
+      {
+        "name": "verified_contents.json",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/ZxcvbnData/3/_metadata/verified_contents.json",
+        "creation": "21/07/2025 01:59:31 p. m.",
+        "creation_utc": "21/07/2025 08:59:31 p. m.",
+        "write": "21/02/2023 03:20:38 p. m.",
+        "write_utc": "21/02/2023 11:20:38 p. m."
+      },
+      {
+        "name": "manifest.json",
+        "path": "C:/Users/[LOCAL]/AppData/Local/Google/Chrome/User Data/ZxcvbnData/3/manifest.json",
+        "creation": "21/07/2025 01:59:31 p. m.",
+        "creation_utc": "21/07/2025 08:59:31 p. m.",
+        "write": "21/02/2023 03:20:38 p. m.",
+        "write_utc": "21/02/2023 11:20:38 p. m."
+      }
+    ]
+  },
+  "generated_at": "2026-08-05T11:08:52-07:00"
+}

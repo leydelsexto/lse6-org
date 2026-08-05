@@ -1,0 +1,27 @@
+LSE6_ORG_COMPLETO :: REGISTRO DE FUSIÓN
+
+ORIGEN VISUAL Y OPERATIVO
+- LSE6_ORG#1.zip
+- HTML, CSS, JavaScript, ojo interactivo, 63 ranuras, navegación, SEO y despliegue.
+
+CAPA DOCUMENTAL INTEGRADA
+- Expediente Markdown.
+- Expediente DOCX.
+- JSON de entidad, expediente, cronología y pulso.
+- Iconos PWA y Apple Touch.
+- Logos, símbolo, imagen social y miniaturas guardados en assets/source-library/.
+- PDF original de alta resolución conservado completo en 8 volúmenes.
+
+ELEMENTOS DEL PAQUETE SECUNDARIO NO HEREDADOS
+- index.html secundario: sustituido por el organismo visual principal.
+- evidence/RENDER_ERROR.txt: error de render, no evidencia.
+- src/original_lse6_org_index_usuario.html.txt: copia obsoleta con identificadores parciales.
+- PDF monolítico de 77,526,992 bytes: reemplazado por 8 volúmenes porque Cloudflare Pages limita cada archivo a 25 MiB.
+
+RESULTADO
+- 551 páginas web.
+- 551 páginas originales en alta resolución.
+- 61 ranuras de contenido.
+- 2 ranuras de logo.
+- 8 volúmenes de alta resolución.
+- 1 centro: https://lse6.com/

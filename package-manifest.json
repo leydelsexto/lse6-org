@@ -1,0 +1,54 @@
+{
+  "name": "LSE6_ORG_COMPLETO",
+  "version": "2026.08.05-temporal-youtube",
+  "center": "https://lse6.com/",
+  "extension": "https://lse6.org/",
+  "origin_package": "LSE6_ORG(1).zip",
+  "integrated_package": "LSE6_ORG_TEMPORAL_YOUTUBE_GITHUB_CLOUDFLARE_2026-08-05.zip",
+  "state": "READY_FOR_GITHUB_AND_CLOUDFLARE",
+  "pages": {
+    "web_pdf": 551,
+    "high_resolution": 551,
+    "high_resolution_volumes": 8
+  },
+  "image_slots": {
+    "content": 61,
+    "logos": 2,
+    "total": 63,
+    "manifest": "assets/data/image-manifest.json",
+    "planned_total": 63,
+    "installed_content": 55,
+    "installed_logos": 2,
+    "installed_total": 57,
+    "missing_total": 6,
+    "installed_by_group": {
+      "evidence": 6,
+      "error1969": 7,
+      "remake666": 9,
+      "routes": 6,
+      "sixtem": 7,
+      "extras": 20,
+      "songs": 0
+    }
+  },
+  "documents": {
+    "pdf": "evidence/lse6-expediente-completo.pdf",
+    "high_resolution_index": "evidence/high-resolution/index.json",
+    "text": "evidence/lse6-expediente-completo.txt",
+    "markdown": "docs/lse6-expediente-integrado.md",
+    "docx": "docs/lse6-expediente-integrado.docx"
+  },
+  "deployment": {
+    "type": "static",
+    "build_command": "",
+    "output_directory": ".",
+    "cloudflare_pages_single_asset_limit_bytes": 26214400,
+    "largest_bundled_asset_bytes": 18936300,
+    "cloudflare_status": "READY",
+    "github_status": "READY",
+    "image_sitemap": "image-sitemap.xml"
+  },
+  "required_user_action": "Subir el contenido de la carpeta a la raíz del repositorio. Las imágenes futuras pueden agregarse con los nombres del manifiesto.",
+  "last_build": "2026-08-05T11:09:19-07:00",
+  "build_id": "LSE6_ORG_TEMPORAL_YOUTUBE_20260805_110919"
+}

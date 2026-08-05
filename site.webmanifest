@@ -1,0 +1,33 @@
+{
+  "name": "LSE6.ORG — Archivo Vivo",
+  "short_name": "LSE6.ORG",
+  "description": "Archivo documental de LSE6.com: Ley del Sexto, Error 31/12/69, Remake 666 Moderno y LSEØ SIXTEM.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#010201",
+  "theme_color": "#010201",
+  "lang": "es-MX",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

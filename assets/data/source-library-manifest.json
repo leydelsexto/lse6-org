@@ -1,0 +1,48 @@
+{
+  "purpose": "Materia prima recuperada del segundo paquete. Ningún archivo se monta automáticamente en una ranura pública.",
+  "brand_assets": [
+    {
+      "source": "assets/source-library/lse6-assets/LSE6_LOGO_TRANSPARENTE.png",
+      "suggested_target": "assets/images/hero/logo-izquierdo.png"
+    },
+    {
+      "source": "assets/source-library/lse6-assets/LSE6_GREENTECH_TRANSPARENTE.png",
+      "suggested_target": "assets/images/hero/logo-derecho.png"
+    },
+    {
+      "source": "assets/source-library/lse6-assets/BarrioBravoRecords.png",
+      "suggested_target": null
+    },
+    {
+      "source": "assets/source-library/lse6-assets/lse6-symbol.png",
+      "suggested_target": null
+    },
+    {
+      "source": "assets/source-library/lse6-assets/lse6-og.png",
+      "suggested_target": "assets/images/system/lse6-org-og.jpg",
+      "operation": "Generada automáticamente en 1200x630 por tools/rebuild_release.py"
+    },
+    {
+      "source": "assets/source-library/lse6-assets/lse6-org-og.svg",
+      "suggested_target": null
+    }
+  ],
+  "music_assets": [
+    {
+      "source": "assets/source-library/lse6-assets/lse6-miniaturas/leydelsexto_card.jpg",
+      "suggested_target": "assets/images/canciones/01-ley-del-sexto.jpg"
+    },
+    {
+      "source": "assets/source-library/lse6-assets/lse6-miniaturas/zonagris_card.jpg",
+      "suggested_target": "assets/images/canciones/02-zona-gris.jpg"
+    },
+    {
+      "source": "assets/source-library/lse6-assets/lse6-miniaturas/clonesyfantasmas_card.jpg",
+      "suggested_target": "assets/images/canciones/03-clones-y-fantasmas.jpg"
+    },
+    {
+      "source": "assets/source-library/lse6-assets/lse6-miniaturas/nadameborra_card.jpg",
+      "suggested_target": "assets/images/canciones/04-nada-me-borra.jpg"
+    }
+  ]
+}

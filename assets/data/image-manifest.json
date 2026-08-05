@@ -1,0 +1,104 @@
+{
+  "site": "LSE6.ORG",
+  "center": "https://lse6.com/",
+  "instructions": "Las imágenes instaladas ya están montadas en HTML e image-sitemap.xml. Agrega las faltantes conservando las rutas exactas y ejecuta tools/rebuild_release.py para regenerar descubrimiento e integridad.",
+  "content_slots": 61,
+  "logo_slots": 2,
+  "total_image_files": 63,
+  "groups": {
+    "hero_logos": [
+      "assets/images/hero/logo-izquierdo.png",
+      "assets/images/hero/logo-derecho.png"
+    ],
+    "evidencia": [
+      "assets/images/evidencia/evidencia-01.png",
+      "assets/images/evidencia/evidencia-02.png",
+      "assets/images/evidencia/evidencia-03.png",
+      "assets/images/evidencia/evidencia-04.png",
+      "assets/images/evidencia/evidencia-05.png",
+      "assets/images/evidencia/evidencia-06.png"
+    ],
+    "error_31_12_69": [
+      "assets/images/error-31-12-69/error-31-12-69-01.png",
+      "assets/images/error-31-12-69/error-31-12-69-02.png",
+      "assets/images/error-31-12-69/error-31-12-69-03.png",
+      "assets/images/error-31-12-69/error-31-12-69-04.png",
+      "assets/images/error-31-12-69/error-31-12-69-05.png",
+      "assets/images/error-31-12-69/error-31-12-69-06.png",
+      "assets/images/error-31-12-69/error-31-12-69-07.png"
+    ],
+    "remake_666": [
+      "assets/images/remake-666/remake-666-01.png",
+      "assets/images/remake-666/remake-666-02.png",
+      "assets/images/remake-666/remake-666-03.png",
+      "assets/images/remake-666/remake-666-04.png",
+      "assets/images/remake-666/remake-666-05.png",
+      "assets/images/remake-666/remake-666-06.png",
+      "assets/images/remake-666/remake-666-07.png",
+      "assets/images/remake-666/remake-666-08.png",
+      "assets/images/remake-666/remake-666-09.png"
+    ],
+    "rutas_sixtem": [
+      "assets/images/rutas-sixtem/rutas-sixtem-01.png",
+      "assets/images/rutas-sixtem/rutas-sixtem-02.png",
+      "assets/images/rutas-sixtem/rutas-sixtem-03.png",
+      "assets/images/rutas-sixtem/rutas-sixtem-04.png",
+      "assets/images/rutas-sixtem/rutas-sixtem-05.png",
+      "assets/images/rutas-sixtem/rutas-sixtem-06.png"
+    ],
+    "lseo_sixtem": [
+      "assets/images/lseo-sixtem/lseo-sixtem-01.png",
+      "assets/images/lseo-sixtem/lseo-sixtem-02.png",
+      "assets/images/lseo-sixtem/lseo-sixtem-03.png",
+      "assets/images/lseo-sixtem/lseo-sixtem-04.png",
+      "assets/images/lseo-sixtem/lseo-sixtem-05.png",
+      "assets/images/lseo-sixtem/lseo-sixtem-06.png",
+      "assets/images/lseo-sixtem/lseo-sixtem-07.png"
+    ],
+    "bloque_extra": [
+      "assets/images/bloque-extra/bloque-extra-01.png",
+      "assets/images/bloque-extra/bloque-extra-02.png",
+      "assets/images/bloque-extra/bloque-extra-03.png",
+      "assets/images/bloque-extra/bloque-extra-04.png",
+      "assets/images/bloque-extra/bloque-extra-05.png",
+      "assets/images/bloque-extra/bloque-extra-06.png",
+      "assets/images/bloque-extra/bloque-extra-07.png",
+      "assets/images/bloque-extra/bloque-extra-08.png",
+      "assets/images/bloque-extra/bloque-extra-09.png",
+      "assets/images/bloque-extra/bloque-extra-10.png",
+      "assets/images/bloque-extra/bloque-extra-11.png",
+      "assets/images/bloque-extra/bloque-extra-12.png",
+      "assets/images/bloque-extra/bloque-extra-13.png",
+      "assets/images/bloque-extra/bloque-extra-14.png",
+      "assets/images/bloque-extra/bloque-extra-15.png",
+      "assets/images/bloque-extra/bloque-extra-16.png",
+      "assets/images/bloque-extra/bloque-extra-17.png",
+      "assets/images/bloque-extra/bloque-extra-18.png",
+      "assets/images/bloque-extra/bloque-extra-19.png",
+      "assets/images/bloque-extra/bloque-extra-20.png"
+    ],
+    "canciones": [
+      "assets/images/canciones/01-ley-del-sexto.jpg",
+      "assets/images/canciones/02-zona-gris.jpg",
+      "assets/images/canciones/03-clones-y-fantasmas.jpg",
+      "assets/images/canciones/04-nada-me-borra.jpg",
+      "assets/images/canciones/05-libre-prisionero.jpg",
+      "assets/images/canciones/06-error-404.jpg"
+    ]
+  },
+  "state": "PARTIAL_VISUAL_ARCHIVE_READY",
+  "last_build": "2026-08-05T11:09:19-07:00",
+  "installed_image_files": 57,
+  "missing_image_files": 6,
+  "installed_by_group": {
+    "hero_logos": 2,
+    "evidence": 6,
+    "error1969": 7,
+    "remake666": 9,
+    "routes": 6,
+    "sixtem": 7,
+    "extras": 20,
+    "songs": 0
+  },
+  "image_sitemap": "https://lse6.org/image-sitemap.xml"
+}

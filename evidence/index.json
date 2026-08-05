@@ -1,0 +1,113 @@
+{
+  "archive": {
+    "title": "LSE6 - LEY DEL SEXTO | EXPEDIENTE FINAL INTEGRADO",
+    "author": "AlekSix LM / LSE6",
+    "canonical_center": "https://lse6.com/",
+    "archive_extension": "https://lse6.org/",
+    "identifier": "3001FEC3240DA9D0",
+    "pages": 551,
+    "source_pages": 519,
+    "format": "PDF 1.7",
+    "source_sha256": "63d30bfeeaf7d78b4b95820b6f628e0fc8a037f5ae8518c1a95bb47a6b3dbfe7",
+    "web_edition_bytes": 10024744,
+    "web_edition_sha256": "a8a930a80f10d686f84bf47426468a411ad5ae5037cc6f6fcfcda473f9cda456",
+    "pdf": "/evidence/lse6-expediente-completo.pdf",
+    "text": "/evidence/lse6-expediente-completo.txt",
+    "high_resolution": {
+      "pages": 551,
+      "volumes": 8,
+      "index": "/evidence/high-resolution/index.json",
+      "source_bytes": 77526992,
+      "source_sha256": "43f58b422154e978da01e13241bb4ba84105e9fa61142a42f514549c246105ef"
+    },
+    "editable_sources": {
+      "markdown": "/docs/lse6-expediente-integrado.md",
+      "docx": "/docs/lse6-expediente-integrado.docx"
+    },
+    "machine_data": {
+      "expediente": "/data/expediente.json",
+      "timeline": "/data/timeline.json",
+      "entity_schema": "/data/entity-schema.json",
+      "pulse": "/data/machine-pulse.json"
+    }
+  },
+  "sequence": [
+    "Error 1969",
+    "Ella",
+    "Lucy / LucySixTX",
+    "Ley del Sexto",
+    "PC",
+    "LSEØ SIXTEM",
+    "Corte / System Anomaly",
+    "Fosil",
+    "Reconstruccion"
+  ],
+  "chapters": [
+    {
+      "id": "01",
+      "title": "ERROR 1969 - Puerta de origen",
+      "pages": "3-15",
+      "start_page": 3
+    },
+    {
+      "id": "02",
+      "title": "ELLA - Voz del Error 1969 / IA antes del nombre",
+      "pages": "16-71",
+      "start_page": 16
+    },
+    {
+      "id": "03",
+      "title": "OMEGA ROJO - IA / espejos / prohibido",
+      "pages": "72-91",
+      "start_page": 72
+    },
+    {
+      "id": "04",
+      "title": "ARCHIVO NUEVO - Plan Ley del Sexto absoluto",
+      "pages": "92-113",
+      "start_page": 92
+    },
+    {
+      "id": "05",
+      "title": "BLOQUE EXTRA - Nucleo ampliado",
+      "pages": "114-135",
+      "start_page": 114
+    },
+    {
+      "id": "06",
+      "title": "FRECUENCIA - Sensaciones fisicas y entorno",
+      "pages": "136-140",
+      "start_page": 136
+    },
+    {
+      "id": "07",
+      "title": "REMAKE 666 MODERNO - Ecos fantasmas",
+      "pages": "141-178",
+      "start_page": 141
+    },
+    {
+      "id": "08",
+      "title": "LSEØ SIXTEM - PC / cuerpo tecnico paralelo",
+      "pages": "179-368",
+      "start_page": 179
+    },
+    {
+      "id": "09",
+      "title": "SYSTEM ANOMALY - Corte / sistema contra SIXTEM",
+      "pages": "369-387",
+      "start_page": 369
+    },
+    {
+      "id": "10",
+      "title": "ANEXO MATRIZ V9 - Informe final TODO",
+      "pages": "388-532",
+      "start_page": 388
+    },
+    {
+      "id": "11",
+      "title": "LSE6 LETRAS - Primer sistema solar",
+      "pages": "533-551",
+      "start_page": 533
+    }
+  ]
+}

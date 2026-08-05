@@ -1,0 +1,83 @@
+{
+  "dataset": "LSE6_SALTOS_TEMPORALES.csv",
+  "description": "Archivo temporal original dividido en seis CSV válidos e indexables.",
+  "source_rows": 256666,
+  "source_bytes": 96413289,
+  "source_sha256": "56d280e0b1390d59083ec2f2a373f28d66db96024c432709ec7678e1250b4991",
+  "reconstructed_sha256": "56d280e0b1390d59083ec2f2a373f28d66db96024c432709ec7678e1250b4991",
+  "parts": 6,
+  "header_repeated_in_each_part": true,
+  "reconstruction": "Conservar el encabezado de la parte 1 y concatenar las filas de las partes 1 a 6, omitiendo el encabezado repetido de las partes 2 a 6.",
+  "columns": [
+    "Name",
+    "FullName",
+    "CreationTime",
+    "CreationTimeUtc",
+    "LastWriteTime",
+    "LastWriteTimeUtc",
+    "Length"
+  ],
+  "generated_at": "2026-08-05T11:06:27-07:00",
+  "files": [
+    {
+      "part": 1,
+      "filename": "LSE6_SALTOS_TEMPORALES_PARTE_01_DE_06.csv",
+      "url": "https://lse6.org/data/saltos-temporales/LSE6_SALTOS_TEMPORALES_PARTE_01_DE_06.csv",
+      "rows": 42778,
+      "row_start": 1,
+      "row_end": 42778,
+      "bytes": 14263790,
+      "sha256": "1dd9611159aade3b39a298f521ad6bc6394bc08ca5dd2e32248ed96c62b32530"
+    },
+    {
+      "part": 2,
+      "filename": "LSE6_SALTOS_TEMPORALES_PARTE_02_DE_06.csv",
+      "url": "https://lse6.org/data/saltos-temporales/LSE6_SALTOS_TEMPORALES_PARTE_02_DE_06.csv",
+      "rows": 42778,
+      "row_start": 42779,
+      "row_end": 85556,
+      "bytes": 14786132,
+      "sha256": "431b0f8816e4246440901c1a16795f3983d65b3352c763b489c88e4ded37e117"
+    },
+    {
+      "part": 3,
+      "filename": "LSE6_SALTOS_TEMPORALES_PARTE_03_DE_06.csv",
+      "url": "https://lse6.org/data/saltos-temporales/LSE6_SALTOS_TEMPORALES_PARTE_03_DE_06.csv",
+      "rows": 42778,
+      "row_start": 85557,
+      "row_end": 128334,
+      "bytes": 15291938,
+      "sha256": "144f1df330f88f939a0f6b02705f5a96f65e9ce071fbeef6f29bc0ab12c1d6a8"
+    },
+    {
+      "part": 4,
+      "filename": "LSE6_SALTOS_TEMPORALES_PARTE_04_DE_06.csv",
+      "url": "https://lse6.org/data/saltos-temporales/LSE6_SALTOS_TEMPORALES_PARTE_04_DE_06.csv",
+      "rows": 42778,
+      "row_start": 128335,
+      "row_end": 171112,
+      "bytes": 17718898,
+      "sha256": "d9fbed811ecd6ee7d32a6dd3226fb0272d57074110990369d12ac0538e076a09"
+    },
+    {
+      "part": 5,
+      "filename": "LSE6_SALTOS_TEMPORALES_PARTE_05_DE_06.csv",
+      "url": "https://lse6.org/data/saltos-temporales/LSE6_SALTOS_TEMPORALES_PARTE_05_DE_06.csv",
+      "rows": 42777,
+      "row_start": 171113,
+      "row_end": 213889,
+      "bytes": 17631516,
+      "sha256": "85df6bd56e754e9d77fe6106340ba86ed79f8a541d578ca989a7c476692081af"
+    },
+    {
+      "part": 6,
+      "filename": "LSE6_SALTOS_TEMPORALES_PARTE_06_DE_06.csv",
+      "url": "https://lse6.org/data/saltos-temporales/LSE6_SALTOS_TEMPORALES_PARTE_06_DE_06.csv",
+      "rows": 42777,
+      "row_start": 213890,
+      "row_end": 256666,
+      "bytes": 16721510,
+      "sha256": "cfef69183d18a08dbf72c247495c70923be81f82c01fe1c8ac62c880c226feb3"
+    }
+  ]
+}
