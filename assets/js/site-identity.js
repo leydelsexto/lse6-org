@@ -32,7 +32,7 @@
       data: "https://lse6.org/data/expediente.json",
       timeline: "https://lse6.org/data/timeline.json",
     }),
-    build: "LSE6_ORG_TEMPORAL_YOUTUBE_20260805_110919",
+    build: "LSE6_ORG_TEMPORAL_YOUTUBE_20260805_125937",
   });
 
   document.documentElement.dataset.lse6OrgLoaded = "true";
