@@ -26,6 +26,8 @@ SITE = "https://lse6.org"
 CENTER = "https://lse6.com/"
 BUILD_TIME = datetime.now().astimezone().isoformat(timespec="seconds")
 BUILD_ID = "LSE6_ORG_TEMPORAL_YOUTUBE_" + datetime.now().strftime("%Y%m%d_%H%M%S")
+MOBILE_MAX_WIDTH = 640
+MOBILE_MEDIA = "(max-width: 900px)"
 
 GROUPS: dict[str, dict[str, Any]] = {
     "evidence": {
@@ -268,6 +270,65 @@ def image_dimensions(path: Path) -> tuple[int, int] | None:
         return None
     with Image.open(path) as image:
         return image.width, image.height
+
+
+def mobile_variant_path(original: Path) -> Path:
+    relative = original.relative_to(ROOT / "assets/images")
+    return (ROOT / "assets/mobile" / relative).with_suffix(".webp")
+
+
+def build_mobile_variant(original: Path) -> Path:
+    output = mobile_variant_path(original)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    with Image.open(original) as source:
+        source.load()
+        scale = min(1.0, MOBILE_MAX_WIDTH / source.width)
+        target = (max(1, round(source.width * scale)), max(1, round(source.height * scale)))
+        if target != source.size:
+            source = source.resize(target, Image.Resampling.LANCZOS)
+        if original.suffix.lower() == ".png":
+            if source.mode not in ("RGB", "RGBA"):
+                source = source.convert("RGBA" if "A" in source.getbands() else "RGB")
+            source.save(output, format="WEBP", lossless=True, method=6)
+        else:
+            if source.mode != "RGB":
+                source = source.convert("RGB")
+            source.save(output, format="WEBP", quality=90, method=6)
+    return output
+
+
+def install_mobile_media(soup: BeautifulSoup) -> None:
+    for image in list(soup.find_all("img", src=True)):
+        src = image.get("src", "")
+        if src.startswith(("http://", "https://", "data:")):
+            continue
+        original = ROOT / src.split("?", 1)[0].lstrip("./")
+        if not original.exists() or (ROOT / "assets/images") not in original.parents:
+            continue
+        mobile = build_mobile_variant(original)
+        mobile_src = rel(str(mobile.relative_to(ROOT)))
+        picture = soup.new_tag("picture", attrs={"class": "mobile-picture"})
+        source = soup.new_tag("source", attrs={
+            "media": MOBILE_MEDIA,
+            "srcset": mobile_src,
+            "type": "image/webp",
+        })
+        image["data-mobile-src"] = mobile_src
+        image.wrap(picture)
+        picture.insert(0, source)
+
+    preload = soup.head.find("link", attrs={"rel": "preload", "as": "image"})
+    eye = ROOT / "assets/images/system/lse6-eye-alpha.png"
+    if preload is not None and eye.exists():
+        preload["media"] = "(min-width: 901px)"
+        mobile_eye = build_mobile_variant(eye)
+        mobile_href = rel(str(mobile_eye.relative_to(ROOT)))
+        mobile_preload = soup.new_tag("link", attrs={
+            "rel": "preload", "as": "image", "href": mobile_href,
+            "media": MOBILE_MEDIA, "type": "image/webp",
+            "fetchpriority": "high", "data-lse6-mobile-preload": "true",
+        })
+        preload.insert_before(mobile_preload)
 
 
 def all_slots() -> dict[str, list[dict[str, Any]]]:
@@ -564,6 +625,10 @@ def update_index(slots_by_group: dict[str, list[dict[str, Any]]]) -> None:
         for child in list(fragment.contents):
             container.append(child)
 
+    # Mobile browsers receive lighter display copies while every link, schema
+    # object and desktop fallback keeps the original full-resolution file.
+    install_mobile_media(soup)
+
     # Noscript now explains only enhancement differences; images remain present.
     noscript = soup.find("noscript")
     noscript.clear()
@@ -803,6 +868,15 @@ def update_css() -> None:
 '''
     if "Capa ritual funcional" not in text:
         text += addition
+    mobile_css = r'''
+
+/* LSE6 mobile media: picture changes bytes, never the original archive link. */
+picture.mobile-picture {
+  display: contents;
+}
+'''
+    if "LSE6 mobile media" not in text:
+        text += mobile_css
     path.write_text(text, encoding="utf-8-sig", newline="\n")
 
 

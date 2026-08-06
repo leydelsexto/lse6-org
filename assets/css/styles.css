@@ -2366,3 +2366,9 @@ noscript p {
   #anomalias-temporales .temporal-line-year span{font-size:14px}
   #anomalias-temporales .temporal-line-year b{font-size:12px}
 }
+
+
+/* LSE6 mobile media: picture changes bytes, never the original archive link. */
+picture.mobile-picture {
+  display: contents;
+}

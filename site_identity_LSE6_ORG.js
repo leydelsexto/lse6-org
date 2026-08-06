@@ -368,7 +368,7 @@ const ORG_PUBLIC_IDENTITY = Object.freeze({
     data: "https://lse6.org/data/expediente.json",
     timeline: "https://lse6.org/data/timeline.json",
   }),
-  build: "LSE6_ORG_TEMPORAL_YOUTUBE_20260805_125937",
+  build: "LSE6_ORG_TEMPORAL_YOUTUBE_20260805_173225",
   identityBuild: "SITE_IDENTITY_LSE6_ORG_UNIFIED_2026-07-31",
 });
 

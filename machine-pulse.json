@@ -26,8 +26,8 @@
     "image_manifest": "https://lse6.org/assets/data/image-manifest.json",
     "image_sitemap": "https://lse6.org/image-sitemap.xml"
   },
-  "last_build": "2026-08-05T12:59:37-07:00",
-  "build": "LSE6_ORG_TEMPORAL_YOUTUBE_20260805_125937",
+  "last_build": "2026-08-05T17:32:25-07:00",
+  "build": "LSE6_ORG_TEMPORAL_YOUTUBE_20260805_173225",
   "installed_images": 57,
   "missing_images": 6
 }
