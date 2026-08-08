@@ -278,6 +278,108 @@
 
   updateRuntimeStatus();
 
+  // 📱 Ventana de memoria móvil: conserva la obra completa, pero libera bitmaps lejanos.
+  const enableMobileImageMemoryWindow = () => {
+    if (!window.matchMedia("(max-width: 900px)").matches || !("IntersectionObserver" in window)) return;
+
+    const EMPTY_PIXEL = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+    const images = [...document.querySelectorAll("main img")].filter(
+      (image) => !image.closest(".hero") && image.dataset.lse6MemoryPinned !== "true",
+    );
+    if (!images.length) return;
+
+    const remember = (image) => {
+      image.dataset.lse6MemoryManaged = "true";
+      image.dataset.lse6MemorySrc = image.getAttribute("src") || "";
+      image.dataset.lse6MemorySrcset = image.getAttribute("srcset") || "";
+      image.dataset.lse6MemorySizes = image.getAttribute("sizes") || "";
+      image.dataset.lse6MemoryLoading = image.getAttribute("loading") || "";
+      image.dataset.lse6MemoryResident = "true";
+      image.dataset.lse6MemoryPlaceholder = "false";
+      image.closest("picture")?.querySelectorAll("source").forEach((source) => {
+        source.dataset.lse6MemorySrcset = source.getAttribute("srcset") || "";
+        source.dataset.lse6MemorySizes = source.getAttribute("sizes") || "";
+      });
+    };
+    const restoreSources = (image) => {
+      image.closest("picture")?.querySelectorAll("source").forEach((source) => {
+        const srcset = source.dataset.lse6MemorySrcset || "";
+        const sizes = source.dataset.lse6MemorySizes || "";
+        if (srcset) source.setAttribute("srcset", srcset); else source.removeAttribute("srcset");
+        if (sizes) source.setAttribute("sizes", sizes); else source.removeAttribute("sizes");
+      });
+    };
+
+    const hydrate = (image) => {
+      image.dataset.lse6MemoryNear = "true";
+      if (image.dataset.lse6MemoryPlaceholder !== "true") return;
+      image.dataset.lse6MemoryPlaceholder = "false";
+      restoreSources(image);
+      const srcset = image.dataset.lse6MemorySrcset || "";
+      const sizes = image.dataset.lse6MemorySizes || "";
+      if (srcset) image.setAttribute("srcset", srcset); else image.removeAttribute("srcset");
+      if (sizes) image.setAttribute("sizes", sizes); else image.removeAttribute("sizes");
+      image.loading = "eager";
+      const src = image.dataset.lse6MemorySrc || "";
+      if (src) image.setAttribute("src", src);
+      image.dataset.lse6MemoryResident = "true";
+    };
+
+    const release = (image) => {
+      image.dataset.lse6MemoryNear = "false";
+      if (image.dataset.lse6MemoryPlaceholder === "true") return;
+      if (!image.complete || image.naturalWidth <= 1) return;
+      image.closest("picture")?.querySelectorAll("source").forEach((source) => {
+        source.removeAttribute("srcset");
+        source.removeAttribute("sizes");
+      });
+      image.removeAttribute("srcset");
+      image.removeAttribute("sizes");
+      image.dataset.lse6MemoryPlaceholder = "true";
+      image.loading = "lazy";
+      image.setAttribute("src", EMPTY_PIXEL);
+      image.dataset.lse6MemoryResident = "false";
+    };
+
+    const margin = Math.max(2200, Math.round(window.innerHeight * 3.5));
+    const updateCounter = () => {
+      const resident = images.filter((image) => image.dataset.lse6MemoryResident === "true").length;
+      document.documentElement.dataset.lse6MemoryMode = "mobile-window";
+      document.documentElement.dataset.lse6MemoryMargin = String(margin);
+      document.documentElement.dataset.lse6ResidentImages = String(resident);
+    };
+
+    images.forEach((image) => {
+      remember(image);
+      image.addEventListener("load", () => {
+        if (image.dataset.lse6MemoryPlaceholder === "true") return;
+        if (image.dataset.lse6MemoryNear !== "true") queueMicrotask(() => release(image));
+      });
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const image = entry.target;
+          if (entry.isIntersecting) hydrate(image); else release(image);
+        });
+        updateCounter();
+      },
+      { rootMargin: `${margin}px 0px ${margin}px 0px`, threshold: 0.01 },
+    );
+
+    images.forEach((image) => {
+      const rect = image.getBoundingClientRect();
+      const near = rect.bottom >= -margin && rect.top <= window.innerHeight + margin;
+      image.dataset.lse6MemoryNear = String(near);
+      if (!near) release(image);
+      observer.observe(image);
+    });
+    updateCounter();
+  };
+
+  enableMobileImageMemoryWindow();
+
   const eye = document.querySelector(".eye-frame");
   if (eye) {
     let targetX = 0;
