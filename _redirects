@@ -1,13 +1,12 @@
 # 🧭 Rutas canónicas LSE6.ORG · Cloudflare Pages
-/favicon.ico /favicon.png 301
 /index.html / 301
 /home / 301
 /inicio / 301
-/archivo /#evidencia 302
-/expediente /evidence/lse6-expediente-completo.pdf 302
-/fuentes /#fuentes 302
-/alta-res /evidence/high-resolution/index.json 302
-/datos /data/expediente.json 302
+/favicon.ico /favicon.png 301
+/archivo /evidencia/ 301
+/expediente /evidence/lse6-expediente-completo.pdf 301
+/alta-res /fuentes/ 302
+/datos /anomalias-temporales/ 302
 /centro https://lse6.com/ 301
 /lse6 https://lse6.com/ 301
 /lse6.com https://lse6.com/ 301

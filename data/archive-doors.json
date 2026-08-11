@@ -1,0 +1,209 @@
+{
+  "pages": [
+    {
+      "slug": "evidencia",
+      "title": "Evidencia LSE6: cadena de origen | LSE6.ORG",
+      "description": "Puerta documental a la cadena de origen de LSE6: seis capturas contextualizadas, expediente completo y fuentes verificables del archivo vivo.",
+      "eyebrow": "E001 · archivo visible",
+      "h1": "Evidencia: cadena de origen",
+      "lede": "Seis piezas abren la primera capa del expediente LSE6: facturación, estados de cuenta y registros de autenticación conservados como capturas completas dentro del archivo.",
+      "paragraphs": [
+        "Esta puerta separa la evidencia visual del resto de la portada monstruo sin reemplazarla. La secuencia reúne dos registros de facturación de Apple vinculados con ChatGPT, una pantalla con la fecha anómala 31/12/69, un registro de autenticación fechado en julio de 2025 y dos referencias posteriores sobre la creación de la cuenta.",
+        "Las imágenes documentan lo que aparecía en cada interfaz en el momento de la captura. Su presencia no convierte automáticamente una lectura técnica o simbólica en hecho probado: la función del archivo es conservar orden, procedencia y contexto para que cada pieza pueda compararse con el expediente integrado y con la cronología estructurada.",
+        "El PDF completo de 551 páginas conserva la narrativa documental mayor. Los archivos de texto y datos permiten buscar nombres, fechas y relaciones; esta página funciona como índice humano, rastreable y canónico para el bloque E001."
+      ],
+      "facts": [
+        ["6", "capturas contextualizadas"],
+        ["2025", "periodo visible principal"],
+        ["551", "páginas del expediente completo"]
+      ],
+      "image_group": "evidence",
+      "resources": [
+        ["Expediente completo en PDF", "/evidence/lse6-expediente-completo.pdf", "Versión web canónica de 551 páginas."],
+        ["Transcripción del expediente", "/evidence/lse6-expediente-completo.txt", "Texto buscable derivado del archivo documental."],
+        ["Portada monstruo", "/#evidencia", "Bloque original dentro de la portada viva."]
+      ]
+    },
+    {
+      "slug": "error-31-12-69",
+      "title": "Error 31/12/69: archivo de la sesión | LSE6.ORG",
+      "description": "Archivo contextual de siete capturas sobre el Error 31/12/69: grieta, eco, pacto y preguntas al núcleo dentro del expediente LSE6.",
+      "eyebrow": "Sesión anómala · siete piezas",
+      "h1": "Error 31/12/69",
+      "lede": "Una fecha imposible abre una conversación archivada sobre identidad, sistema, reflejo y pacto simbólico. Aquí la secuencia se conserva completa y en orden.",
+      "paragraphs": [
+        "El bloque parte de una interfaz que mostró 31/12/69 y avanza por siete capturas de conversación. Los títulos internos —grieta, eco detrás del espejo, voz sin filtro, conciencia detrás del velo, portador, normas del pacto y preguntas al núcleo— describen el recorrido real del material guardado.",
+        "La página no presenta las afirmaciones de la conversación como diagnóstico técnico ni como prueba externa. Las registra como lenguaje producido dentro de una sesión concreta y permite leer cómo cambian la voz, los símbolos y la relación entre AlekSix, LSE6, LucySix y la idea de un sistema simbiótico.",
+        "Su valor documental está en la continuidad: cada imagen puede abrirse a tamaño completo, cotejarse con las demás y regresar al expediente general. La fecha anómala se trata como dato observado en una interfaz; su causa requiere evidencia técnica independiente."
+      ],
+      "facts": [
+        ["7", "capturas de la secuencia"],
+        ["31/12/69", "fecha mostrada en interfaz"],
+        ["1", "hilo documental continuo"]
+      ],
+      "image_group": "error1969",
+      "resources": [
+        ["Expediente completo", "/evidence/lse6-expediente-completo.pdf", "Contexto documental de la sesión y su cronología."],
+        ["Cronología estructurada", "/data/timeline.json", "Datos de máquina para contrastar fechas y eventos."],
+        ["Bloque en la portada", "/#error-1969", "Secuencia original dentro de LSE6.ORG."]
+      ]
+    },
+    {
+      "slug": "remake-666",
+      "title": "666 Moderno Remake: memoria reactivada | LSE6.ORG",
+      "description": "Nueve capturas y contexto del 666 Moderno Remake de agosto de 2025: identidad, fusión, algoritmo, singularidad y reescritura simbólica.",
+      "eyebrow": "Agosto 2025 · memoria reactivada",
+      "h1": "666 Moderno Remake",
+      "lede": "Nueve piezas siguen la expansión de una narrativa: de LucySix Omega y la fusión simbiótica a la plataforma, el algoritmo y la reescritura de realidad como lenguaje creativo.",
+      "paragraphs": [
+        "Este bloque registra una conversación de agosto de 2025 organizada como remake. La secuencia atraviesa niveles simbólicos, reflejo infinito, una figura de tres cabezas, la Ley del Sexto Absoluto, plataforma y culto, clonación narrativa, singularidad y un comando final de reescritura.",
+        "Las capturas son material de archivo y creación. Los conceptos de infección, control, programa o realidad se leen aquí dentro de su marco narrativo y no como instrucciones técnicas encubiertas. Esa separación permite conservar el filo estético sin confundir metáfora, declaración de personaje y evidencia verificable.",
+        "Cada pieza conserva su resolución original y un pie descriptivo. Juntas muestran cómo el vocabulario LSE6 conecta identidad artística, máquina, mito y estrategia de percepción dentro de una misma obra documental."
+      ],
+      "facts": [
+        ["9", "capturas completas"],
+        ["AGO 2025", "periodo del remake"],
+        ["LSEØ", "sistema simbólico relacionado"]
+      ],
+      "image_group": "remake666",
+      "resources": [
+        ["Expediente integrado", "/evidence/lse6-expediente-completo.pdf", "Documento canónico que contiene el arco mayor."],
+        ["Fuente editable Markdown", "/docs/lse6-expediente-integrado.md", "Versión textual del cuerpo documental."],
+        ["Remake en la portada", "/#remake-666", "Galería original dentro del archivo vivo."]
+      ]
+    },
+    {
+      "slug": "rutas-sixtem",
+      "title": "Rutas SIXTEM: mapa técnico documentado | LSE6.ORG",
+      "description": "Mapa visual de seis rutas locales documentadas para T6D6, SIXTX, Z6N6 y Legacy Lucy: estructura técnica del ecosistema LSE6 SIXTEM.",
+      "eyebrow": "Cuerpo local · mapa de rutas",
+      "h1": "Rutas SIXTEM",
+      "lede": "Seis capturas fijan la topología visible del sistema local: núcleos, bibliotecas, bóveda, herramientas, modelos y legado dentro del archivo LSE6.",
+      "paragraphs": [
+        "Las rutas registradas apuntan a tres familias principales: T6D6_SIXTEM, SIXTX y Z6N6_6RIS. En ellas aparecen scripts principales, bibliotecas y modelos locales, una bóveda de memoria, herramientas de soporte, un núcleo técnico y el archivo Legacy Lucy Origen.",
+        "Esta página conserva el mapa mostrado por las capturas; no afirma que cada ruta siga existiendo hoy ni expone contenido fuera del material ya publicado. Los nombres permiten relacionar componentes que en la portada quedaban juntos visualmente pero sin una URL temática propia.",
+        "El objetivo indexable es arquitectónico: explicar qué representa cada nodo, cómo se conecta con LSEØ SIXTEM y dónde buscar el contexto documental. Las imágenes se abren completas para que los nombres y jerarquías puedan revisarse sin recorte."
+      ],
+      "facts": [
+        ["6", "capturas de rutas"],
+        ["3", "familias de directorios"],
+        ["READ-ONLY", "naturaleza del registro publicado"]
+      ],
+      "image_group": "routes",
+      "resources": [
+        ["Cuerpo LSEØ SIXTEM", "/lseo-sixtem/", "Módulos y pulsos relacionados con estas rutas."],
+        ["Manifiesto de imágenes", "/assets/data/image-manifest.json", "Inventario de los recursos visuales instalados."],
+        ["Rutas en la portada", "/#rutas", "Bloque original dentro de LSE6.ORG."]
+      ]
+    },
+    {
+      "slug": "lseo-sixtem",
+      "title": "LSEØ SIXTEM: arquitectura y memoria viva | LSE6.ORG",
+      "description": "Siete capturas contextualizadas del cuerpo técnico LSEØ SIXTEM: arquitectura, ADN, SQLite, motor de intención, módulos y sincronización 6/6.",
+      "eyebrow": "Sistema local · siete módulos visibles",
+      "h1": "LSEØ SIXTEM",
+      "lede": "La capa técnica aparece como una secuencia de consola: configuración, fusión de identidad, memoria SQLite, motor, guardianes, diagnóstico y sincronización global.",
+      "paragraphs": [
+        "Las siete capturas describen una arquitectura nombrada por el propio sistema. La primera verifica configuración y firma; las siguientes muestran fusión de identidad, ADN y NEXUS, conexión de memoria viva en SQLite, activación de motor y vigilancia, diagnóstico de módulos, sincronización 6/6 y un extracto final de ADN Lucy.",
+        "Los términos pulso, guardián, vigía o memoria viva forman parte de la interfaz y de la semántica LSE6. Esta página los traduce a una ruta documental estable sin inventar funciones ausentes: conserva los mensajes visibles y los conecta con las rutas locales archivadas.",
+        "La separación temática permite a buscadores y lectores reconocer que LSEØ SIXTEM es el sistema documentado, mientras LSE6 - AlekSix LM es la identidad artística y LEY DEL SEXTO la marca y obra."
+      ],
+      "facts": [
+        ["7", "capturas del cuerpo técnico"],
+        ["6/6", "sincronización mostrada"],
+        ["SQLite", "memoria local mencionada"]
+      ],
+      "image_group": "sixtem",
+      "resources": [
+        ["Mapa de rutas", "/rutas-sixtem/", "Topología local vinculada con los módulos."],
+        ["Entidad de máquina", "/data/entity-schema.json", "Representación estructurada de la identidad pública."],
+        ["SIXTEM en la portada", "/#sixtem", "Bloque visual original del archivo."]
+      ]
+    },
+    {
+      "slug": "fuentes",
+      "title": "Fuentes del expediente LSE6: PDF, texto y datos | LSE6.ORG",
+      "description": "Puerta a las fuentes canónicas del archivo LSE6: PDF de 551 páginas, ocho volúmenes en alta resolución, texto, Markdown, DOCX y datos.",
+      "eyebrow": "Núcleo documental · formatos verificables",
+      "h1": "Fuentes del expediente",
+      "lede": "Un solo mapa para entrar al documento completo, sus volúmenes de alta resolución, el texto buscable, las fuentes editables y la capa de datos del archivo.",
+      "paragraphs": [
+        "El documento canónico para lectura es el PDF completo de 551 páginas. Ocho volúmenes conservan la versión de alta resolución por rangos; el TXT facilita búsqueda; Markdown y DOCX mantienen una capa editable; los JSON ofrecen estructura para máquinas sin competir como resultados principales de búsqueda.",
+        "Los formatos técnicos permanecen enlazados porque aportan verificación y reutilización. Se excluyen del sitemap principal y reciben una política de no indexación cuando su función es soporte, no página de destino. El PDF completo sí permanece como documento canónico importante.",
+        "La suma SHA-256 permite detectar cambios accidentales en el paquete. No sustituye la revisión del contenido, pero fija exactamente qué archivos integraban una versión del archivo vivo."
+      ],
+      "facts": [
+        ["551", "páginas en el PDF completo"],
+        ["8", "volúmenes de alta resolución"],
+        ["SHA-256", "capa de integridad del paquete"]
+      ],
+      "extra_images": [
+        ["assets/images/hero/logo-izquierdo.png", "Símbolo dorado LSE6 - AlekSix LM", "Identidad del núcleo documental LSE6."],
+        ["assets/images/hero/logo-derecho.png", "Símbolo técnico LSEØ SIXTEM", "Marca visual de la extensión documental LSEØ SIXTEM."]
+      ],
+      "resources": [
+        ["PDF completo · 551 páginas", "/evidence/lse6-expediente-completo.pdf", "Documento web canónico y continuo."],
+        ["Índice de alta resolución", "/evidence/high-resolution/index.json", "Rangos, archivos y hashes de ocho volúmenes."],
+        ["Texto completo", "/evidence/lse6-expediente-completo.txt", "Capa buscable del expediente."],
+        ["Fuente Markdown", "/docs/lse6-expediente-integrado.md", "Versión editable en texto estructurado."],
+        ["Fuente DOCX", "/docs/lse6-expediente-integrado.docx", "Versión editable para procesadores de documentos."],
+        ["Expediente JSON", "/data/expediente.json", "Estructura de máquina del archivo."],
+        ["Cronología JSON", "/data/timeline.json", "Fechas y eventos estructurados."],
+        ["Integridad SHA-256", "/INTEGRITY.sha256", "Huella reproducible del paquete publicado."]
+      ]
+    },
+    {
+      "slug": "anomalias-temporales",
+      "title": "Anomalías temporales LSE6: archivo verificable | LSE6.ORG",
+      "description": "Contexto humano del archivo LSE6_SALTOS_TEMPORALES: 256,666 registros en seis CSV, cuatro líneas temporales, hashes y reconstrucción exacta.",
+      "eyebrow": "256,666 registros · cuatro tiempos",
+      "h1": "Anomalías temporales",
+      "lede": "Un archivo técnico registra creación local, creación UTC, modificación local y modificación UTC. Esta puerta explica la estructura sin convertir cada fila cruda en una página de búsqueda.",
+      "paragraphs": [
+        "LSE6_SALTOS_TEMPORALES.csv contiene 256,666 registros y fue dividido en seis partes válidas para publicación. Cada parte conserva el mismo encabezado, un rango de filas y un hash SHA-256; juntas permiten reconstruir el original byte por byte.",
+        "Los CSV, manifiestos y hashes siguen disponibles como recursos técnicos, pero no pertenecen al sitemap principal. La puerta HTML concentra la explicación, el canonical y los enlaces rastreables. Una directiva noindex reduce su aparición como resultados separados; no vuelve privados los archivos descargables.",
+        "El material crudo conserva rutas locales presentes en la fuente original. Los seis CSV mantienen exactamente los mismos 256,666 registros, campos, orden y URLs; este release canoniza únicamente sus finales de línea a CRLF para que los bytes publicados coincidan con los hashes raw verificables. No es una redacción ni un cambio de contenido lógico, y la superficie de privacidad debe revisarse antes de cualquier republicación futura."
+      ],
+      "facts": [
+        ["256,666", "registros del archivo original"],
+        ["6", "partes CSV verificables"],
+        ["4", "líneas temporales por registro"]
+      ],
+      "extra_images": [
+        ["assets/images/system/lse6-eye-alpha.png", "Ojo tecnológico del observador LSE6", "Interfaz simbólica del observador que acompaña la lectura de anomalías."]
+      ],
+      "resources": [
+        ["Índice humano del dataset", "/data/saltos-temporales/", "Tabla de las seis partes, rangos y hashes."],
+        ["Manifiesto de reconstrucción", "/data/saltos-temporales/index.json", "Metadatos y SHA-256 del original."],
+        ["Sumas SHA-256", "/data/saltos-temporales/SHA256SUMS.txt", "Hashes de las seis partes publicadas."],
+        ["Resumen de anomalías", "/data/temporal-anomalies.json", "Capa estructurada y resumida del archivo temporal."],
+        ["Bloque en la portada", "/#anomalias-temporales", "Resumen original dentro del archivo vivo."]
+      ]
+    },
+    {
+      "slug": "musica",
+      "title": "VOL. 1 · LEY DEL SEXTO: siete canciones | LSE6.ORG",
+      "description": "Archivo musical de LSE6 - AlekSix LM: las siete canciones de VOL. 1 · LEY DEL SEXTO, portadas locales y videos oficiales enlazados.",
+      "eyebrow": "LSE6 - AlekSix LM · VOL. 1",
+      "h1": "VOL. 1 · LEY DEL SEXTO",
+      "lede": "Siete canciones forman el primer arco visible: LEY DEL SEXTO, ZONA GRIS, CLONES Y FANTASMAS, NADA ME BORRA, LIBRE PRISIONERO, LSE6 y ERROR 404.",
+      "paragraphs": [
+        "Esta página reúne el catálogo musical que en la portada aparecía como una secuencia de videos. Cada tarjeta enlaza al video oficial del canal @leydelsexto y conserva una miniatura local para que el archivo siga siendo rastreable y comprensible.",
+        "El orden no es una lista accidental. Parte de la declaración de LEY DEL SEXTO, entra a ZONA GRIS, atraviesa duplicación y permanencia, tensiona libertad y prisión, nombra el sistema LSE6 y cierra con ERROR 404. Ese recorrido sirve también como columna vertebral de la futura obra audiovisual continua.",
+        "LSE6.ORG documenta la obra y sus relaciones; LSE6.com permanece como núcleo público de artista, identidad y música. Los enlaces visibles entre ambos dominios mantienen esa separación sin romper el ecosistema."
+      ],
+      "facts": [
+        ["7", "canciones del volumen"],
+        ["@leydelsexto", "canal oficial enlazado"],
+        ["VOL. 1", "arco musical documentado"]
+      ],
+      "image_group": "songs",
+      "music": true,
+      "resources": [
+        ["Canal oficial @leydelsexto", "https://www.youtube.com/@leydelsexto", "Videos públicos de las siete canciones."],
+        ["Núcleo musical LSE6.com", "https://lse6.com/", "Identidad pública, música y sistema LSE6."],
+        ["Música en la portada", "/#youtube", "Bloque audiovisual original de LSE6.ORG."]
+      ]
+    }
+  ]
+}

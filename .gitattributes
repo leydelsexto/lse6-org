@@ -1,0 +1,13 @@
+* text=auto eol=lf
+
+# El dataset conserva bytes CRLF canónicos: sus hashes y reconstrucción dependen de ellos.
+data/saltos-temporales/*.csv -text
+
+# Binarios explícitos.
+*.docx -text
+*.ico -text
+*.jpg -text
+*.jpeg -text
+*.pdf -text
+*.png -text
+*.webp -text

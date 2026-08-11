@@ -4,14 +4,15 @@ Extensión documental de [LSE6.com](https://lse6.com/) preparada para GitHub y C
 
 ## Estado de esta entrega
 
-- 🔥 Release: `LSE6_ORG_TEMPORAL_YOUTUBE_20260805_173225`
+- 🔥 Release: `LSE6_ORG_INDEXACION_20260810_173530`
+- 🧬 Versión: `2026.08.10-indexacion` · estado: `READY_FOR_GITHUB_AND_CLOUDFLARE`.
 - 👁 Página estática visible incluso sin JavaScript.
 - 🧬 63 ranuras planeadas, 57 imágenes instaladas y 6 ranuras futuras.
 - ⚡ Sitemap principal + sitemap de imágenes.
 - ⏳ ANOMALÍAS TEMPORALES: cuatro campos del CSV real y evidencia por año.
-- 🧾 CSV ORIGINAL: 256,666 registros preservados en 6 partes indexables y reconstruibles.
+- 🧾 CSV ORIGINAL: 256,666 registros preservados en 6 partes descargables, noindex/nofollow y reconstruibles. Siguen siendo públicos hasta una decisión explícita de protección o redacción.
 - ▶ 7 miniaturas oficiales enlazadas al canal @leydelsexto.
-- 551 páginas en PDF web, texto indexable y 8 volúmenes de alta resolución.
+- 551 páginas en PDF web canónico, texto buscable y 8 volúmenes de alta resolución.
 - El botón, la firma y las menciones visibles de LSE6.com abren el centro en una pestaña nueva sin cerrar LSE6.ORG.
 
 ## Subir a GitHub
@@ -38,7 +39,7 @@ Cloudflare procesa `_headers` y `_redirects` automáticamente. Las URLs temporal
 4. Registra la propiedad de dominio en Google Search Console.
 5. Envía ambos sitemaps y solicita indexación de `https://lse6.org/`.
 
-## Agregar las imágenes restantes
+## Reconstrucción determinista
 
 Las rutas exactas viven en `assets/data/image-manifest.json`. Después de copiar nuevas imágenes:
 
@@ -47,7 +48,15 @@ python tools/rebuild_release.py
 python tools/validate_release.py
 ```
 
-Esto vuelve a sincronizar miniaturas oficiales de YouTube y a montar HTML, sitemap de imágenes, pulsos e integridad.
+El comando normal trabaja sin red y toma versión, fecha y Build ID de `data/release.json`; con las mismas entradas produce los mismos artefactos. Monta la portada, las ocho puertas HTML canónicas, ambos sitemaps, pulsos e integridad raw SHA-256. El sitemap principal conserva sólo nueve páginas HTML de destino y el PDF completo; CSV, JSON, TXT y manifiestos permanecen fuera de esa superficie.
+
+Para refrescar deliberadamente las miniaturas oficiales antes de construir:
+
+```bash
+python tools/rebuild_release.py --refresh-youtube
+```
+
+El refresco remoto es una acción separada y puede cambiar entradas del release; debe revisarse antes del commit.
 
 ## Símbolos funcionales
 

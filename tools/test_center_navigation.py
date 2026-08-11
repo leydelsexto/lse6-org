@@ -27,8 +27,14 @@ def rendered_html() -> str:
         html,
         count=1,
     )
-    html = re.sub(r'<script[^>]+src="\./assets/js/site-identity\.js"[^>]*></script>', "", html)
-    html = re.sub(r'<script[^>]+src="\./assets/js/app\.js"[^>]*></script>', "", html)
+    # The click contract is structural. Runtime effects are tested elsewhere and
+    # would make actionability dependent on animation timing or asset versions.
+    html = re.sub(r"<script\b[^>]*>.*?</script>", "", html, flags=re.I | re.S)
+    html = html.replace(
+        "</head>",
+        "<style>*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}</style></head>",
+        1,
+    )
     return html
 
 
@@ -108,6 +114,7 @@ async def main() -> None:
                     ),
                 )
                 page = await context.new_page()
+                await page.emulate_media(reduced_motion="reduce")
                 await page.set_content(html, wait_until="domcontentloaded")
                 await assert_clickable(page, "a.archive-line.center-return-link")
                 await assert_clickable(page, "a.core-button")

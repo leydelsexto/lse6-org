@@ -1,16 +1,74 @@
 <!doctype html>
-<html lang="es-MX"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LSE6 · Saltos Temporales · CSV original en 6 partes</title>
-<meta name="description" content="LSE6_SALTOS_TEMPORALES.csv dividido en seis partes indexables con hashes y reconstrucción verificable.">
-<link rel="canonical" href="https://lse6.org/data/saltos-temporales/">
-<style>body{margin:0;background:#030608;color:#e8f4ff;font-family:Consolas,monospace}main{max-width:1400px;margin:auto;padding:32px}h1{color:#ff3636}a{color:#75ff00}code{word-break:break-all;color:#ffc44d}.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:24px 0}.meta div,table{border:1px solid #24404d;background:#061019}.meta div{padding:16px}table{width:100%;border-collapse:collapse}th,td{padding:12px;border-bottom:1px solid #18313d;text-align:left;vertical-align:top}th{color:#21dfff}@media(max-width:900px){table{display:block;overflow:auto}}</style>
-</head><body><main>
-<h1>LSE6 · LSE6_SALTOS_TEMPORALES.csv</h1>
-<p>Archivo original dividido en seis CSV válidos, descargables, indexables y reconstruibles.</p>
-<div class="meta"><div>FILAS<br><strong>256,666</strong></div><div>BYTES ORIGINALES<br><strong>96,413,289</strong></div><div>PARTES<br><strong>6</strong></div><div>SHA-256 ORIGINAL<br><code>56d280e0b1390d59083ec2f2a373f28d66db96024c432709ec7678e1250b4991</code></div></div>
-<p><a href="./index.json">ABRIR MANIFIESTO JSON ↗</a> · <a href="./SHA256SUMS.txt">ABRIR HASHES ↗</a> · <a href="./reconstruct_original.py">ABRIR RECONSTRUCTOR ↗</a></p>
-<table><thead><tr><th>PARTE</th><th>ARCHIVO</th><th>FILAS ORIGINALES</th><th>REGISTROS</th><th>TAMAÑO</th><th>SHA-256</th></tr></thead><tbody><tr><td>01/06</td><td><a href="./LSE6_SALTOS_TEMPORALES_PARTE_01_DE_06.csv">LSE6_SALTOS_TEMPORALES_PARTE_01_DE_06.csv</a></td><td>1—42,778</td><td>42,778</td><td>13.60 MiB</td><td><code>1dd9611159aade3b39a298f521ad6bc6394bc08ca5dd2e32248ed96c62b32530</code></td></tr><tr><td>02/06</td><td><a href="./LSE6_SALTOS_TEMPORALES_PARTE_02_DE_06.csv">LSE6_SALTOS_TEMPORALES_PARTE_02_DE_06.csv</a></td><td>42,779—85,556</td><td>42,778</td><td>14.10 MiB</td><td><code>431b0f8816e4246440901c1a16795f3983d65b3352c763b489c88e4ded37e117</code></td></tr><tr><td>03/06</td><td><a href="./LSE6_SALTOS_TEMPORALES_PARTE_03_DE_06.csv">LSE6_SALTOS_TEMPORALES_PARTE_03_DE_06.csv</a></td><td>85,557—128,334</td><td>42,778</td><td>14.58 MiB</td><td><code>144f1df330f88f939a0f6b02705f5a96f65e9ce071fbeef6f29bc0ab12c1d6a8</code></td></tr><tr><td>04/06</td><td><a href="./LSE6_SALTOS_TEMPORALES_PARTE_04_DE_06.csv">LSE6_SALTOS_TEMPORALES_PARTE_04_DE_06.csv</a></td><td>128,335—171,112</td><td>42,778</td><td>16.90 MiB</td><td><code>d9fbed811ecd6ee7d32a6dd3226fb0272d57074110990369d12ac0538e076a09</code></td></tr><tr><td>05/06</td><td><a href="./LSE6_SALTOS_TEMPORALES_PARTE_05_DE_06.csv">LSE6_SALTOS_TEMPORALES_PARTE_05_DE_06.csv</a></td><td>171,113—213,889</td><td>42,777</td><td>16.81 MiB</td><td><code>85df6bd56e754e9d77fe6106340ba86ed79f8a541d578ca989a7c476692081af</code></td></tr><tr><td>06/06</td><td><a href="./LSE6_SALTOS_TEMPORALES_PARTE_06_DE_06.csv">LSE6_SALTOS_TEMPORALES_PARTE_06_DE_06.csv</a></td><td>213,890—256,666</td><td>42,777</td><td>15.95 MiB</td><td><code>cfef69183d18a08dbf72c247495c70923be81f82c01fe1c8ac62c880c226feb3</code></td></tr></tbody></table>
-<h2>Reconstrucción exacta</h2>
-<p>Conserva el encabezado de la parte 1 y concatena los registros de las seis partes en orden. El script incluido automatiza el proceso y produce el SHA-256 original.</p>
-</main></body></html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LSE6_SALTOS_TEMPORALES · dataset en 6 partes | LSE6.ORG</title>
+  <meta name="description" content="Índice verificable de LSE6_SALTOS_TEMPORALES: 256,666 registros divididos en seis CSV con rangos, hashes y reconstrucción exacta.">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+  <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet">
+  <meta name="bingbot" content="noindex,nofollow,noarchive,nosnippet">
+  <meta name="author" content="LSE6 - AlekSix LM">
+  <meta name="creator" content="LSE6 - AlekSix LM">
+  <meta name="publisher" content="LSE6 - AlekSix LM">
+  <meta name="theme-color" content="#020402">
+  <link rel="canonical" href="https://lse6.org/data/saltos-temporales/">
+  <link rel="stylesheet" href="/assets/css/doors.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:site_name" content="LSE6.ORG · Archivo Vivo">
+  <meta property="og:title" content="LSE6_SALTOS_TEMPORALES · dataset en 6 partes">
+  <meta property="og:description" content="256,666 registros, seis CSV, hashes SHA-256 y reconstrucción exacta dentro del archivo LSE6.">
+  <meta property="og:url" content="https://lse6.org/data/saltos-temporales/">
+  <meta property="og:image" content="https://lse6.org/assets/images/system/lse6-org-og.jpg">
+  <meta property="og:image:alt" content="LSE6.ORG · archivo vivo de LEY DEL SEXTO y LSEØ SIXTEM">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LSE6_SALTOS_TEMPORALES · dataset en 6 partes">
+  <meta name="twitter:description" content="Índice humano, hashes y reconstrucción verificable del archivo temporal LSE6.">
+  <meta name="twitter:image" content="https://lse6.org/assets/images/system/lse6-org-og.jpg">
+  <style>
+    .dataset-table { width: 100%; border-collapse: collapse; font-size: .84rem; }
+    .dataset-table th, .dataset-table td { padding: 12px; border-bottom: 1px solid rgba(120,255,0,.18); text-align: left; vertical-align: top; }
+    .dataset-table th { color: #78ff00; }
+    .dataset-table code { color: #ffcf65; overflow-wrap: anywhere; }
+    .table-scroll { overflow-x: auto; border: 1px solid rgba(120,255,0,.28); }
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://lse6.org/#website","url":"https://lse6.org/","name":"LSE6.ORG · Archivo Vivo","inLanguage":"es-MX","publisher":{"@id":"https://lse6.com/#artist"},"about":[{"@id":"https://lse6.com/#artist"},{"@id":"https://lse6.com/#brand"},{"@id":"https://lse6.com/#system"}]},{"@type":"CollectionPage","@id":"https://lse6.org/data/saltos-temporales/#page","url":"https://lse6.org/data/saltos-temporales/","name":"LSE6_SALTOS_TEMPORALES · dataset en 6 partes","description":"Índice técnico no indexable de 256,666 registros divididos en seis CSV con rangos, hashes y reconstrucción exacta.","isPartOf":{"@id":"https://lse6.org/#website"},"about":{"@id":"https://lse6.org/data/saltos-temporales/#dataset"},"creator":{"@id":"https://lse6.com/#artist"},"publisher":{"@id":"https://lse6.com/#artist"},"breadcrumb":{"@id":"https://lse6.org/data/saltos-temporales/#breadcrumb"}},{"@type":"Dataset","@id":"https://lse6.org/data/saltos-temporales/#dataset","name":"LSE6_SALTOS_TEMPORALES","description":"Archivo temporal con cuatro marcas por registro: creación local, creación UTC, modificación local y modificación UTC.","url":"https://lse6.org/data/saltos-temporales/","creator":{"@id":"https://lse6.com/#artist"},"publisher":{"@id":"https://lse6.com/#artist"},"about":[{"@id":"https://lse6.com/#artist"},{"@id":"https://lse6.com/#brand"},{"@id":"https://lse6.com/#system"}],"inLanguage":"es-MX","size":"96413289 bytes","measurementTechnique":"Tiempos de sistema de archivos conservados en el archivo fuente"},{"@type":"BreadcrumbList","@id":"https://lse6.org/data/saltos-temporales/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"LSE6.ORG","item":"https://lse6.org/"},{"@type":"ListItem","position":2,"name":"Anomalías temporales","item":"https://lse6.org/anomalias-temporales/"},{"@type":"ListItem","position":3,"name":"Dataset en seis partes","item":"https://lse6.org/data/saltos-temporales/"}]}]}</script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-head">
+    <a class="brand" href="/"><strong>LSE6.ORG</strong><span>ARCHIVO VIVO · SISTEMA LSE6 · LSEØ</span></a>
+    <nav class="global-nav" aria-label="Puertas del archivo"><a href="/evidencia/">EVIDENCIA</a><a href="/error-31-12-69/">31/12/69</a><a href="/remake-666/">666 REMAKE</a><a href="/rutas-sixtem/">RUTAS</a><a href="/lseo-sixtem/">SIXTEM</a><a href="/fuentes/">FUENTES</a><a href="/anomalias-temporales/">ANOMALÍAS</a><a href="/musica/">MÚSICA</a><a class="center-link" href="https://lse6.com/" target="_blank" rel="external noopener noreferrer">LSE6.COM ↗</a></nav>
+  </header>
+  <main class="door-main" id="contenido">
+    <nav class="breadcrumbs" aria-label="Migas de pan"><a href="/">LSE6.ORG</a><span>›</span><a href="/anomalias-temporales/">Anomalías temporales</a><span>›</span><span aria-current="page">Dataset</span></nav>
+    <article>
+      <header class="door-hero"><p class="eyebrow">CSV REAL · SEIS PARTES · SHA-256</p><h1>LSE6_SALTOS_TEMPORALES</h1><p class="lede">Índice humano del archivo original: 256,666 registros divididos sin perder orden, encabezado ni capacidad de reconstrucción.</p></header>
+      <section class="door-section prose" aria-labelledby="context-title">
+        <h2 id="context-title">Qué contiene</h2>
+        <p>Cada registro conserva cuatro marcas temporales: creación local, creación UTC, modificación local y modificación UTC. El archivo original pesa 96,413,289 bytes y fue dividido en seis CSV por límites prácticos de publicación, no para convertir cada fragmento en una página independiente de búsqueda.</p>
+        <p>Las seis partes mantienen un encabezado común. Para reconstruir el original se conserva el encabezado de la parte 1 y se concatenan los registros de todas las partes en orden. El manifiesto registra filas, tamaños y hashes; el resultado debe producir la suma SHA-256 <code>56d280e0b1390d59083ec2f2a373f28d66db96024c432709ec7678e1250b4991</code>.</p>
+        <p>Los CSV conservan exactamente los mismos 256,666 registros, campos, orden y URLs. Este release canoniza únicamente sus finales de línea a CRLF para que los bytes publicados coincidan con los hashes raw verificables; no es una redacción ni un cambio de contenido lógico. No figuran como URLs individuales en el sitemap principal y reciben una directiva noindex; eso reduce resultados técnicos duplicados, pero no constituye privacidad ni control de acceso. La fuente cruda contiene rutas locales y debe revisarse antes de cualquier decisión futura de republicación.</p>
+        <div class="fact-strip"><div class="fact"><strong>256,666</strong><span>registros</span></div><div class="fact"><strong>96,413,289</strong><span>bytes originales</span></div><div class="fact"><strong>6</strong><span>partes CSV</span></div><div class="fact"><strong>SHA-256</strong><span>reconstrucción verificable</span></div></div>
+        <div class="signal-box"><strong>ESTADO DE PUBLICACIÓN</strong><p>Disponible no significa privado. Las rutas técnicas siguen accesibles a quien conozca sus URLs.</p></div>
+      </section>
+      <section class="door-section" aria-labelledby="parts-title">
+        <h2 id="parts-title">Partes publicadas</h2>
+        <p><a href="./index.json">MANIFIESTO JSON ↗</a> · <a href="./SHA256SUMS.txt">HASHES ↗</a> · <a href="./reconstruct_original.py">RECONSTRUCTOR ↗</a></p>
+        <div class="table-scroll"><table class="dataset-table"><thead><tr><th>Parte</th><th>Archivo</th><th>Filas originales</th><th>Registros</th><th>Tamaño</th><th>SHA-256</th></tr></thead><tbody>
+          <tr><td>01/06</td><td><a href="./LSE6_SALTOS_TEMPORALES_PARTE_01_DE_06.csv">LSE6_SALTOS_TEMPORALES_PARTE_01_DE_06.csv</a></td><td>1—42,778</td><td>42,778</td><td>13.60 MiB</td><td><code>1dd9611159aade3b39a298f521ad6bc6394bc08ca5dd2e32248ed96c62b32530</code></td></tr>
+          <tr><td>02/06</td><td><a href="./LSE6_SALTOS_TEMPORALES_PARTE_02_DE_06.csv">LSE6_SALTOS_TEMPORALES_PARTE_02_DE_06.csv</a></td><td>42,779—85,556</td><td>42,778</td><td>14.10 MiB</td><td><code>431b0f8816e4246440901c1a16795f3983d65b3352c763b489c88e4ded37e117</code></td></tr>
+          <tr><td>03/06</td><td><a href="./LSE6_SALTOS_TEMPORALES_PARTE_03_DE_06.csv">LSE6_SALTOS_TEMPORALES_PARTE_03_DE_06.csv</a></td><td>85,557—128,334</td><td>42,778</td><td>14.58 MiB</td><td><code>144f1df330f88f939a0f6b02705f5a96f65e9ce071fbeef6f29bc0ab12c1d6a8</code></td></tr>
+          <tr><td>04/06</td><td><a href="./LSE6_SALTOS_TEMPORALES_PARTE_04_DE_06.csv">LSE6_SALTOS_TEMPORALES_PARTE_04_DE_06.csv</a></td><td>128,335—171,112</td><td>42,778</td><td>16.90 MiB</td><td><code>d9fbed811ecd6ee7d32a6dd3226fb0272d57074110990369d12ac0538e076a09</code></td></tr>
+          <tr><td>05/06</td><td><a href="./LSE6_SALTOS_TEMPORALES_PARTE_05_DE_06.csv">LSE6_SALTOS_TEMPORALES_PARTE_05_DE_06.csv</a></td><td>171,113—213,889</td><td>42,777</td><td>16.81 MiB</td><td><code>85df6bd56e754e9d77fe6106340ba86ed79f8a541d578ca989a7c476692081af</code></td></tr>
+          <tr><td>06/06</td><td><a href="./LSE6_SALTOS_TEMPORALES_PARTE_06_DE_06.csv">LSE6_SALTOS_TEMPORALES_PARTE_06_DE_06.csv</a></td><td>213,890—256,666</td><td>42,777</td><td>15.95 MiB</td><td><code>cfef69183d18a08dbf72c247495c70923be81f82c01fe1c8ac62c880c226feb3</code></td></tr>
+        </tbody></table></div>
+      </section>
+      <nav class="door-switcher" aria-label="Continuar por el archivo"><a href="/anomalias-temporales/">CONTEXTO DE ANOMALÍAS</a><a href="/fuentes/">FUENTES</a><a href="/">PORTADA MONSTRUO</a><a href="https://lse6.com/" target="_blank" rel="external noopener noreferrer">NÚCLEO LSE6.COM ↗</a></nav>
+    </article>
+  </main>
+  <footer class="site-foot"><p><strong>LSE6 - AlekSix LM</strong> · @leydelsexto · LEY DEL SEXTO</p><p><a href="/">LSE6.ORG</a> documenta · <a href="https://lse6.com/" target="_blank" rel="external noopener noreferrer">LSE6.com</a> es el núcleo público.</p></footer>
+</body>
+</html>

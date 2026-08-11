@@ -9,12 +9,13 @@ Symbols have operational meaning:
 """
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import os
 import re
+import sys
 import urllib.request
-from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -22,10 +23,40 @@ from bs4 import BeautifulSoup
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 SITE = "https://lse6.org"
 CENTER = "https://lse6.com/"
-BUILD_TIME = datetime.now().astimezone().isoformat(timespec="seconds")
-BUILD_ID = "LSE6_ORG_TEMPORAL_YOUTUBE_" + datetime.now().strftime("%Y%m%d_%H%M%S")
+RELEASE = json.loads((ROOT / "data/release.json").read_text(encoding="utf-8-sig"))
+BUILD_TIME = RELEASE["release_time"]
+BUILD_DATE = RELEASE["release_date"]
+BUILD_ID = RELEASE["build_id"]
+ARTIST_ID = f"{CENTER}#artist"
+BRAND_ID = f"{CENTER}#brand"
+SYSTEM_ID = f"{CENTER}#system"
+WEBSITE_NAME = "LSE6.ORG · Archivo Vivo"
+ARTIST_NAME = "LSE6 - AlekSix LM"
+ARTIST_ALIASES = ["LSE6", "AlekSix LM"]
+BRAND_NAME = "LEY DEL SEXTO"
+BRAND_ALIASES = ["Ley Del Sexto", "ley del sexto"]
+SYSTEM_NAME = "LSEØ - SIXTEM"
+ARTIST_SAME_AS = [
+    "https://www.youtube.com/@leydelsexto",
+    "https://www.tiktok.com/@leydelsexto",
+    "https://www.instagram.com/leydelsexto/",
+    "https://www.facebook.com/leydelsexto/",
+    "https://www.facebook.com/lse6.aleksixlm/",
+    "https://x.com/leydelsexto",
+    "https://www.threads.com/@leydelsexto",
+    "https://www.reddit.com/user/leydelsexto/",
+    "https://www.linkedin.com/in/leydelsexto/",
+    "https://t.me/leydelsexto",
+    "https://github.com/leydelsexto",
+    "https://open.spotify.com/intl-es/artist/17eIMI670XYPHF8M3CZk7M",
+    "https://music.apple.com/us/artist/lse6-aleksix-lm/1896318121",
+]
 MOBILE_MAX_WIDTH = 640
 MOBILE_MEDIA = "(max-width: 900px)"
 
@@ -228,6 +259,7 @@ HERO = [
 
 
 YOUTUBE_DATA = ROOT / "data/youtube-videos.json"
+DOOR_DATA = ROOT / "data/archive-doors.json"
 
 def sync_youtube_thumbnails() -> None:
     """Refresh official YouTube thumbnails while retaining local fallback."""
@@ -398,6 +430,242 @@ def html_escape(value: Any) -> str:
     return (str(value).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;").replace("'", "&#039;"))
 
 
+def door_link_attrs(url: str) -> str:
+    if url.startswith(("https://", "http://")):
+        return ' target="_blank" rel="external noopener noreferrer"'
+    return ""
+
+
+def responsive_image(public_path: str, alt: str, width: int, height: int, loading: str = "lazy") -> str:
+    """Render the crawlable original plus the existing mobile WebP variant."""
+    original = ROOT / public_path
+    mobile = mobile_variant_path(original)
+    if not mobile.exists():
+        build_mobile_variant(original)
+    mobile_url = "/" + mobile.relative_to(ROOT).as_posix()
+    original_url = "/" + public_path.lstrip("/")
+    return (
+        '<picture class="mobile-picture">'
+        f'<source media="{MOBILE_MEDIA}" srcset="{mobile_url}" type="image/webp">'
+        f'<img src="{original_url}" alt="{html_escape(alt)}" width="{width}" height="{height}" '
+        f'loading="{loading}" decoding="async" data-mobile-src="{mobile_url}">'
+        '</picture>'
+    )
+
+
+def write_archive_doors(slots_by_group: dict[str, list[dict[str, Any]]]) -> None:
+    """Build canonical HTML doors from reviewed editorial data and real assets."""
+    config = json.loads(DOOR_DATA.read_text(encoding="utf-8-sig"))
+    pages = config["pages"]
+    nav_items = [(page["slug"], page["h1"]) for page in pages]
+    videos = json.loads(YOUTUBE_DATA.read_text(encoding="utf-8-sig")).get("videos", [])
+    track_notes = {
+        "LEY DEL SEXTO": "El origen visible y la declaración del sistema.",
+        "ZONA GRIS": "Percepción, poder y lo que opera fuera del contraste fácil.",
+        "CLONES Y FANTASMAS": "Identidad, duplicación y residuos de presencia.",
+        "NADA ME BORRA": "La herida convertida en sello de permanencia.",
+        "LIBRE PRISIONERO": "Libertad y encierro como fuerzas simultáneas.",
+        "LSE6": "El sistema se nombra a sí mismo dentro del volumen.",
+        "ERROR 404": "La grieta digital cierra el arco y deja el mapa abierto.",
+    }
+    track_slugs = {
+        "LEY DEL SEXTO": "ley-del-sexto",
+        "ZONA GRIS": "zona-gris",
+        "CLONES Y FANTASMAS": "clones-y-fantasmas",
+        "NADA ME BORRA": "nada-me-borra",
+        "LIBRE PRISIONERO": "libre-prisionero",
+        "LSE6": "lse6",
+        "ERROR 404": "error-404",
+    }
+
+    for page in pages:
+        slug = page["slug"]
+        canonical = f"{SITE}/{slug}/"
+        nav = []
+        for nav_slug, nav_label in nav_items:
+            current = ' aria-current="page"' if nav_slug == slug else ""
+            nav.append(f'<a href="/{nav_slug}/"{current}>{html_escape(nav_label)}</a>')
+        nav.append('<a class="center-link" href="https://lse6.com/" target="_blank" rel="external noopener noreferrer">LSE6.COM ↗</a>')
+
+        image_items: list[dict[str, Any]] = []
+        group_name = page.get("image_group")
+        if group_name:
+            image_items.extend(slot for slot in slots_by_group[group_name] if slot["installed"])
+        for public_path, alt, caption in page.get("extra_images", []):
+            local = ROOT / public_path
+            dims = image_dimensions(local)
+            if local.exists() and dims:
+                image_items.append({
+                    "public_path": public_path,
+                    "src": f"/{public_path}",
+                    "alt": alt,
+                    "title": caption,
+                    "width": dims[0],
+                    "height": dims[1],
+                })
+
+        gallery = []
+        for item in image_items:
+            public_path = item.get("public_path") or item["src"].lstrip("./")
+            src = f"/{public_path}"
+            gallery.append(
+                '<figure>'
+                f'<a href="{src}" target="_blank" rel="noopener">'
+                f'{responsive_image(public_path, item["alt"], item["width"], item["height"])}</a>'
+                f'<figcaption><strong>{html_escape(item.get("title", item["alt"]))}</strong>'
+                f'<span>{html_escape(item["alt"])}</span></figcaption></figure>'
+            )
+
+        facts = "".join(
+            f'<div class="fact"><strong>{html_escape(value)}</strong><span>{html_escape(label)}</span></div>'
+            for value, label in page["facts"]
+        )
+        paragraphs = "".join(f"<p>{html_escape(text)}</p>" for text in page["paragraphs"])
+        resources = "".join(
+            '<article class="resource-card">'
+            f'<div><h3>{html_escape(label)}</h3><p>{html_escape(note)}</p></div>'
+            f'<a href="{html_escape(url)}"{door_link_attrs(url)}>ABRIR RECURSO ↗</a></article>'
+            for label, url, note in page["resources"]
+        )
+
+        tracks = ""
+        music_schema: dict[str, Any] | None = None
+        if page.get("music"):
+            track_cards = []
+            item_list = []
+            for position, video in enumerate(videos, 1):
+                title = video["title"]
+                track_url = f"{CENTER}{track_slugs[title]}/"
+                track_cards.append(
+                    '<article class="track">'
+                    f'<a href="{track_url}" target="_blank" rel="external noopener noreferrer">'
+                    f'{responsive_image(video["thumbnail"].lstrip("/"), f"Miniatura oficial de {title} por {ARTIST_NAME}", 1280, 720)}</a>'
+                    f'<div class="track-copy"><strong>{position}. {html_escape(title)}</strong>'
+                    f'<span>{html_escape(track_notes.get(title, "Pieza oficial de VOL. 1 · LEY DEL SEXTO."))}</span><br>'
+                    f'<a href="{track_url}" target="_blank" rel="external noopener noreferrer">PÁGINA LSE6.COM ↗</a> · '
+                    f'<a href="{html_escape(video["url"])}" target="_blank" rel="external noopener noreferrer">VIDEO OFICIAL ↗</a></div></article>'
+                )
+                item_list.append({
+                    "@type": "ListItem",
+                    "position": position,
+                    "item": {
+                        "@type": "MusicRecording",
+                        "name": title,
+                        "url": track_url,
+                        "sameAs": video["url"],
+                        "byArtist": {"@id": ARTIST_ID},
+                    },
+                })
+            tracks = '<section class="door-section" aria-labelledby="tracks-title"><h2 id="tracks-title">Siete canciones · videos oficiales</h2><div class="track-grid">' + "".join(track_cards) + "</div></section>"
+            music_schema = {"@type": "ItemList", "name": "VOL. 1 · LEY DEL SEXTO", "itemListElement": item_list}
+
+        breadcrumb_id = f"{canonical}#breadcrumb"
+        page_schema: dict[str, Any] = {
+            "@type": "CollectionPage",
+            "@id": f"{canonical}#page",
+            "url": canonical,
+            "name": page["h1"],
+            "description": page["description"],
+            "inLanguage": "es-MX",
+            "isPartOf": {"@id": f"{SITE}/#website"},
+            "about": [{"@id": ARTIST_ID}, {"@id": BRAND_ID}, {"@id": SYSTEM_ID}],
+            "creator": {"@id": ARTIST_ID},
+            "publisher": {"@id": ARTIST_ID},
+            "relatedLink": [CENTER],
+            "breadcrumb": {"@id": breadcrumb_id},
+        }
+        if image_items:
+            first_path = image_items[0].get("public_path") or image_items[0]["src"].lstrip("./")
+            page_schema["primaryImageOfPage"] = {"@type": "ImageObject", "url": f"{SITE}/{first_path}"}
+        if music_schema:
+            page_schema["mainEntity"] = music_schema
+
+        schema = {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "WebSite",
+                    "@id": f"{SITE}/#website",
+                    "url": f"{SITE}/",
+                    "name": WEBSITE_NAME,
+                    "inLanguage": "es-MX",
+                    "publisher": {"@id": ARTIST_ID},
+                    "about": [{"@id": ARTIST_ID}, {"@id": BRAND_ID}, {"@id": SYSTEM_ID}],
+                },
+                page_schema,
+                {
+                    "@type": "BreadcrumbList",
+                    "@id": breadcrumb_id,
+                    "itemListElement": [
+                        {"@type": "ListItem", "position": 1, "name": "LSE6.ORG", "item": f"{SITE}/"},
+                        {"@type": "ListItem", "position": 2, "name": page["h1"], "item": canonical},
+                    ],
+                },
+            ],
+        }
+        gallery_section = ""
+        if gallery:
+            gallery_section = '<section class="door-section" aria-labelledby="gallery-title"><h2 id="gallery-title">Archivo visual relacionado</h2><div class="gallery">' + "".join(gallery) + "</div></section>"
+        privacy_note = ""
+        if slug == "anomalias-temporales":
+            privacy_note = '<div class="signal-box"><strong>ESTADO DE PUBLICACIÓN</strong><p>Los CSV conservan todos sus registros y sólo normalizan EOL a CRLF. Siguen descargables: noindex controla descubrimiento en buscadores; no equivale a privacidad ni a control de acceso.</p></div>'
+
+        html = f'''<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{html_escape(page["title"])}</title>
+  <meta name="description" content="{html_escape(page["description"])}">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="LSE6 - AlekSix LM">
+  <meta name="creator" content="LSE6 - AlekSix LM">
+  <meta name="publisher" content="LSE6 - AlekSix LM">
+  <meta name="theme-color" content="#020402">
+  <link rel="canonical" href="{canonical}">
+  <link rel="stylesheet" href="/assets/css/doors.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:site_name" content="LSE6.ORG · Archivo Vivo">
+  <meta property="og:title" content="{html_escape(page["title"])}">
+  <meta property="og:description" content="{html_escape(page["description"])}">
+  <meta property="og:url" content="{canonical}">
+  <meta property="og:image" content="{SITE}/assets/images/system/lse6-org-og.jpg">
+  <meta property="og:image:alt" content="LSE6.ORG · archivo vivo de LEY DEL SEXTO y LSEØ SIXTEM">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{html_escape(page["title"])}">
+  <meta name="twitter:description" content="{html_escape(page["description"])}">
+  <meta name="twitter:image" content="{SITE}/assets/images/system/lse6-org-og.jpg">
+  <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False, separators=(",", ":"))}</script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-head">
+    <a class="brand" href="/"><strong>LSE6.ORG</strong><span>ARCHIVO VIVO · SISTEMA LSE6 · LSEØ</span></a>
+    <nav class="global-nav" aria-label="Puertas del archivo">{"".join(nav)}</nav>
+  </header>
+  <main class="door-main" id="contenido">
+    <nav class="breadcrumbs" aria-label="Migas de pan"><a href="/">LSE6.ORG</a><span>›</span><span aria-current="page">{html_escape(page["h1"])}</span></nav>
+    <article>
+      <header class="door-hero"><p class="eyebrow">{html_escape(page["eyebrow"])}</p><h1>{html_escape(page["h1"])}</h1><p class="lede">{html_escape(page["lede"])}</p></header>
+      <section class="door-section prose" aria-labelledby="context-title"><h2 id="context-title">Contexto del archivo</h2>{paragraphs}<div class="fact-strip">{facts}</div>{privacy_note}</section>
+      {tracks}
+      {gallery_section}
+      <section class="door-section" aria-labelledby="resources-title"><h2 id="resources-title">Fuentes y conexiones</h2><div class="resource-grid">{resources}</div></section>
+      <nav class="door-switcher" aria-label="Continuar por el archivo"><a href="/">PORTADA MONSTRUO</a><a href="/fuentes/">FUENTES</a><a href="/musica/">MÚSICA</a><a href="https://lse6.com/" target="_blank" rel="external noopener noreferrer">NÚCLEO LSE6.COM ↗</a></nav>
+    </article>
+  </main>
+  <footer class="site-foot"><p><strong>LSE6 - AlekSix LM</strong> · @leydelsexto · LEY DEL SEXTO</p><p><a href="/">LSE6.ORG</a> documenta · <a href="https://lse6.com/" target="_blank" rel="external noopener noreferrer">LSE6.com</a> es el núcleo público.</p></footer>
+</body>
+</html>
+'''
+        html = "\n".join(line.rstrip() for line in html.splitlines()) + "\n"
+        output = ROOT / slug / "index.html"
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(html, encoding="utf-8", newline="\n")
+
+
 def update_index(slots_by_group: dict[str, list[dict[str, Any]]]) -> None:
     path = ROOT / "index.html"
     template = ROOT / "tools/templates/index.template.html"
@@ -413,9 +681,16 @@ def update_index(slots_by_group: dict[str, list[dict[str, Any]]]) -> None:
         node["content"] = content
 
     meta(name="description", content="LSE6.ORG es el archivo vivo e indexable de LSE6.com: evidencia de Ley del Sexto, Error 31/12/69, Remake 666 Moderno, rutas LSEØ SIXTEM, memoria técnica y expediente documental de 551 páginas.")
+    meta(name="robots", content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1")
+    meta(name="googlebot", content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1")
+    meta(name="bingbot", content="index,follow,max-image-preview:large")
     meta(name="application-name", content="LSE6.ORG · Archivo Vivo")
     meta(name="apple-mobile-web-app-title", content="LSE6.ORG")
     meta(name="format-detection", content="telephone=no")
+    meta(name="author", content=ARTIST_NAME)
+    meta(name="creator", content=ARTIST_NAME)
+    meta(name="publisher", content=ARTIST_NAME)
+    meta(prop="og:site_name", content=WEBSITE_NAME)
     meta(prop="og:description", content="Archivo vivo de LSE6.com: evidencia, Error 31/12/69, Remake 666 Moderno, LSEØ SIXTEM y expediente de 551 páginas.")
     meta(prop="og:image", content=f"{SITE}/assets/images/system/lse6-org-og.jpg")
     meta(prop="og:image:secure_url", content=f"{SITE}/assets/images/system/lse6-org-og.jpg")
@@ -464,11 +739,13 @@ def update_index(slots_by_group: dict[str, list[dict[str, Any]]]) -> None:
             {
                 "@type": "WebSite",
                 "@id": f"{SITE}/#website",
-                "name": "LSE6.ORG",
-                "alternateName": ["LEY DEL SEXTO", "LSE6", "LSEØ", "Archivo Vivo LSE6"],
+                "name": WEBSITE_NAME,
+                "alternateName": ["Archivo Vivo LSE6", "LSE6.ORG"],
                 "url": f"{SITE}/",
                 "inLanguage": "es-MX",
-                "publisher": {"@id": f"{CENTER}#artist"},
+                "publisher": {"@id": ARTIST_ID},
+                "creator": {"@id": ARTIST_ID},
+                "about": [{"@id": ARTIST_ID}, {"@id": BRAND_ID}, {"@id": SYSTEM_ID}],
             },
             {
                 "@type": ["CollectionPage", "WebPage"],
@@ -477,24 +754,13 @@ def update_index(slots_by_group: dict[str, list[dict[str, Any]]]) -> None:
                 "name": "LEY DEL SEXTO | Sistema LSE6 · LSEØ | LSE6.ORG",
                 "description": "Archivo vivo e indexable de LSE6.com con evidencia, Error 31/12/69, Remake 666 Moderno, rutas LSEØ SIXTEM y expediente documental.",
                 "isPartOf": {"@id": f"{SITE}/#website"},
-                "about": {"@id": f"{CENTER}#artist"},
+                "about": [{"@id": ARTIST_ID}, {"@id": BRAND_ID}, {"@id": SYSTEM_ID}],
+                "creator": {"@id": ARTIST_ID},
+                "publisher": {"@id": ARTIST_ID},
                 "mainEntity": {"@id": f"{SITE}/#archivo"},
                 "primaryImageOfPage": {"@id": f"{SITE}/assets/images/system/lse6-org-og.jpg#image"},
                 "dateModified": BUILD_TIME,
                 "inLanguage": "es-MX",
-            },
-            {
-                "@type": "MusicGroup",
-                "@id": f"{CENTER}#artist",
-                "name": "LSE6 - AlekSix LM",
-                "alternateName": ["AlekSix", "LEY DEL SEXTO", "LSE6", "LSEØ"],
-                "url": CENTER,
-                "sameAs": [
-                    "https://github.com/leydelsexto",
-                    "https://www.youtube.com/@leydelsexto",
-                    "https://www.instagram.com/leydelsexto/",
-                    "https://x.com/leydelsexto",
-                ],
             },
             {
                 "@type": "DigitalDocument",
@@ -505,7 +771,7 @@ def update_index(slots_by_group: dict[str, list[dict[str, Any]]]) -> None:
                 "numberOfPages": 551,
                 "inLanguage": "es-MX",
                 "isPartOf": {"@id": f"{SITE}/#website"},
-                "creator": {"@id": f"{CENTER}#artist"},
+                "creator": {"@id": ARTIST_ID},
                 "hasPart": [
                     {"@type": "DigitalDocument", "name": f"Alta resolución · Volumen {i:02d}", "pagination": pages, "url": f"{SITE}/evidence/high-resolution/{filename}"}
                     for i, pages, filename in [
@@ -662,7 +928,9 @@ def create_og_image() -> None:
 
 def update_js() -> None:
     path = ROOT / "assets/js/app.js"
-    template = ROOT / "tools/templates/app.template.js"
+    # La variante GPU es el runtime completo más reciente: incluye las ventanas
+    # de memoria/pintura móvil y el modo seguro iOS que el template antiguo perdió.
+    template = ROOT / "assets/js/app-20260808-gpu.js"
     text = template.read_text(encoding="utf-8-sig")
     # Add functional symbol map and release metadata after strict mode.
     if "const RITUAL = Object.freeze" not in text:
@@ -670,8 +938,10 @@ def update_js() -> None:
     # Include data-src so future files can be mounted without rebuilding markup.
     text = text.replace('data-file="${escapeHtml(filename)}"\n      >', 'data-file="${escapeHtml(filename)}"\n        data-src="${escapeHtml(slot.src)}"\n        data-installed="false"\n        data-sigil="🧬"\n      >')
     # Replace activation function and group rendering block.
-    start = text.index("  const activateSlot = (article) => {")
-    end = text.index("\n\n  const eye =", start)
+    runtime_start = "  const updateRuntimeStatus = () => {"
+    start = text.index(runtime_start) if runtime_start in text else text.index("  const activateSlot = (article) => {")
+    mobile_anchor = "\n\n  // 📱 Ventana de memoria móvil"
+    end = text.index(mobile_anchor, start) if mobile_anchor in text[start:] else text.index("\n\n  const eye =", start)
     replacement = r'''  const updateRuntimeStatus = () => {
     const cards = [...document.querySelectorAll(".archive-slot")];
     const ready = cards.filter((card) => card.classList.contains("is-ready")).length;
@@ -909,49 +1179,24 @@ def update_404() -> None:
 
 
 def write_sitemaps(slots_by_group: dict[str, list[dict[str, Any]]]) -> None:
-    lastmod = BUILD_TIME[:10]
     urls = [
-        (f"{SITE}/", "weekly", "1.0"),
-        (f"{SITE}/evidence/lse6-expediente-completo.pdf", "monthly", "0.9"),
-        (f"{SITE}/evidence/lse6-expediente-completo.txt", "monthly", "0.8"),
-        (f"{SITE}/docs/lse6-expediente-integrado.md", "monthly", "0.7"),
-        (f"{SITE}/docs/lse6-expediente-integrado.docx", "monthly", "0.5"),
-        (f"{SITE}/data/expediente.json", "weekly", "0.7"),
-        (f"{SITE}/data/timeline.json", "weekly", "0.7"),
-        (f"{SITE}/data/entity-schema.json", "weekly", "0.6"),
-        (f"{SITE}/data/machine-pulse.json", "weekly", "0.6"),
-        (f"{SITE}/assets/data/image-manifest.json", "weekly", "0.6"),
-        (f"{SITE}/data/temporal-anomalies.json", "weekly", "0.8"),
-        (f"{SITE}/data/youtube-videos.json", "weekly", "0.8"),
-        (f"{SITE}/data/temporal-anomalies.json", "weekly", "0.8"),
-        (f"{SITE}/data/youtube-videos.json", "weekly", "0.8"),
-        (f"{SITE}/data/saltos-temporales/", "monthly", "0.9"),
-        (f"{SITE}/data/saltos-temporales/index.json", "monthly", "0.8"),
-        (f"{SITE}/data/saltos-temporales/SHA256SUMS.txt", "monthly", "0.6"),
-        (f"{SITE}/llms.txt", "weekly", "0.5"),
-        (f"{SITE}/evidence/high-resolution/index.json", "monthly", "0.7"),
+        (f"{SITE}/", BUILD_DATE),
+        (f"{SITE}/evidencia/", BUILD_DATE),
+        (f"{SITE}/error-31-12-69/", BUILD_DATE),
+        (f"{SITE}/remake-666/", BUILD_DATE),
+        (f"{SITE}/rutas-sixtem/", BUILD_DATE),
+        (f"{SITE}/lseo-sixtem/", BUILD_DATE),
+        (f"{SITE}/fuentes/", BUILD_DATE),
+        (f"{SITE}/anomalias-temporales/", BUILD_DATE),
+        (f"{SITE}/musica/", BUILD_DATE),
+        (f"{SITE}/evidence/lse6-expediente-completo.pdf", RELEASE["pdf_lastmod"]),
     ]
-    for i, pages, filename in [
-        (1, "001-090", "lse6-expediente-alta-res-vol-01-pag-001-090.pdf"),
-        (2, "091-134", "lse6-expediente-alta-res-vol-02-pag-091-134.pdf"),
-        (3, "135-178", "lse6-expediente-alta-res-vol-03-pag-135-178.pdf"),
-        (4, "179-273", "lse6-expediente-alta-res-vol-04-pag-179-273.pdf"),
-        (5, "274-368", "lse6-expediente-alta-res-vol-05-pag-274-368.pdf"),
-        (6, "369-450", "lse6-expediente-alta-res-vol-06-pag-369-450.pdf"),
-        (7, "451-532", "lse6-expediente-alta-res-vol-07-pag-451-532.pdf"),
-        (8, "533-551", "lse6-expediente-alta-res-vol-08-pag-533-551.pdf"),
-    ]:
-        urls.append((f"{SITE}/evidence/high-resolution/{filename}", "monthly", "0.6"))
-    for part in range(1, 7):
-        filename = f"LSE6_SALTOS_TEMPORALES_PARTE_{part:02d}_DE_06.csv"
-        urls.append((f"{SITE}/data/saltos-temporales/{filename}", "monthly", "0.7"))
     xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for loc, freq, priority in urls:
-        xml += ["  <url>", f"    <loc>{loc}</loc>", f"    <lastmod>{lastmod}</lastmod>", f"    <changefreq>{freq}</changefreq>", f"    <priority>{priority}</priority>", "  </url>"]
+    for loc, lastmod in urls:
+        xml += ["  <url>", f"    <loc>{loc}</loc>", f"    <lastmod>{lastmod}</lastmod>", "  </url>"]
     xml.append("</urlset>")
-    (ROOT / "sitemap.xml").write_text("\n".join(xml) + "\n", encoding="utf-8")
+    (ROOT / "sitemap.xml").write_text("\n".join(xml) + "\n", encoding="utf-8", newline="\n")
 
-    installed = [slot for group in slots_by_group.values() for slot in group if slot["installed"]]
     hero_objects = []
     for item in HERO:
         local = ROOT / item["file"]
@@ -968,26 +1213,43 @@ def write_sitemaps(slots_by_group: dict[str, list[dict[str, Any]]]) -> None:
         for local in sorted(youtube_dir.glob("*.jpg")):
             title = youtube_titles.get(local.name, local.stem)
             youtube_objects.append({"public_path": local.relative_to(ROOT).as_posix(), "title": title, "alt": f"Miniatura oficial de YouTube para {title}"})
-    image_items = hero_objects + installed + youtube_objects + [
+    system_objects = [
         {"public_path": "assets/images/system/lse6-eye-alpha.png", "title": "Ojo tecnológico LSE6", "alt": "Ojo vivo del archivo LSE6 siguiendo el movimiento"},
         {"public_path": "assets/images/system/lse6-org-og.jpg", "title": "LSE6.ORG archivo vivo", "alt": "Tarjeta social del archivo Ley del Sexto y LSEØ SIXTEM"},
+    ]
+    def installed(group: str) -> list[dict[str, Any]]:
+        return [slot for slot in slots_by_group[group] if slot["installed"]]
+
+    # Cada imagen se asocia con la puerta HTML que realmente le da contexto.
+    # El bloque extra permanece en la portada hasta que exista contenido propio.
+    image_groups = [
+        (f"{SITE}/", hero_objects + system_objects + installed("extras")),
+        (f"{SITE}/evidencia/", installed("evidence")),
+        (f"{SITE}/error-31-12-69/", installed("error1969")),
+        (f"{SITE}/remake-666/", installed("remake666")),
+        (f"{SITE}/rutas-sixtem/", installed("routes")),
+        (f"{SITE}/lseo-sixtem/", installed("sixtem")),
+        (f"{SITE}/fuentes/", hero_objects),
+        (f"{SITE}/anomalias-temporales/", system_objects[:1]),
+        (f"{SITE}/musica/", installed("songs") + youtube_objects),
     ]
     ix = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
-        "  <url>",
-        f"    <loc>{SITE}/</loc>",
     ]
-    for item in image_items:
-        ix += [
-            "    <image:image>",
-            f"      <image:loc>{SITE}/{item['public_path']}</image:loc>",
-            f"      <image:title>{xml_escape(item['title'])}</image:title>",
-            f"      <image:caption>{xml_escape(item['alt'])}</image:caption>",
-            "    </image:image>",
-        ]
-    ix += ["  </url>", "</urlset>"]
-    (ROOT / "image-sitemap.xml").write_text("\n".join(ix) + "\n", encoding="utf-8")
+    for page_url, image_items in image_groups:
+        if not image_items:
+            continue
+        ix += ["  <url>", f"    <loc>{page_url}</loc>"]
+        for item in image_items:
+            ix += [
+                "    <image:image>",
+                f"      <image:loc>{SITE}/{item['public_path']}</image:loc>",
+                "    </image:image>",
+            ]
+        ix.append("  </url>")
+    ix.append("</urlset>")
+    (ROOT / "image-sitemap.xml").write_text("\n".join(ix) + "\n", encoding="utf-8", newline="\n")
 
 
 def xml_escape(value: Any) -> str:
@@ -998,21 +1260,23 @@ def update_configs(slots_by_group: dict[str, list[dict[str, Any]]]) -> None:
     (ROOT / "robots.txt").write_text(
         "User-agent: *\nAllow: /\n\nSitemap: https://lse6.org/sitemap.xml\nSitemap: https://lse6.org/image-sitemap.xml\n",
         encoding="utf-8",
+        newline="\n",
     )
     (ROOT / "_redirects").write_text(
         "# 🧭 Rutas canónicas LSE6.ORG · Cloudflare Pages\n"
         "/index.html / 301\n"
         "/home / 301\n"
         "/inicio / 301\n"
-        "/archivo /#evidencia 302\n"
-        "/expediente /evidence/lse6-expediente-completo.pdf 302\n"
-        "/fuentes /#fuentes 302\n"
-        "/alta-res /evidence/high-resolution/index.json 302\n"
-        "/datos /data/expediente.json 302\n"
+        "/favicon.ico /favicon.png 301\n"
+        "/archivo /evidencia/ 301\n"
+        "/expediente /evidence/lse6-expediente-completo.pdf 301\n"
+        "/alta-res /fuentes/ 302\n"
+        "/datos /anomalias-temporales/ 302\n"
         "/centro https://lse6.com/ 301\n"
         "/lse6 https://lse6.com/ 301\n"
         "/lse6.com https://lse6.com/ 301\n",
         encoding="utf-8",
+        newline="\n",
     )
     (ROOT / "_headers").write_text(
         "# 🛡️ Capa técnica de entrega · Cloudflare Pages\n"
@@ -1037,24 +1301,58 @@ def update_configs(slots_by_group: dict[str, list[dict[str, Any]]]) -> None:
         "  Cache-Control: public, max-age=3600, stale-while-revalidate=86400\n"
         "\n/assets/source-library/*\n"
         "  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000\n"
-        "\n/evidence/*.pdf\n"
+        "  X-Robots-Tag: noindex, nofollow\n"
+        "\n/evidence/lse6-expediente-completo.pdf\n"
         "  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000\n"
         "  X-Robots-Tag: index, follow\n"
-        "\n/evidence/*\n"
+        "\n/evidence/high-resolution/*.pdf\n"
+        "  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000\n"
+        "  X-Robots-Tag: noindex, follow\n"
+        "\n/evidence/*.txt\n"
         "  Cache-Control: public, max-age=86400, stale-while-revalidate=604800\n"
+        "  X-Robots-Tag: noindex, nofollow\n"
+        "\n/evidence/*.json\n"
+        "  Cache-Control: public, max-age=86400, stale-while-revalidate=604800\n"
+        "  X-Robots-Tag: noindex, nofollow\n"
+        "\n/evidence/high-resolution/*.json\n"
+        "  Cache-Control: public, max-age=86400, stale-while-revalidate=604800\n"
+        "  X-Robots-Tag: noindex, nofollow\n"
         "\n/data/*\n"
         "  Cache-Control: public, max-age=300, stale-while-revalidate=86400\n"
+        "\n/data/saltos-temporales/\n"
+        "  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet\n"
+        "\n/data/*.json\n"
+        "  X-Robots-Tag: noindex, nofollow\n"
+        "\n/data/saltos-temporales/*.json\n"
+        "  X-Robots-Tag: noindex, nofollow\n"
+        "\n/data/saltos-temporales/*.csv\n"
+        "  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet\n"
+        "\n/data/saltos-temporales/*.txt\n"
+        "  X-Robots-Tag: noindex, nofollow\n"
+        "\n/data/saltos-temporales/*.py\n"
+        "  X-Robots-Tag: noindex, nofollow\n"
         "\n/*.json\n"
         "  Cache-Control: public, max-age=300, stale-while-revalidate=86400\n"
+        "  X-Robots-Tag: noindex, nofollow\n"
+        "\n/assets/data/*.json\n"
+        "  X-Robots-Tag: noindex, nofollow\n"
+        "\n/docs/*\n"
+        "  X-Robots-Tag: noindex, follow\n"
+        "\n/tools/*\n"
+        "  X-Robots-Tag: noindex, nofollow\n"
+        "\n/site.webmanifest\n"
+        "  X-Robots-Tag: noindex, nofollow\n"
         "\n/*.xml\n"
         "  Cache-Control: public, max-age=300, stale-while-revalidate=86400\n"
         "\n/INTEGRITY.sha256\n"
         "  Cache-Control: no-cache\n"
+        "  X-Robots-Tag: noindex, nofollow\n"
         "\nhttps://:project.pages.dev/*\n"
         "  X-Robots-Tag: noindex, nofollow\n"
         "\nhttps://:version.:project.pages.dev/*\n"
         "  X-Robots-Tag: noindex, nofollow\n",
         encoding="utf-8",
+        newline="\n",
     )
     manifest = {
         "name": "LSE6.ORG — Archivo Vivo",
@@ -1074,19 +1372,17 @@ def update_configs(slots_by_group: dict[str, list[dict[str, Any]]]) -> None:
             {"src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"},
         ],
     }
-    (ROOT / "site.webmanifest").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (ROOT / "site.webmanifest").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
 
     installed = [slot for group in slots_by_group.values() for slot in group if slot["installed"]]
     installed_group_counts = {name: sum(slot["installed"] for slot in slots) for name, slots in slots_by_group.items()}
     package = json.loads((ROOT / "package-manifest.json").read_text(encoding="utf-8-sig"))
     package.update({
-        "version": "2026.08.05-temporal-youtube",
-        "state": "READY_FOR_GITHUB_AND_CLOUDFLARE",
+        "version": RELEASE["version"],
+        "state": RELEASE["state"],
         "last_build": BUILD_TIME,
         "build_id": BUILD_ID,
-        "origin_package": "LSE6_ORG(1).zip",
-        "integrated_package": "LSE6_ORG_TEMPORAL_YOUTUBE_GITHUB_CLOUDFLARE_2026-08-05.zip",
-        "required_user_action": "Subir el contenido de la carpeta a la raíz del repositorio. Las imágenes futuras pueden agregarse con los nombres del manifiesto.",
+        "required_user_action": "Validar el release, publicar main y comprobar el SHA exacto en GitHub Actions y Cloudflare Pages.",
     })
     package["image_slots"].update({
         "planned_total": 63,
@@ -1096,13 +1392,20 @@ def update_configs(slots_by_group: dict[str, list[dict[str, Any]]]) -> None:
         "missing_total": 63 - (len(installed) + 2),
         "installed_by_group": installed_group_counts,
     })
-    package["deployment"].update({"cloudflare_status": "READY", "github_status": "READY", "image_sitemap": "image-sitemap.xml"})
-    (ROOT / "package-manifest.json").write_text(json.dumps(package, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    package["deployment"].update({
+        "cloudflare_status": "CONNECTED",
+        "github_status": "CONNECTED",
+        "release_state": RELEASE["state"],
+        "image_sitemap": "image-sitemap.xml",
+    })
+    (ROOT / "package-manifest.json").write_text(json.dumps(package, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
 
     image_manifest_path = ROOT / "assets/data/image-manifest.json"
     image_manifest = json.loads(image_manifest_path.read_text(encoding="utf-8-sig"))
     image_manifest.update({
-        "state": "PARTIAL_VISUAL_ARCHIVE_READY",
+        "state": RELEASE["state"],
+        "version": RELEASE["version"],
+        "build_id": BUILD_ID,
         "last_build": BUILD_TIME,
         "installed_image_files": len(installed) + 2,
         "missing_image_files": 63 - (len(installed) + 2),
@@ -1110,7 +1413,7 @@ def update_configs(slots_by_group: dict[str, list[dict[str, Any]]]) -> None:
         "image_sitemap": "https://lse6.org/image-sitemap.xml",
         "instructions": "Las imágenes instaladas ya están montadas en HTML e image-sitemap.xml. Agrega las faltantes conservando las rutas exactas y ejecuta tools/rebuild_release.py para regenerar descubrimiento e integridad.",
     })
-    image_manifest_path.write_text(json.dumps(image_manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    image_manifest_path.write_text(json.dumps(image_manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
 
 
 def update_identity_files(slots_by_group: dict[str, list[dict[str, Any]]]) -> None:
@@ -1133,9 +1436,26 @@ def update_identity_files(slots_by_group: dict[str, list[dict[str, Any]]]) -> No
     for relative in ["machine-pulse.json", "data/machine-pulse.json"]:
         p = ROOT / relative
         data = json.loads(p.read_text(encoding="utf-8-sig"))
-        data.update({"last_build": BUILD_TIME, "build": BUILD_ID, "installed_images": installed_total, "missing_images": missing_total})
-        data["nodes"]["image_sitemap"] = "https://lse6.org/image-sitemap.xml"
-        p.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        data.update({
+            "release_state": RELEASE["state"],
+            "version": RELEASE["version"],
+            "last_build": BUILD_TIME,
+            "build": BUILD_ID,
+            "installed_images": installed_total,
+            "missing_images": missing_total,
+        })
+        data["nodes"].update({
+            "image_sitemap": f"{SITE}/image-sitemap.xml",
+            "evidencia": f"{SITE}/evidencia/",
+            "error_31_12_69": f"{SITE}/error-31-12-69/",
+            "remake_666": f"{SITE}/remake-666/",
+            "rutas_sixtem": f"{SITE}/rutas-sixtem/",
+            "lseo_sixtem": f"{SITE}/lseo-sixtem/",
+            "fuentes": f"{SITE}/fuentes/",
+            "anomalias_temporales": f"{SITE}/anomalias-temporales/",
+            "musica": f"{SITE}/musica/",
+        })
+        p.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
 
 
 def update_docs(slots_by_group: dict[str, list[dict[str, Any]]]) -> None:
@@ -1149,13 +1469,14 @@ Extensión documental de [LSE6.com]({CENTER}) preparada para GitHub y Cloudflare
 ## Estado de esta entrega
 
 - 🔥 Release: `{BUILD_ID}`
+- 🧬 Versión: `{RELEASE["version"]}` · estado: `{RELEASE["state"]}`.
 - 👁 Página estática visible incluso sin JavaScript.
 - 🧬 63 ranuras planeadas, {installed_total} imágenes instaladas y {missing_total} ranuras futuras.
 - ⚡ Sitemap principal + sitemap de imágenes.
 - ⏳ ANOMALÍAS TEMPORALES: cuatro campos del CSV real y evidencia por año.
-- 🧾 CSV ORIGINAL: 256,666 registros preservados en 6 partes indexables y reconstruibles.
+- 🧾 CSV ORIGINAL: 256,666 registros preservados en 6 partes descargables, noindex/nofollow y reconstruibles. Siguen siendo públicos hasta una decisión explícita de protección o redacción.
 - ▶ 7 miniaturas oficiales enlazadas al canal @leydelsexto.
-- 551 páginas en PDF web, texto indexable y 8 volúmenes de alta resolución.
+- 551 páginas en PDF web canónico, texto buscable y 8 volúmenes de alta resolución.
 - El botón, la firma y las menciones visibles de LSE6.com abren el centro en una pestaña nueva sin cerrar LSE6.ORG.
 
 ## Subir a GitHub
@@ -1182,7 +1503,7 @@ Cloudflare procesa `_headers` y `_redirects` automáticamente. Las URLs temporal
 4. Registra la propiedad de dominio en Google Search Console.
 5. Envía ambos sitemaps y solicita indexación de `https://lse6.org/`.
 
-## Agregar las imágenes restantes
+## Reconstrucción determinista
 
 Las rutas exactas viven en `assets/data/image-manifest.json`. Después de copiar nuevas imágenes:
 
@@ -1191,7 +1512,15 @@ python tools/rebuild_release.py
 python tools/validate_release.py
 ```
 
-Esto vuelve a sincronizar miniaturas oficiales de YouTube y a montar HTML, sitemap de imágenes, pulsos e integridad.
+El comando normal trabaja sin red y toma versión, fecha y Build ID de `data/release.json`; con las mismas entradas produce los mismos artefactos. Monta la portada, las ocho puertas HTML canónicas, ambos sitemaps, pulsos e integridad raw SHA-256. El sitemap principal conserva sólo nueve páginas HTML de destino y el PDF completo; CSV, JSON, TXT y manifiestos permanecen fuera de esa superficie.
+
+Para refrescar deliberadamente las miniaturas oficiales antes de construir:
+
+```bash
+python tools/rebuild_release.py --refresh-youtube
+```
+
+El refresco remoto es una acción separada y puede cambiar entradas del release; debe revisarse antes del commit.
 
 ## Símbolos funcionales
 
@@ -1212,8 +1541,11 @@ LSE6.ORG es el archivo vivo, visible e indexable de LSE6.com.
 Centro canónico: {CENTER}
 Archivo: {SITE}/
 Identidad artística: LSE6 - AlekSix LM
-Obra y consulta: LEY DEL SEXTO
+Marca / ley: LEY DEL SEXTO
+Sistema documentado: LSEØ - SIXTEM
 Handle: @leydelsexto
+Versión: {RELEASE["version"]}
+Estado: {RELEASE["state"]}
 Build: {BUILD_ID}
 
 ## Contenido instalado
@@ -1236,39 +1568,65 @@ Build: {BUILD_ID}
 
 - {SITE}/sitemap.xml
 - {SITE}/image-sitemap.xml
+- {SITE}/evidencia/
+- {SITE}/error-31-12-69/
+- {SITE}/remake-666/
+- {SITE}/rutas-sixtem/
+- {SITE}/lseo-sixtem/
+- {SITE}/fuentes/
+- {SITE}/anomalias-temporales/
+- {SITE}/musica/
 - {SITE}/evidence/lse6-expediente-completo.pdf
+
+## Recursos técnicos enlazados, no destinados a resultados individuales
+
 - {SITE}/evidence/lse6-expediente-completo.txt
 - {SITE}/evidence/high-resolution/index.json
 - {SITE}/docs/lse6-expediente-integrado.md
 - {SITE}/data/expediente.json
 - {SITE}/data/timeline.json
 - {SITE}/data/temporal-anomalies.json
-- {SITE}/data/saltos-temporales/
 - {SITE}/data/saltos-temporales/index.json
 - {SITE}/data/saltos-temporales/SHA256SUMS.txt
+- {SITE}/data/saltos-temporales/ (índice técnico noindex/nofollow; los CSV continúan públicos)
 - {SITE}/data/youtube-videos.json
 - {SITE}/assets/data/image-manifest.json
 
 El centro siempre es LSE6.com. LSE6.org funciona como archivo, soporte y extensión.
 '''
-    (ROOT / "llms.txt").write_text(llms, encoding="utf-8")
+    (ROOT / "llms.txt").write_text(llms, encoding="utf-8", newline="\n")
 
 
 def write_integrity() -> None:
     entries = []
     for path in sorted(ROOT.rglob("*")):
-        if not path.is_file() or path.name == "INTEGRITY.sha256" or ".git" in path.parts:
+        if (
+            not path.is_file()
+            or path.name == "INTEGRITY.sha256"
+            or ".git" in path.parts
+            or "__pycache__" in path.parts
+            or path.suffix.lower() in {".pyc", ".pyo"}
+        ):
             continue
         digest = hashlib.sha256(path.read_bytes()).hexdigest()
         entries.append(f"{digest}  {path.relative_to(ROOT).as_posix()}")
-    (ROOT / "INTEGRITY.sha256").write_text("\n".join(entries) + "\n", encoding="utf-8")
+    (ROOT / "INTEGRITY.sha256").write_text("\n".join(entries) + "\n", encoding="utf-8", newline="\n")
 
 
 def main() -> None:
-    sync_youtube_thumbnails()
+    parser = argparse.ArgumentParser(description="Reconstruye el release estático reproducible de LSE6.ORG")
+    parser.add_argument(
+        "--refresh-youtube",
+        action="store_true",
+        help="actualiza miniaturas remotas antes del build; cambia entradas y requiere revisión",
+    )
+    args = parser.parse_args()
+    if args.refresh_youtube:
+        sync_youtube_thumbnails()
     slots = all_slots()
     create_og_image()
     update_index(slots)
+    write_archive_doors(slots)
     update_js()
     update_css()
     update_404()

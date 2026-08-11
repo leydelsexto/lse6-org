@@ -26,25 +26,71 @@
 
 /assets/source-library/*
   Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+  X-Robots-Tag: noindex, nofollow
 
-/evidence/*.pdf
+/evidence/lse6-expediente-completo.pdf
   Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
   X-Robots-Tag: index, follow
 
-/evidence/*
+/evidence/high-resolution/*.pdf
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+  X-Robots-Tag: noindex, follow
+
+/evidence/*.txt
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  X-Robots-Tag: noindex, nofollow
+
+/evidence/*.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  X-Robots-Tag: noindex, nofollow
+
+/evidence/high-resolution/*.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  X-Robots-Tag: noindex, nofollow
 
 /data/*
   Cache-Control: public, max-age=300, stale-while-revalidate=86400
 
+/data/saltos-temporales/
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+
+/data/*.json
+  X-Robots-Tag: noindex, nofollow
+
+/data/saltos-temporales/*.json
+  X-Robots-Tag: noindex, nofollow
+
+/data/saltos-temporales/*.csv
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+
+/data/saltos-temporales/*.txt
+  X-Robots-Tag: noindex, nofollow
+
+/data/saltos-temporales/*.py
+  X-Robots-Tag: noindex, nofollow
+
 /*.json
   Cache-Control: public, max-age=300, stale-while-revalidate=86400
+  X-Robots-Tag: noindex, nofollow
+
+/assets/data/*.json
+  X-Robots-Tag: noindex, nofollow
+
+/docs/*
+  X-Robots-Tag: noindex, follow
+
+/tools/*
+  X-Robots-Tag: noindex, nofollow
+
+/site.webmanifest
+  X-Robots-Tag: noindex, nofollow
 
 /*.xml
   Cache-Control: public, max-age=300, stale-while-revalidate=86400
 
 /INTEGRITY.sha256
   Cache-Control: no-cache
+  X-Robots-Tag: noindex, nofollow
 
 https://:project.pages.dev/*
   X-Robots-Tag: noindex, nofollow

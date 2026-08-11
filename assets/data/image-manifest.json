@@ -86,8 +86,8 @@
       "assets/images/canciones/06-error-404.jpg"
     ]
   },
-  "state": "PARTIAL_VISUAL_ARCHIVE_READY",
-  "last_build": "2026-08-05T17:32:25-07:00",
+  "state": "READY_FOR_GITHUB_AND_CLOUDFLARE",
+  "last_build": "2026-08-10T17:35:30-07:00",
   "installed_image_files": 57,
   "missing_image_files": 6,
   "installed_by_group": {
@@ -100,5 +100,7 @@
     "extras": 20,
     "songs": 0
   },
-  "image_sitemap": "https://lse6.org/image-sitemap.xml"
+  "image_sitemap": "https://lse6.org/image-sitemap.xml",
+  "version": "2026.08.10-indexacion",
+  "build_id": "LSE6_ORG_INDEXACION_20260810_173530"
 }

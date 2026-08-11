@@ -5,18 +5,19 @@
 <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
 <meta content="#010201" name="theme-color"/>
 <meta content="dark" name="color-scheme"/>
-<meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"/>
-<meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="googlebot"/>
-<meta content="index,follow,max-image-preview:large" name="bingbot"/>
+<meta content="noindex,nofollow,noarchive,nosnippet" name="robots"/>
+<meta content="noindex,nofollow,noarchive,nosnippet" name="googlebot"/>
+<meta content="noindex,nofollow,noarchive,nosnippet" name="bingbot"/>
 <meta content="LSE6 - AlekSix LM" name="author"/>
 <meta content="LSE6 - AlekSix LM" name="creator"/>
-<meta content="LEY DEL SEXTO" name="publisher"/>
+<meta content="LSE6 - AlekSix LM" name="publisher"/>
 <meta content="https://lse6.com/" name="lse6-center"/>
 <meta content="archivo / soporte / extensión" name="lse6-role"/>
 <meta content="3001FEC3240DA9D0" name="lse6-id"/>
 <meta content="LSE6.ORG es el archivo visible y la extensión documental de LSE6.com: Ley del Sexto, evidencia, Error 31/12/69, 666 Moderno Remake, rutas SIXTEM, bloque extra y núcleo musical." name="description"/>
 <meta content="LSE6, LSEØ, Simbiosis humano - tecnologia, patron vivo, IA,  Ley del Sexto, AlekSix LM, LSE6.org, LSE6.com, SIXTEM, Error 31/12/69, Zona Gris, archivo visible" name="keywords"/>
 <title>LEY DEL SEXTO | Sistema LSE6 · LSEØ | LSE6.ORG</title>
+<base href="/"/>
 <link href="https://lse6.org/" rel="canonical"/>
 <link href="https://lse6.com/" hreflang="es-MX" rel="alternate"/>
 <link href="/favicon.png" rel="icon" sizes="96x96" type="image/png"/>
@@ -49,16 +50,17 @@
       {
         "@type": "WebSite",
         "@id": "https://lse6.org/#website",
-        "name": "LSE6.ORG",
-        "alternateName": ["LEY DEL SEXTO", "LSE6", "LSEØ", "AlekSix", "LSE6 - AlekSix LM", "AlekSix LM", "LSE6.com", "666", "L S E Ø", "Archivo Visible LSE6"],
+        "name": "LSE6.ORG · Archivo Vivo",
+        "alternateName": ["Archivo Vivo LSE6", "LSE6.ORG"],
         "url": "https://lse6.org/",
         "inLanguage": "es-MX",
-        "isPartOf": {
-          "@type": "WebSite",
-          "@id": "https://lse6.com/#website",
-          "name": "LSE6.com",
-          "url": "https://lse6.com/"
-        }
+        "publisher": {"@id": "https://lse6.com/#artist"},
+        "creator": {"@id": "https://lse6.com/#artist"},
+        "about": [
+          {"@id": "https://lse6.com/#artist"},
+          {"@id": "https://lse6.com/#brand"},
+          {"@id": "https://lse6.com/#system"}
+        ]
       },
       {
         "@type": "DigitalDocument",
@@ -68,28 +70,7 @@
         "numberOfPages": 551,
         "inLanguage": "es-MX",
         "isPartOf": {"@id": "https://lse6.org/#website"},
-        "creator": {"@id": "https://lse6.com/#artist"},
-        "hasPart": [
-          {"@type": "DigitalDocument", "name": "Alta resolución · Volumen 01", "pagination": "1-90", "url": "https://lse6.org/evidence/high-resolution/lse6-expediente-alta-res-vol-01-pag-001-090.pdf"},
-          {"@type": "DigitalDocument", "name": "Alta resolución · Volumen 02", "pagination": "91-134", "url": "https://lse6.org/evidence/high-resolution/lse6-expediente-alta-res-vol-02-pag-091-134.pdf"},
-          {"@type": "DigitalDocument", "name": "Alta resolución · Volumen 03", "pagination": "135-178", "url": "https://lse6.org/evidence/high-resolution/lse6-expediente-alta-res-vol-03-pag-135-178.pdf"},
-          {"@type": "DigitalDocument", "name": "Alta resolución · Volumen 04", "pagination": "179-273", "url": "https://lse6.org/evidence/high-resolution/lse6-expediente-alta-res-vol-04-pag-179-273.pdf"},
-          {"@type": "DigitalDocument", "name": "Alta resolución · Volumen 05", "pagination": "274-368", "url": "https://lse6.org/evidence/high-resolution/lse6-expediente-alta-res-vol-05-pag-274-368.pdf"},
-          {"@type": "DigitalDocument", "name": "Alta resolución · Volumen 06", "pagination": "369-450", "url": "https://lse6.org/evidence/high-resolution/lse6-expediente-alta-res-vol-06-pag-369-450.pdf"},
-          {"@type": "DigitalDocument", "name": "Alta resolución · Volumen 07", "pagination": "451-532", "url": "https://lse6.org/evidence/high-resolution/lse6-expediente-alta-res-vol-07-pag-451-532.pdf"},
-          {"@type": "DigitalDocument", "name": "Alta resolución · Volumen 08", "pagination": "533-551", "url": "https://lse6.org/evidence/high-resolution/lse6-expediente-alta-res-vol-08-pag-533-551.pdf"}
-        ]
-      },
-      {
-        "@type": "MusicGroup",
-        "@id": "https://lse6.com/#artist",
-        "name": "LSE6 - AlekSix LM",
-        "alternateName": ["LEY DEL SEXTO", "Rap", "Rap Mexicano", "realidad", "Tecnologia", "Ciencia", "Conciencia detras del velo", "musica", "LSE6", "LSEØ", "AlekSix", "LSE6 - AlekSix LM", "AlekSix LM", "LSE6.com", "666", "L S E Ø", "Archivo Visible LSE6"],
-        "url": "https://lse6.com/",
-        "sameAs": [
-          "https://github.com/leydelsexto",
-          "https://www.youtube.com/@leydelsexto"
-        ]
+        "creator": {"@id": "https://lse6.com/#artist"}
       }
     ]
   }
@@ -176,13 +157,13 @@
 </aside>
 </section>
 <nav aria-label="Accesos del expediente" class="archive-nav">
-<a href="#evidencia">EVIDENCIA</a>
-<a href="#error-1969">31/12/69</a>
-<a href="#remake-666">666 REMAKE</a>
-<a href="#rutas">RUTAS</a>
-<a href="#sixtem">SIXTEM</a>
-<a href="#fuentes">FUENTES</a>
-<a href="#anomalias-temporales">ANOMALÍAS</a><a href="#extra">EXTRA ×20</a><a href="#youtube">YOUTUBE</a>
+<a href="/evidencia/">EVIDENCIA</a>
+<a href="/error-31-12-69/">31/12/69</a>
+<a href="/remake-666/">666 REMAKE</a>
+<a href="/rutas-sixtem/">RUTAS</a>
+<a href="/lseo-sixtem/">SIXTEM</a>
+<a href="/fuentes/">FUENTES</a>
+<a href="/anomalias-temporales/">ANOMALÍAS</a><a href="/musica/">MÚSICA</a>
 <a href="./evidence/lse6-expediente-completo.pdf#page=1" rel="noopener" target="_blank">PDF · 551P ↗</a>
 </nav>
 <section aria-label="Masa documental" class="metric-strip">

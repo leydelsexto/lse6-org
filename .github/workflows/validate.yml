@@ -1,0 +1,45 @@
+name: Validate LSE6 archive surface
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lse6-archive-validation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: tools/requirements-validation.txt
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install validation dependencies
+        run: python -m pip install -r tools/requirements-validation.txt
+      - name: Install pinned Chromium runtime
+        run: python -m playwright install --with-deps chromium
+      - name: Validate release contract
+        run: python tools/validate_release.py
+      - name: Validate mobile media contract
+        run: python tools/validate_mobile_media.py
+      - name: Validate center navigation in Chromium
+        run: python tools/test_center_navigation.py
+      - name: Rebuild offline and require deterministic output
+        run: |
+          python tools/rebuild_release.py
+          git diff --exit-code

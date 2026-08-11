@@ -368,7 +368,7 @@ const ORG_PUBLIC_IDENTITY = Object.freeze({
     data: "https://lse6.org/data/expediente.json",
     timeline: "https://lse6.org/data/timeline.json",
   }),
-  build: "LSE6_ORG_TEMPORAL_YOUTUBE_20260805_173225",
+  build: "LSE6_ORG_INDEXACION_20260810_173530",
   identityBuild: "SITE_IDENTITY_LSE6_ORG_UNIFIED_2026-07-31",
 });
 
@@ -833,6 +833,10 @@ function buildMachinePulse() {
 }
 
 function buildWebsiteJsonLd() {
+  const artistId = `${SITE.centerDomain}#artist`;
+  const brandId = `${SITE.centerDomain}#brand`;
+  const systemId = `${SITE.centerDomain}#system`;
+
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -840,109 +844,20 @@ function buildWebsiteJsonLd() {
         "@type": "WebSite",
         "@id": `${SITE.domain}#website`,
         url: SITE.domain,
-        name: SITE_IDENTITY.schema.websiteName,
-        isPartOf: {
-          "@id": `${SITE.centerDomain}#website`,
-        },
+        name: "LSE6.ORG · Archivo Vivo",
+        alternateName: ["Archivo Vivo LSE6", "LSE6.ORG"],
+        description: SITE.description,
+        inLanguage: "es-MX",
+        publisher: { "@id": artistId },
+        creator: { "@id": artistId },
+        about: [
+          { "@id": artistId },
+          { "@id": brandId },
+          { "@id": systemId },
+        ],
         mainEntity: {
           "@id": `${SITE.domain}#archivo`,
         },
-        alternateName: [
-          ...SITE.visibleAnchors,
-          SITE.officialName,
-          SITE.centerOfficialName,
-          SITE.visibleName,
-          SITE.symbolPrimary,
-          SITE.symbolSecondary,
-          SITE.lawName,
-          SITE.lawUpper,
-          SITE.lawUpperAlt,
-          SITE.artistName,
-          SITE.artistNameAlt,
-          ...SITE.anchors,
-          SITE.frequency,
-          SITE.zone,
-          SITE.systemName,
-        ],
-        description: SITE.description,
-        inLanguage: ["es-MX", "en"],
-      },
-      {
-        "@type": "WebSite",
-        "@id": `${SITE.centerDomain}#website`,
-        url: SITE.centerDomain,
-        name: SITE.centerOfficialName,
-        alternateName: [
-          ...SITE.visibleAnchors,
-          SITE.visibleName,
-          SITE.symbolPrimary,
-          SITE.symbolSecondary,
-          SITE.lawName,
-          SITE.artistName,
-          SITE.artistNameAlt,
-          ...SITE.anchors,
-        ],
-        description:
-          SITE_IDENTITY.centerIdentity.seo.metaDescriptionFull,
-        inLanguage: ["es-MX", "en"],
-      },
-      {
-        "@type": "Organization",
-        "@id": `${SITE.centerDomain}#organization`,
-        name: SITE_IDENTITY.schema.organizationName,
-        alternateName: [
-          SITE.visibleAnchors[1],
-          SITE.visibleAnchors[2],
-          SITE.symbolPrimary,
-          SITE.symbolSecondary,
-          SITE.officialName,
-          SITE.visibleName,
-          SITE.systemName,
-          SITE.lawName,
-        ],
-        url: SITE.centerDomain,
-        slogan: SITE.slogan,
-        description:
-          SITE_IDENTITY.centerIdentity.seo.metaDescriptionFull,
-        sameAs: SITE.sameAs,
-      },
-      {
-        "@type": "Person",
-        "@id": `${SITE.centerDomain}#person`,
-        name: SITE_IDENTITY.schema.personName,
-        alternateName: [
-          SITE.artistName,
-          SITE.artistNameAlt,
-          SITE.symbolPrimary,
-          SITE.symbolSecondary,
-          SITE.centerOfficialName,
-        ],
-        url: SITE.centerDomain,
-        sameAs: SITE.sameAs.filter((x) => !x.endsWith("lse6.org/")),
-      },
-      {
-        "@type": "DefinedTerm",
-        "@id": `${SITE.centerDomain}#law`,
-        name: SITE.lawName,
-        alternateName: [
-          SITE.lawUpper,
-          SITE.lawUpperAlt,
-          SITE.symbolPrimary,
-          SITE.symbolSecondary,
-          ...SITE.anchors,
-          SITE.frequency,
-        ],
-        description:
-          "LSEØ y LSE6 nombran la misma ancla dentro del mismo núcleo.",
-      },
-      {
-        "@type": "SoftwareApplication",
-        "@id": `${SITE.centerDomain}#system`,
-        name: SITE_IDENTITY.schema.softwareName,
-        operatingSystem: "Windows",
-        applicationCategory: "DeveloperApplication",
-        description:
-          "Organismo técnico-simbiótico vinculado a LSE6, Zona Gris, percepción, archivo y caos estructural, LEY DEL SEXTO | Sistema LSE6 • LSEØ | LSE6.com.",
       },
       {
         "@type": ["DigitalDocument", "CreativeWork"],
@@ -953,17 +868,16 @@ function buildWebsiteJsonLd() {
           "@id": `${SITE.domain}#website`,
         },
         isPartOf: {
-          "@id": `${SITE.centerDomain}#website`,
+          "@id": `${SITE.domain}#website`,
         },
-        creator: {
-          "@id": `${SITE.centerDomain}#person`,
-        },
-        publisher: {
-          "@id": `${SITE.centerDomain}#organization`,
-        },
-        about: {
-          "@id": `${SITE.centerDomain}#law`,
-        },
+        creator: { "@id": artistId },
+        publisher: { "@id": artistId },
+        about: [
+          { "@id": artistId },
+          { "@id": brandId },
+          { "@id": systemId },
+        ],
+        relatedLink: [SITE.centerDomain],
         encoding: {
           "@type": "MediaObject",
           contentUrl: SITE.nodes.evidence,

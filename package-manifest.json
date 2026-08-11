@@ -1,6 +1,6 @@
 {
   "name": "LSE6_ORG_COMPLETO",
-  "version": "2026.08.05-temporal-youtube",
+  "version": "2026.08.10-indexacion",
   "center": "https://lse6.com/",
   "extension": "https://lse6.org/",
   "origin_package": "LSE6_ORG(1).zip",
@@ -44,11 +44,12 @@
     "output_directory": ".",
     "cloudflare_pages_single_asset_limit_bytes": 26214400,
     "largest_bundled_asset_bytes": 18936300,
-    "cloudflare_status": "READY",
-    "github_status": "READY",
-    "image_sitemap": "image-sitemap.xml"
+    "cloudflare_status": "CONNECTED",
+    "github_status": "CONNECTED",
+    "image_sitemap": "image-sitemap.xml",
+    "release_state": "READY_FOR_GITHUB_AND_CLOUDFLARE"
   },
-  "required_user_action": "Subir el contenido de la carpeta a la raíz del repositorio. Las imágenes futuras pueden agregarse con los nombres del manifiesto.",
-  "last_build": "2026-08-05T17:32:25-07:00",
-  "build_id": "LSE6_ORG_TEMPORAL_YOUTUBE_20260805_173225"
+  "required_user_action": "Validar el release, publicar main y comprobar el SHA exacto en GitHub Actions y Cloudflare Pages.",
+  "last_build": "2026-08-10T17:35:30-07:00",
+  "build_id": "LSE6_ORG_INDEXACION_20260810_173530"
 }

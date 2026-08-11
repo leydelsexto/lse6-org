@@ -10,16 +10,21 @@
   "url": "https://lse6.org/",
   "isBasedOn": "https://lse6.com/",
   "creator": {
-    "@type": "Person",
-    "name": "LSE6 - AlekSix LM"
+    "@id": "https://lse6.com/#artist"
+  },
+  "publisher": {
+    "@id": "https://lse6.com/#artist"
   },
   "about": [
-    "Sistema LSE6",
-    "Ley del Sexto",
-    "Error 1969",
-    "SIXTEM",
-    "Zona Gris",
-    "AlekSix LM"
+    {
+      "@id": "https://lse6.com/#artist"
+    },
+    {
+      "@id": "https://lse6.com/#brand"
+    },
+    {
+      "@id": "https://lse6.com/#system"
+    }
   ],
   "sameAs": [
     "https://lse6.com/",

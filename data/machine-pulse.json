@@ -24,10 +24,20 @@
     "data": "https://lse6.org/data/expediente.json",
     "timeline": "https://lse6.org/data/timeline.json",
     "image_manifest": "https://lse6.org/assets/data/image-manifest.json",
-    "image_sitemap": "https://lse6.org/image-sitemap.xml"
+    "image_sitemap": "https://lse6.org/image-sitemap.xml",
+    "evidencia": "https://lse6.org/evidencia/",
+    "error_31_12_69": "https://lse6.org/error-31-12-69/",
+    "remake_666": "https://lse6.org/remake-666/",
+    "rutas_sixtem": "https://lse6.org/rutas-sixtem/",
+    "lseo_sixtem": "https://lse6.org/lseo-sixtem/",
+    "fuentes": "https://lse6.org/fuentes/",
+    "anomalias_temporales": "https://lse6.org/anomalias-temporales/",
+    "musica": "https://lse6.org/musica/"
   },
-  "last_build": "2026-08-05T17:32:25-07:00",
-  "build": "LSE6_ORG_TEMPORAL_YOUTUBE_20260805_173225",
+  "last_build": "2026-08-10T17:35:30-07:00",
+  "build": "LSE6_ORG_INDEXACION_20260810_173530",
   "installed_images": 57,
-  "missing_images": 6
+  "missing_images": 6,
+  "release_state": "READY_FOR_GITHUB_AND_CLOUDFLARE",
+  "version": "2026.08.10-indexacion"
 }
