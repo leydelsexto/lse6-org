@@ -663,6 +663,12 @@ def check_limits_and_integrity() -> None:
             continue
         digest, name = line.split("  ", 1)
         listed[name] = digest
+    listed_names = list(listed)
+    expected_order = sorted(listed_names, key=lambda name: (name.casefold(), name))
+    if listed_names != expected_order:
+        fail("INTEGRITY.sha256 no usa orden portable entre Windows y Linux")
+    else:
+        ok("INTEGRITY.sha256 usa orden portable casefold con desempate exacto")
     mismatches = []
     for name, expected in listed.items():
         path = ROOT / name

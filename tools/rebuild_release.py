@@ -1210,7 +1210,10 @@ def write_sitemaps(slots_by_group: dict[str, list[dict[str, Any]]]) -> None:
         for item in json.loads(youtube_data.read_text(encoding="utf-8-sig")).get("videos", []):
             youtube_titles[Path(item["thumbnail"]).name] = item["title"]
     if youtube_dir.exists():
-        for local in sorted(youtube_dir.glob("*.jpg")):
+        for local in sorted(
+            youtube_dir.glob("*.jpg"),
+            key=lambda path: (path.name.casefold(), path.name),
+        ):
             title = youtube_titles.get(local.name, local.stem)
             youtube_objects.append({"public_path": local.relative_to(ROOT).as_posix(), "title": title, "alt": f"Miniatura oficial de YouTube para {title}"})
     system_objects = [
@@ -1599,7 +1602,14 @@ El centro siempre es LSE6.com. LSE6.org funciona como archivo, soporte y extensi
 
 def write_integrity() -> None:
     entries = []
-    for path in sorted(ROOT.rglob("*")):
+    paths = sorted(
+        ROOT.rglob("*"),
+        key=lambda path: (
+            path.relative_to(ROOT).as_posix().casefold(),
+            path.relative_to(ROOT).as_posix(),
+        ),
+    )
+    for path in paths:
         if (
             not path.is_file()
             or path.name == "INTEGRITY.sha256"
