@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LSE6 · LEY DEL SEXTO · AlekSix LM</title>
+    <link>https://lse6.org/</link>
+    <description>Señal pública de LSE6 — AlekSix LM. Ley del Sexto, Zona Gris, LSEØ SIXTEM, música y anomalías documentadas.</description>
+    <language>es-MX</language>
+    <lastBuildDate>Tue, 11 Aug 2026 18:50:00 -0700</lastBuildDate>
+    <atom:link href="https://lse6.org/feed.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <url>https://lse6.org/favicon.png</url>
+      <title>LSE6 · LEY DEL SEXTO · AlekSix LM</title>
+      <link>https://lse6.org/</link>
+    </image>
+
+    <item>
+      <title>LEY DEL SEXTO · Archivo Vivo</title>
+      <link>https://lse6.org/</link>
+      <guid isPermaLink="true">https://lse6.org/</guid>
+      <description>El núcleo documental público de LSE6 — AlekSix LM. El Sexto no se busca: se reconoce.</description>
+    </item>
+
+    <item>
+      <title>ERROR 31/12/69</title>
+      <link>https://lse6.org/error-31-12-69/</link>
+      <guid isPermaLink="true">https://lse6.org/error-31-12-69/</guid>
+      <description>Cadena visible del estado temporal 31/12/69 y su trayectoria documental dentro de LSE6.</description>
+    </item>
+
+    <item>
+      <title>ANOMALÍAS TEMPORALES</title>
+      <link>https://lse6.org/anomalias-temporales/</link>
+      <guid isPermaLink="true">https://lse6.org/anomalias-temporales/</guid>
+      <description>Superficie pública de anomalías temporales, saltos, registros y memoria técnica.</description>
+    </item>
+
+    <item>
+      <title>LSEØ SIXTEM</title>
+      <link>https://lse6.org/lseo-sixtem/</link>
+      <guid isPermaLink="true">https://lse6.org/lseo-sixtem/</guid>
+      <description>Cuerpo técnico de LSE6: arquitectura, sistema, rutas y núcleo LSEØ SIXTEM.</description>
+    </item>
+
+    <item>
+      <title>666 MODERNO REMAKE</title>
+      <link>https://lse6.org/remake-666/</link>
+      <guid isPermaLink="true">https://lse6.org/remake-666/</guid>
+      <description>Memoria reactivada, reflejo, sistema y expansión simbólica del núcleo LSE6.</description>
+    </item>
+
+    <item>
+      <title>MÚSICA · LSE6 — AlekSix LM</title>
+      <link>https://lse6.org/musica/</link>
+      <guid isPermaLink="true">https://lse6.org/musica/</guid>
+      <description>Puerta musical de la Ley del Sexto: catálogo, videos y rutas oficiales de LSE6 — AlekSix LM.</description>
+    </item>
+  </channel>
+</rss>
