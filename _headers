@@ -11,6 +11,8 @@
 
 /
   Cache-Control: public, max-age=0, must-revalidate
+  Link: <https://lse6.org/feed.xml>; rel="alternate"; type="application/rss+xml"; title="LSE6 · LEY DEL SEXTO"
+  Link: <https://web.brid.gy/r/https://lse6.org/>; rel="me"
 
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
