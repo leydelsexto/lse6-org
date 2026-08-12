@@ -10,3 +10,6 @@
 /centro https://lse6.com/ 301
 /lse6 https://lse6.com/ 301
 /lse6.com https://lse6.com/ 301
+/.well-known/host-meta https://fed.brid.gy/.well-known/host-meta 302
+/.well-known/webfinger https://fed.brid.gy/.well-known/webfinger 302
+/.well-known/atproto-did https://fed.brid.gy/.well-known/atproto-did?protocol=web&id=lse6.org 302
