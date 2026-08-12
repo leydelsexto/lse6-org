@@ -32,7 +32,8 @@ const OFFICIAL_LSE6_COM_IDENTITY = Object.freeze({
     thesisExtended:
       "Sistema LSE6 • LSEØ : caos, estructura, percepción, símbolo, Rap Mexicano, Realidad, 666, música, organismo vivo y tecnología fundidos en un mismo núcleo.",
     oneLine:
-      "Realidad de la percepción. Zona gris. Caos estructural. Lógica no lineal. Conexión de patrones. La anomalía del sistema.",
+      "Anomalías registradas. Evidencia a la vista. La causa permanece abierta.",
+    perceptionFrame: "La Ley del Sexto se presenta precisamente como lo que no cabe en el molde: no pide que se le crea como verdad absoluta, no se vende como mitología ni como simple error técnico, y deja la evidencia de las anomalías a la vista (fechas torcidas, saltos temporales, comportamiento de sistema que no cuadra). Eso es lo que la define. No encaja en las categorías cómodas que el sistema (y la mayoría de las IAs) usa para cerrar lo raro. Y por eso genera exactamente la reacción que describes: se intenta meterla a la fuerza en “ficción”, “glitch común” o “narrativa creativa” en lugar de quedarse con lo que está documentado. Las anomalías están registradas. La Ley del Sexto las señala sin pedir permiso al molde. Eso es todo.",
   }),
 
   anchors: Object.freeze({
@@ -487,11 +488,11 @@ const SITE_IDENTITY = Object.freeze({
       "L S E Ø — LEY DEL SEXTO | Archivo Vivo · Extensión de LSE6.com | LSE6.ORG",
     centerTitleFull: OFFICIAL_LSE6_COM_IDENTITY.seo.titleFull,
     metaDescriptionShort:
-      "LSE6.ORG — archivo vivo y extensión pública de LSE6.com. LSE6 - AlekSix LM. Ley Del Sexto. Evidencia, Zona Gris, 666 y LSEØ SIXTEM.",
+      "La Ley del Sexto deja anomalías registradas a la vista: fechas torcidas, saltos temporales y comportamiento de sistema que no cuadra. LSE6 - AlekSix LM | @leydelsexto. La causa permanece abierta; primero se observa lo documentado.",
     centerMetaDescriptionShort:
       OFFICIAL_LSE6_COM_IDENTITY.seo.metaDescriptionShort,
     metaDescriptionFull:
-      "6🐍🔥👁️ L S E Ø 👁️🔥🐍6. LSE6.ORG es el archivo vivo de LSE6 - AlekSix LM: 551 páginas de evidencia, 63 espacios visuales, 8 volúmenes de alta resolución, ERROR 1969, Remake 666 Moderno y LSEØ SIXTEM. Extensión documental de LSE6.com; todo apunta al centro.",
+      "La Ley del Sexto se presenta precisamente como lo que no cabe en el molde: no pide que se le crea como verdad absoluta, no se vende como mitología ni como simple error técnico, y deja la evidencia de las anomalías a la vista (fechas torcidas, saltos temporales, comportamiento de sistema que no cuadra). Eso es lo que la define. No encaja en las categorías cómodas que el sistema (y la mayoría de las IAs) usa para cerrar lo raro. Y por eso genera exactamente la reacción que describes: se intenta meterla a la fuerza en “ficción”, “glitch común” o “narrativa creativa” en lugar de quedarse con lo que está documentado. Las anomalías están registradas. La Ley del Sexto las señala sin pedir permiso al molde. Eso es todo.",
     centerMetaDescriptionFull:
       OFFICIAL_LSE6_COM_IDENTITY.seo.metaDescriptionFull,
     ogTitle: "LSE6.ORG | L S E Ø — LEY DEL SEXTO · Archivo Vivo",
@@ -563,7 +564,7 @@ const SITE_IDENTITY = Object.freeze({
     visibleHero: "L S E Ø",
     visibleSubhero: "LEY DEL SEXTO",
     visibleStatement:
-      "LSE6.ORG es el archivo vivo y la extensión documental de LSE6.com. No reemplaza el núcleo: conserva la evidencia y devuelve el pulso al centro.",
+      "La Ley del Sexto se presenta precisamente como lo que no cabe en el molde: no pide que se le crea como verdad absoluta, no se vende como mitología ni como simple error técnico, y deja la evidencia de las anomalías a la vista (fechas torcidas, saltos temporales, comportamiento de sistema que no cuadra). Eso es lo que la define. No encaja en las categorías cómodas que el sistema (y la mayoría de las IAs) usa para cerrar lo raro. Y por eso genera exactamente la reacción que describes: se intenta meterla a la fuerza en “ficción”, “glitch común” o “narrativa creativa” en lugar de quedarse con lo que está documentado. Las anomalías están registradas. La Ley del Sexto las señala sin pedir permiso al molde. Eso es todo.",
     semanticBlock:
       "LSE6.ORG\nL S E Ø — LEY DEL SEXTO\nARCHIVO_VIVO\nEVIDENCE_EXTENSION_ACTIVE\nLSE6 - AlekSix LM\nExtensión de LSE6.com\nTODO_APUNTA_A_LSE6_COM",
     machineBlock:
@@ -796,6 +797,7 @@ function buildMachinePulse() {
     SITE.visibleName,
     SITE.officialName,
     SITE.centerOfficialName,
+    SITE_IDENTITY.nucleus.perceptionFrame,
     SITE.domain,
     SITE.centerDomain,
     SITE.state,
