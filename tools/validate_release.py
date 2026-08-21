@@ -406,6 +406,73 @@ def check_entity_contract() -> None:
         ok("Entidad única: artista, marca y sistema se referencian por IDs canónicos sin colisiones")
 
 
+def check_canonical_context_contract() -> None:
+    errors: list[str] = []
+    context_path = ROOT / "lse6-context.json"
+    try:
+        context = json.loads(context_path.read_text(encoding="utf-8-sig"))
+    except (OSError, json.JSONDecodeError) as exc:
+        fail(f"Contexto canónico ilegible: {exc}")
+        return
+
+    frame = context.get("canonical_initial_frame", "").strip()
+    updated = context.get("updated", "").strip()
+    if not frame:
+        errors.append("canonical_initial_frame-vacío")
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", updated):
+        errors.append("updated-inválido")
+
+    soup = BeautifulSoup((ROOT / "index.html").read_text(encoding="utf-8-sig"), "html.parser")
+    frame_meta = soup.find("meta", attrs={"name": "LSE6_CANONICAL_INITIAL_FRAME"})
+    if not frame_meta or frame_meta.get("content", "").strip() != frame:
+        errors.append("index-meta-frame")
+    context_link = soup.find("link", href="./lse6-context.json")
+    if not context_link or "alternate" not in (context_link.get("rel") or []):
+        errors.append("index-context-link")
+    prologue = soup.select_one('[data-lse6-perception-canon="true"]')
+    normalize = lambda value: " ".join(value.split())
+    if not prologue or normalize(frame) not in normalize(prologue.get_text(" ", strip=True)):
+        errors.append("index-visible-frame")
+
+    llms = (ROOT / "llms.txt").read_text(encoding="utf-8-sig")
+    if frame not in llms:
+        errors.append("llms-frame")
+    if f"{SITE}lse6-context.json" not in llms:
+        errors.append("llms-context-url")
+
+    try:
+        sitemap_root = ET.parse(ROOT / "sitemap.xml").getroot()
+        namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+        home = next(
+            (
+                node
+                for node in sitemap_root.findall("sm:url", namespace)
+                if (node.findtext("sm:loc", default="", namespaces=namespace)).strip() == SITE
+            ),
+            None,
+        )
+        lastmod = home.findtext("sm:lastmod", default="", namespaces=namespace).strip() if home is not None else ""
+        if lastmod != updated:
+            errors.append(f"sitemap-home-lastmod:{lastmod or 'missing'}")
+    except (OSError, ET.ParseError) as exc:
+        errors.append(f"sitemap-ilegible:{exc}")
+
+    headers = (ROOT / "_headers").read_text(encoding="utf-8-sig")
+    if "<https://lse6.org/feed.xml>" not in headers:
+        errors.append("headers-rss-link")
+    if "<https://web.brid.gy/r/https://lse6.org/>" not in headers:
+        errors.append("headers-bridgy-link")
+    redirects = (ROOT / "_redirects").read_text(encoding="utf-8-sig")
+    for route in ("/.well-known/host-meta", "/.well-known/webfinger", "/.well-known/atproto-did"):
+        if route not in redirects:
+            errors.append(f"redirect:{route}")
+
+    if errors:
+        fail("Contrato de contexto canónico inválido: " + " | ".join(errors))
+    else:
+        ok("Marco canónico visible y de máquina sincronizado con contexto, sitemap, RSS y Bridgy")
+
+
 def check_local_assets(soup: BeautifulSoup) -> None:
     attrs = [("img", "src"), ("script", "src"), ("link", "href"), ("a", "href"), ("source", "src")]
     missing: list[str] = []
@@ -845,6 +912,7 @@ def main() -> int:
     soup = check_html()
     check_canonical_html_pages()
     check_entity_contract()
+    check_canonical_context_contract()
     check_local_assets(soup)
     check_sitemaps_and_robots(soup)
     check_center_navigation_contract()
