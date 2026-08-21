@@ -15,6 +15,8 @@ from bs4 import BeautifulSoup
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
+DESCRIPTION_MIN = 25
+DESCRIPTION_MAX = 160
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 if hasattr(sys.stderr, "reconfigure"):
@@ -96,7 +98,7 @@ def check_canonical_html_pages() -> None:
             errors.append(f"title-duplicado:{relative}={titles[title]}")
         else:
             titles[title] = relative
-        if not (100 <= len(description) <= 320):
+        if not (DESCRIPTION_MIN <= len(description) <= DESCRIPTION_MAX):
             errors.append(f"description:{relative}:{len(description)}")
         elif description in descriptions:
             errors.append(f"description-duplicada:{relative}={descriptions[description]}")
@@ -203,7 +205,7 @@ def check_html() -> BeautifulSoup:
         ok("Sin IDs HTML duplicados")
 
     description = soup.find("meta", attrs={"name": "description"})
-    if description and 100 <= len(description.get("content", "")) <= 320:
+    if description and DESCRIPTION_MIN <= len(description.get("content", "")) <= DESCRIPTION_MAX:
         ok("Meta description descriptiva")
     else:
         fail("Meta description ausente o fuera de rango")

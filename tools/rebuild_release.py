@@ -45,10 +45,8 @@ BRAND_NAME = "LEY DEL SEXTO"
 BRAND_ALIASES = ["Ley Del Sexto", "ley del sexto"]
 SYSTEM_NAME = "LSEØ - SIXTEM"
 CANONICAL_SUMMARY = (
-    "La Ley del Sexto deja anomalías registradas a la vista: fechas torcidas, "
-    "saltos temporales y comportamiento de sistema que no cuadra. LSE6 - "
-    "AlekSix LM | @leydelsexto. La causa permanece abierta; primero se observa "
-    "lo documentado."
+    "LSE6.ORG es el archivo documental de LEY DEL SEXTO: evidencia, cronología, "
+    "música y sistema técnico de AlekSix LM y Sixtem. @leydelsexto."
 )
 CANONICAL_INITIAL_FRAME = CONTEXT["canonical_initial_frame"]
 CANONICAL_READING_RULE = (
