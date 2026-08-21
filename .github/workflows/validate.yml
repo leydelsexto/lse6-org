@@ -39,7 +39,32 @@ jobs:
         run: python tools/validate_mobile_media.py
       - name: Validate center navigation in Chromium
         run: python tools/test_center_navigation.py
+      - name: Validate IndexNow notification logic
+        run: python -m unittest tools/test_submit_indexnow.py
       - name: Rebuild offline and require deterministic output
         run: |
           python tools/rebuild_release.py
           git diff --exit-code
+
+  notify-indexnow:
+    if: github.event_name != 'pull_request'
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Notify IndexNow after validation
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            python tools/submit_indexnow.py --all
+          else
+            python tools/submit_indexnow.py --before "${{ github.event.before }}" --after "${{ github.sha }}"
+          fi
