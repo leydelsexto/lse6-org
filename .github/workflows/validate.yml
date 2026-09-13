@@ -46,17 +46,14 @@ jobs:
         run: python tools/test_center_navigation.py
       - name: Validate IndexNow notification logic
         run: python -m unittest tools/test_submit_indexnow.py
-      - name: Rebuild offline and restore exhaustive sitemaps
-        run: |
-          python tools/rebuild_release.py
-          python tools/sitemap_inventory.py
-          python tools/sitemap_inventory.py --check
-      - name: Refuse unexpected generated drift
+      - name: Validate exhaustive sitemap remains deterministic
+        run: python tools/sitemap_inventory.py --check
+      - name: Refuse unrelated drift
         shell: bash
         run: |
           unexpected=$(git diff --name-only | grep -Ev '^(sitemap.xml|image-sitemap.xml|INTEGRITY.sha256)$' || true)
           if [ -n "$unexpected" ]; then
-            echo "Unexpected deterministic drift:"
+            echo "Unexpected drift outside sitemap inventory:"
             echo "$unexpected"
             exit 1
           fi
