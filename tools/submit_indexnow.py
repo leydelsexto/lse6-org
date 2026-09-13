@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Notify IndexNow about changed canonical LSE6.org URLs.
+"""Notify IndexNow about changed public LSE6.org URLs.
 
 An accepted request means the URLs were submitted for discovery. It does not
 mean that any search engine crawled or indexed them.
@@ -18,7 +18,6 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path, PurePosixPath
 
-
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://lse6.org"
 HOST = "lse6.org"
@@ -31,27 +30,16 @@ GLOBAL_FILES = {
     "_redirects",
     "CNAME",
     "feed.xml",
+    "image-sitemap.xml",
     KEY_FILE,
     *SITEMAPS,
 }
 IGNORED_PREFIXES = (".git/", ".github/", "tools/")
 IGNORED_FILES = {".gitattributes", ".gitignore", "INTEGRITY.sha256", "README.md"}
 PUBLIC_ASSET_SUFFIXES = {
-    ".css",
-    ".gif",
-    ".ico",
-    ".jpeg",
-    ".jpg",
-    ".js",
-    ".json",
-    ".mp4",
-    ".pdf",
-    ".png",
-    ".svg",
-    ".txt",
-    ".webm",
-    ".webp",
-    ".xml",
+    ".css", ".csv", ".docx", ".gif", ".ico", ".jpeg", ".jpg", ".js",
+    ".json", ".md", ".mp4", ".pdf", ".png", ".sha256", ".svg", ".txt",
+    ".webm", ".webmanifest", ".webp", ".xml",
 }
 
 
@@ -128,20 +116,24 @@ def select_changed_urls(
     submit_all = False
     for path in paths:
         path = PurePosixPath(path).as_posix()
+
+        # Global crawl-control/inventory files must win over direct URL matching.
+        # Once robots.txt and the sitemaps themselves are part of the exhaustive
+        # public inventory, treating them as ordinary direct URLs would suppress
+        # the intended full re-submission.
+        if path in GLOBAL_FILES:
+            submit_all = True
+            continue
+
         direct = url_for_public_path(path, known_urls)
         if direct:
             selected.add(direct)
             continue
-        if path in GLOBAL_FILES:
-            submit_all = True
-            continue
         if path in IGNORED_FILES or path.startswith(IGNORED_PREFIXES):
             continue
         if path.endswith(".html"):
-            # HTML outside the canonical sitemap is deliberately noindex.
             continue
         if PurePosixPath(path).suffix.lower() in PUBLIC_ASSET_SUFFIXES:
-            # Shared assets and data can affect multiple rendered pages.
             submit_all = True
     if submit_all:
         selected.update(active_urls)
@@ -196,7 +188,7 @@ def submit(urls: list[str], *, endpoint: str = ENDPOINT) -> int:
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--all", action="store_true", help="submit every canonical sitemap URL")
+    parser.add_argument("--all", action="store_true", help="submit every public sitemap URL")
     parser.add_argument("--before", help="Git revision before the change")
     parser.add_argument("--after", default="HEAD", help="Git revision after the change")
     parser.add_argument("--dry-run", action="store_true", help="print URLs without network access")
@@ -220,18 +212,13 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps({"state": "dry_run_not_submitted", "host": HOST, "urlCount": len(urls), "urls": urls}, indent=2))
         return 0
     status = submit(urls, endpoint=args.endpoint)
-    print(
-        json.dumps(
-            {
-                "state": "submitted_not_indexed",
-                "host": HOST,
-                "httpStatus": status,
-                "urlCount": len(urls),
-                "urls": urls,
-            },
-            indent=2,
-        )
-    )
+    print(json.dumps({
+        "state": "submitted_not_indexed",
+        "host": HOST,
+        "httpStatus": status,
+        "urlCount": len(urls),
+        "urls": urls,
+    }, indent=2))
     return 0
 
 
