@@ -78,10 +78,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Checkout full history
+      - name: Checkout latest main inventory
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: main
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
