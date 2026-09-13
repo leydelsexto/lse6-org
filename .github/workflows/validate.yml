@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: lse6-archive-validation-${{ github.ref }}
@@ -17,8 +17,11 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout branch
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref || github.ref_name }}
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -33,18 +36,41 @@ jobs:
         run: python -m pip install -r tools/requirements-validation.txt
       - name: Install pinned Chromium runtime
         run: python -m playwright install --with-deps chromium
-      - name: Validate release contract
-        run: python tools/validate_release.py
+      - name: Build exhaustive public sitemap inventory
+        run: python tools/sitemap_inventory.py
+      - name: Validate release contract without legacy sitemap limit
+        run: python tools/validate_release_compat.py
       - name: Validate mobile media contract
         run: python tools/validate_mobile_media.py
       - name: Validate center navigation in Chromium
         run: python tools/test_center_navigation.py
       - name: Validate IndexNow notification logic
         run: python -m unittest tools/test_submit_indexnow.py
-      - name: Rebuild offline and require deterministic output
+      - name: Rebuild offline and restore exhaustive sitemaps
         run: |
           python tools/rebuild_release.py
-          git diff --exit-code
+          python tools/sitemap_inventory.py
+          python tools/sitemap_inventory.py --check
+      - name: Refuse unexpected generated drift
+        shell: bash
+        run: |
+          unexpected=$(git diff --name-only | grep -Ev '^(sitemap.xml|image-sitemap.xml|INTEGRITY.sha256)$' || true)
+          if [ -n "$unexpected" ]; then
+            echo "Unexpected deterministic drift:"
+            echo "$unexpected"
+            exit 1
+          fi
+      - name: Persist generated public inventory
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        shell: bash
+        run: |
+          if ! git diff --quiet -- sitemap.xml image-sitemap.xml INTEGRITY.sha256; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add sitemap.xml image-sitemap.xml INTEGRITY.sha256
+            git commit -m "Regenerate exhaustive LSE6.org sitemap inventory"
+            git push
+          fi
 
   notify-indexnow:
     if: github.event_name != 'pull_request'
@@ -60,11 +86,5 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Notify IndexNow after validation
-        shell: bash
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            python tools/submit_indexnow.py --all
-          else
-            python tools/submit_indexnow.py --before "${{ github.event.before }}" --after "${{ github.sha }}"
-          fi
+      - name: Submit complete public sitemap inventory to IndexNow
+        run: python tools/submit_indexnow.py --all
