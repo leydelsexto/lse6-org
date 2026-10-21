@@ -584,6 +584,12 @@
     <loc>https://lse6.org/icon-512.png</loc>
   </url>
   <url>
+    <loc>https://lse6.org/identidad/identidad.css</loc>
+  </url>
+  <url>
+    <loc>https://lse6.org/identidad/</loc>
+  </url>
+  <url>
     <loc>https://lse6.org/image-sitemap.xml</loc>
   </url>
   <url>
@@ -628,6 +634,9 @@
   </url>
   <url>
     <loc>https://lse6.org/site_identity_LSE6_ORG.js</loc>
+  </url>
+  <url>
+    <loc>https://lse6.org/sitemap-identidad.xml</loc>
   </url>
   <url>
     <loc>https://lse6.org/sitemap.xml</loc>

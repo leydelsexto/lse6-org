@@ -65,3 +65,13 @@ Build: LSE6_ORG_INDEXACION_20260810_173530
 - https://lse6.org/assets/data/image-manifest.json
 
 El centro siempre es LSE6.com. LSE6.org funciona como archivo, soporte y extensión.
+
+## Identidad digital pública
+
+- [Identidad global](https://lse6.com/identidad/): AlekSix LM, LEY DEL SEXTO y sus referencias verificables.
+- [Documento de identidad](https://lse6.com/identidad.json): identificadores con procedencia y estado de comprobación.
+- [Grafo Schema.org](https://lse6.com/identidad/grafo.json): relaciones entre artista, proyecto y obras.
+- [Ficha en texto](https://lse6.com/identidad/lectura.txt): datos públicos de identidad y enlaces oficiales.
+- [Identidad y archivo](https://lse6.org/identidad/): referencia documental complementaria.
+
+Este archivo llms.txt es una convención experimental de descubrimiento. Su presencia no garantiza lectura, indexación ni uso por sistemas de IA.
