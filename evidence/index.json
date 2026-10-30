@@ -9,8 +9,8 @@
     "source_pages": 519,
     "format": "PDF 1.7",
     "source_sha256": "63d30bfeeaf7d78b4b95820b6f628e0fc8a037f5ae8518c1a95bb47a6b3dbfe7",
-    "web_edition_bytes": 10024744,
-    "web_edition_sha256": "a8a930a80f10d686f84bf47426468a411ad5ae5037cc6f6fcfcda473f9cda456",
+    "web_edition_bytes": 9948857,
+    "web_edition_sha256": "996ca74caa17906d0daf41cb09301e4bea7f186e5711005b00f85c8d508c4e53",
     "pdf": "/evidence/lse6-expediente-completo.pdf",
     "text": "/evidence/lse6-expediente-completo.txt",
     "high_resolution": {
@@ -29,7 +29,8 @@
       "timeline": "/data/timeline.json",
       "entity_schema": "/data/entity-schema.json",
       "pulse": "/data/machine-pulse.json"
-    }
+    },
+    "editorial_revision": "2026-10-30"
   },
   "sequence": [
     "Error 1969",
