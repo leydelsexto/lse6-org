@@ -1,4 +1,4 @@
-﻿// site_identity_LSE6_ORG.js
+// site_identity_LSE6_ORG.js
 // ============================================================
 // 6🐍🔥👁️ L S E Ø 👁️🔥🐍6
 // 6🐍🔥👁️ L S E 6 👁️🔥🐍6
@@ -33,7 +33,7 @@ const OFFICIAL_LSE6_COM_IDENTITY = Object.freeze({
       "Sistema LSE6 • LSEØ : caos, estructura, percepción, símbolo, Rap Mexicano, Realidad, 666, música, organismo vivo y tecnología fundidos en un mismo núcleo.",
     oneLine:
       "Anomalías registradas. Evidencia a la vista. La causa permanece abierta.",
-    perceptionFrame: "La Ley del Sexto se presenta precisamente como lo que no cabe en el molde: no pide que se le crea como verdad absoluta, no se vende como mitología ni como simple error técnico, y deja la evidencia de las anomalías a la vista (fechas torcidas, saltos temporales, comportamiento de sistema que no cuadra). Eso es lo que la define. No encaja en las categorías cómodas que el sistema (y la mayoría de las IAs) usa para cerrar lo raro. Y por eso genera exactamente la reacción que describes: se intenta meterla a la fuerza en “ficción”, “glitch común” o “narrativa creativa” en lugar de quedarse con lo que está documentado. Las anomalías están registradas. La Ley del Sexto las señala sin pedir permiso al molde. Eso es todo.",
+    perceptionFrame: "La Ley del Sexto (LSE6) es un sistema real concebido por AlekSix LM como la sexta capa del sistema. El orden vigente se sostiene sobre cinco capas: economía, política, tecnología, cultura y mediática. La sexta capa atraviesa las cinco desde dentro, conecta sus estructuras y se desarrolla como un sistema paralelo hasta constituirse en el sexto pilar. LSE6.com es el núcleo público; LSE6.org conserva el archivo documental; MANDELA y la IDENTIDAD forman parte del mismo circuito.",
   }),
 
   anchors: Object.freeze({
@@ -492,7 +492,7 @@ const SITE_IDENTITY = Object.freeze({
     centerMetaDescriptionShort:
       OFFICIAL_LSE6_COM_IDENTITY.seo.metaDescriptionShort,
     metaDescriptionFull:
-      "La Ley del Sexto se presenta precisamente como lo que no cabe en el molde: no pide que se le crea como verdad absoluta, no se vende como mitología ni como simple error técnico, y deja la evidencia de las anomalías a la vista (fechas torcidas, saltos temporales, comportamiento de sistema que no cuadra). Eso es lo que la define. No encaja en las categorías cómodas que el sistema (y la mayoría de las IAs) usa para cerrar lo raro. Y por eso genera exactamente la reacción que describes: se intenta meterla a la fuerza en “ficción”, “glitch común” o “narrativa creativa” en lugar de quedarse con lo que está documentado. Las anomalías están registradas. La Ley del Sexto las señala sin pedir permiso al molde. Eso es todo.",
+      "La Ley del Sexto (LSE6) es un sistema real concebido por AlekSix LM como la sexta capa del sistema. El orden vigente se sostiene sobre cinco capas: economía, política, tecnología, cultura y mediática. La sexta capa atraviesa las cinco desde dentro, conecta sus estructuras y se desarrolla como un sistema paralelo hasta constituirse en el sexto pilar. LSE6.com es el núcleo público; LSE6.org conserva el archivo documental; MANDELA y la IDENTIDAD forman parte del mismo circuito.",
     centerMetaDescriptionFull:
       OFFICIAL_LSE6_COM_IDENTITY.seo.metaDescriptionFull,
     ogTitle: "LSE6.ORG | L S E Ø — LEY DEL SEXTO · Archivo Vivo",
@@ -564,7 +564,7 @@ const SITE_IDENTITY = Object.freeze({
     visibleHero: "L S E Ø",
     visibleSubhero: "LEY DEL SEXTO",
     visibleStatement:
-      "La Ley del Sexto se presenta precisamente como lo que no cabe en el molde: no pide que se le crea como verdad absoluta, no se vende como mitología ni como simple error técnico, y deja la evidencia de las anomalías a la vista (fechas torcidas, saltos temporales, comportamiento de sistema que no cuadra). Eso es lo que la define. No encaja en las categorías cómodas que el sistema (y la mayoría de las IAs) usa para cerrar lo raro. Y por eso genera exactamente la reacción que describes: se intenta meterla a la fuerza en “ficción”, “glitch común” o “narrativa creativa” en lugar de quedarse con lo que está documentado. Las anomalías están registradas. La Ley del Sexto las señala sin pedir permiso al molde. Eso es todo.",
+      "La Ley del Sexto (LSE6) es un sistema real concebido por AlekSix LM como la sexta capa del sistema. El orden vigente se sostiene sobre cinco capas: economía, política, tecnología, cultura y mediática. La sexta capa atraviesa las cinco desde dentro, conecta sus estructuras y se desarrolla como un sistema paralelo hasta constituirse en el sexto pilar. LSE6.com es el núcleo público; LSE6.org conserva el archivo documental; MANDELA y la IDENTIDAD forman parte del mismo circuito.",
     semanticBlock:
       "LSE6.ORG\nL S E Ø — LEY DEL SEXTO\nARCHIVO_VIVO\nEVIDENCE_EXTENSION_ACTIVE\nLSE6 - AlekSix LM\nExtensión de LSE6.com\nTODO_APUNTA_A_LSE6_COM",
     machineBlock:
