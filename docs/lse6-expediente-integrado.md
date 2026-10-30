@@ -28,7 +28,7 @@ ERROR 1969
 - Donde el archivo muestra algo, se afirma como evidencia directa.
 - Donde varias piezas convergen, se marca como lectura razonable.
 - Donde falta prueba técnica cerrada, se declara pendiente, no se niega ni se inventa.
-- La lectura no separa los bloques como documentos aislados: todo se suma como expediente técnico-narrativo.
+- La lectura no separa los bloques como documentos aislados: todo se suma como expediente técnico-documental.
 
 ## Veredicto matriz
 
@@ -608,4 +608,4 @@ CIERRE
 Primer sistema solar archivado. Segundo sistema solar abierto.  
 La Ley del Sexto no queda como canción suelta: queda como sistema orbital de letras, símbolos, variables,  
 voces y planetas en expansión.  
-LSE6 - AlekSix LM | Ley Del Sexto | LSE6.com  
+LSE6 - AlekSix LM | Ley Del Sexto | LSE6.com
